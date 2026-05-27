@@ -5,15 +5,74 @@
 // ==============================
 const toggleButton =
     document.getElementById("layoutToggle");
-
+// ==============================
+// LAYOUT STORAGE
+// ==============================
+const LAYOUT_MODE_KEY =
+    "saved-layout-mode";
 // current mode
-let layoutMode = 4;
+// ==============================
+// RESTORE SAVED LAYOUT
+// ==============================
+let layoutMode =
+    Number(
+        localStorage.getItem(
+            LAYOUT_MODE_KEY
+        )
+    ) || 4;
 
-document.body.classList.add("four-panel");
+// ==============================
+// APPLY LAYOUT
+// ==============================
+function applyLayoutMode(){
 
-// initial button text
-toggleButton.textContent =
-    "Switch to 3 Panel Mode";
+    document.body.classList.remove(
+        "four-panel",
+        "three-panel",
+        "two-panel",
+        "one-panel"
+    );
+
+    if(layoutMode === 4){
+
+        document.body.classList.add(
+            "four-panel"
+        );
+
+        toggleButton.textContent =
+            "Switch to 3 Panel Mode";
+    }
+    else if(layoutMode === 3){
+
+        document.body.classList.add(
+            "three-panel"
+        );
+
+        toggleButton.textContent =
+            "Switch to 2 Panel Mode";
+    }
+    else if(layoutMode === 2){
+
+        document.body.classList.add(
+            "two-panel"
+        );
+
+        toggleButton.textContent =
+            "Switch to 1 Panel Mode";
+    }
+    else{
+
+        document.body.classList.add(
+            "one-panel"
+        );
+
+        toggleButton.textContent =
+            "Switch to 4 Panel Mode";
+    }
+}
+
+// apply immediately
+applyLayoutMode();
 
 toggleButton.addEventListener("click", function () {
 
@@ -33,6 +92,11 @@ toggleButton.addEventListener("click", function () {
     if (layoutMode === 4) {
 
         layoutMode = 3;
+        
+        localStorage.setItem(
+			LAYOUT_MODE_KEY,
+			layoutMode
+		);
 
         document.body.classList.add("three-panel");
 
@@ -44,6 +108,11 @@ toggleButton.addEventListener("click", function () {
 
         layoutMode = 2;
 
+        localStorage.setItem(
+			LAYOUT_MODE_KEY,
+			layoutMode
+		);
+
         document.body.classList.add("two-panel");
 
         toggleButton.textContent =
@@ -53,6 +122,12 @@ toggleButton.addEventListener("click", function () {
     else if (layoutMode === 2) {
 
         layoutMode = 1;
+
+        localStorage.setItem(
+			LAYOUT_MODE_KEY,
+			layoutMode
+		);
+
 	
         document.body.classList.add("one-panel");
 
@@ -63,6 +138,11 @@ toggleButton.addEventListener("click", function () {
     else {
 
         layoutMode = 4;
+
+        localStorage.setItem(
+			LAYOUT_MODE_KEY,
+			layoutMode
+		);
 
         document.body.classList.add("four-panel");
 
