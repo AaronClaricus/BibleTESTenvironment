@@ -1,0 +1,2520 @@
+        <li>Latin Vulgate Bible 382 AD New Testament</li>
+            <li>
+                <span class="toggle">▶ Gospels</span>
+                <ul class="nested">
+                    <li>
+                        <span class="toggle">▶ According to Matthew</span>
+                        <ul class="nested">
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Gospel/MatthewI">
+                                    LEFT : Matthew
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Gospel/MatthewI">
+                                    RIGHT : Matthew
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="toggle">▶ According to Mark</span>
+                        <ul class="nested">
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Gospel/MarkI">
+                                    LEFT : Mark
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Gospel/MarkI">
+                                    RIGHT : Mark
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="toggle">▶ According to Luke</span>
+                        <ul class="nested">
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Gospel/LukeI">
+                                    LEFT : Luke
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Gospel/LukeI">
+                                    RIGHT : Luke
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="toggle">▶ According to John</span>
+                        <ul class="nested">
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Gospel/JohnI">
+                                    LEFT : John.txt
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Gospel/JohnI">
+                                    RIGHT : John.txt
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <span class="toggle">▶ Pauline Epistles</span>
+                <ul class="nested">
+                    <li>
+                        <span class="toggle">▶ Romans</span>
+                        <ul class="nested">
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Epistles/RomansI">
+                                    LEFT : Romans
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Epistles/RomansI">
+                                    RIGHT : Romans
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="toggle">▶ 1 Corinthians</span>
+                        <ul class="nested">
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Epistles/1 CorinthiansI">
+                                    LEFT : 1 Corinthians
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Epistles/1 CorinthiansI">
+                                    RIGHT : 1 Corinthians
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="toggle">▶ 2 Corinthians</span>
+                        <ul class="nested">
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Epistles/2 CorinthiansI">
+                                    LEFT : 2 Corinthians
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Epistles/2 CorinthiansI">
+                                    RIGHT : 2 Corinthians
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="toggle">▶ Galatians</span>
+                        <ul class="nested">
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Epistles/GalatiansI">
+                                    LEFT : Galatians
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Epistles/GalatiansI">
+                                    RIGHT : Galatians
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="toggle">▶ Ephesians</span>
+                        <ul class="nested">
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Epistles/EphesiansI">
+                                    LEFT : Ephesians
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Epistles/EphesiansI">
+                                    RIGHT : Ephesians
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="toggle">▶ Philippians</span>
+                        <ul class="nested">
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Epistles/PhilippiansI">
+                                    LEFT : Philippians
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Epistles/PhilippiansI">
+                                    RIGHT : Philippians
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="toggle">▶ Colossians</span>
+                        <ul class="nested">
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Epistles/ColossiansI">
+                                    LEFT : Colossians
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Epistles/ColossiansI">
+                                    RIGHT : Colossians
+                                </span>
+                            </li>
+                        </ul>
+                    </li>         
+                    <li>
+                        <span class="toggle">▶ 1 Thessalonians</span>
+                        <ul class="nested">
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Epistles/1 ThessaloniansI">
+                                    LEFT : 1 Thessalonians
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Epistles/ColossiansI">
+                                    RIGHT : 1 Thessalonians
+                                </span>
+                            </li>
+                        </ul>
+                    </li>         
+                    <li>
+                        <span class="toggle">▶ 2 Thessalonians</span>
+                        <ul class="nested">
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Epistles/2 ThessaloniansI">
+                                    LEFT : 2 Thessalonians
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Epistles/2 ThessaloniansI">
+                                    RIGHT : 2 Thessalonians
+                                </span>
+                            </li>
+                        </ul>
+                    </li>                       
+                    <li>
+                        <span class="toggle">▶ 1 Timothy</span>
+                        <ul class="nested">
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Epistles/1 TimothyI">
+                                    LEFT : 1 Timothy
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Epistles/1 TimothyI">
+                                    RIGHT : 1 Timothy
+                                </span>
+                            </li>
+                        </ul>
+                    </li>                             
+                    <li>
+                        <span class="toggle">▶ 2 Timothy</span>
+                        <ul class="nested">
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Epistles/2 TimothyI">
+                                    LEFT : 2 Timothy
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Epistles/2 TimothyI">
+                                    RIGHT : 2 Timothy
+                                </span>
+                            </li>
+                        </ul>
+                    </li>            
+                    <li>
+                        <span class="toggle">▶ Titus</span>
+                        <ul class="nested">
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Epistles/TitusI">
+                                    LEFT : Titus
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Epistles/TitusI">
+                                    RIGHT : Titus
+                                </span>
+                            </li>
+                        </ul>
+                    </li>            
+                    <li>
+                        <span class="toggle">▶ Philomon</span>
+                        <ul class="nested">
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Epistles/PhilomonI">
+                                    LEFT : Philomon
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Epistles/PhilomonI">
+                                    RIGHT : Philomon
+                                </span>
+                            </li>
+                        </ul>
+                    </li>     
+                </ul>
+            </li>
+            <li>
+                <span class="toggle">▶ Epistles</span>
+                <ul class="nested">
+					<li>
+                        <span class="toggle">▶ Hebrews</span>
+                        <ul class="nested">
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Epistles/HebrewsI">
+                                    LEFT : Hebrews
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Epistles/HebrewsI">
+                                    RIGHT : Hebrews
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="toggle">▶ James</span>
+                        <ul class="nested">
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Epistles/JamesI">
+                                    LEFT : James
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Epistles/JamesI">
+                                    RIGHT : James
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="toggle">▶ 1 Peter</span>
+                        <ul class="nested">
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Epistles/1 PeterI">
+                                    LEFT : 1 Peter
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Epistles/1 PeterI">
+                                    RIGHT : 1 Peter
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="toggle">▶ 2 Peter</span>
+                        <ul class="nested">
+
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Epistles/2 PeterI">
+                                    LEFT : 2 Peter
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Epistles/2 PeterI">
+                                    RIGHT : 2 Peter
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="toggle">▶ 1 John</span>
+                        <ul class="nested">
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Epistles/1 JohnI">
+                                    LEFT : 1 John
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Epistles/1 JohnI">
+                                    RIGHT : 1 John
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="toggle">▶ 2 John</span>
+                        <ul class="nested">
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Epistles/2 JohnI">
+                                    LEFT : 2 John
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Epistles/2 JohnI">
+                                    RIGHT : 2 John
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="toggle">▶ 3 John</span>
+                        <ul class="nested">
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Epistles/3 JohnI">
+                                    LEFT : 3 John
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Epistles/3 JohnI">
+                                    RIGHT : 3 John
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="toggle">▶ Jude</span>
+                        <ul class="nested">
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Epistles/JudeI">
+                                    LEFT : Jude
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Epistles/JudeI">
+                                    RIGHT : Jude
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <span class="toggle">▶ History of the Apostles</span>
+                <ul class="nested">
+                    <li>
+                        <span class="toggle">▶ Acts of the Apostles</span>
+                        <ul class="nested">
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./History/ActsI">
+                                    LEFT : Acts
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./History/ActsI">
+                                    RIGHT : Acts
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <span class="toggle">▶ Prophecy</span>
+                <ul class="nested">
+                    <li>
+                        <span class="toggle">▶ Revelation-Apocalypsis</span>
+                        <ul class="nested">
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Prophets/Revelation Interlinear">
+                                    LEFT : Revelation-Apocalypsis
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Prophets/Revelation Interlinear">
+                                    RIGHT : Revelation-Apocalypsis
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>Latin Vulgate Bible 382 AD Old Testament</li>
+            <li>
+                <span class="toggle">▶ Law</span>
+                <ul class="nested">
+                    <li>
+                        <span class="toggle">▶ Genesis</span>
+                        <ul class="nested">
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Law/Genesis">
+                                    LEFT : Genesis
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Law/Genesis">
+                                    RIGHT : Genesis
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="toggle">▶ Exodus</span>
+                        <ul class="nested">
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Law/Exodus">
+                                    LEFT : Exodus
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Law/Exodus">
+                                    RIGHT : Exodus
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="toggle">▶ Leviticus</span>
+                        <ul class="nested">
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Law/Leviticus">
+                                    LEFT : Leviticus
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Law/Leviticus">
+                                    RIGHT : Leviticus
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="toggle">▶ Numbers</span>
+                        <ul class="nested">
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Law/Numbers">
+                                    LEFT : Numbers
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Law/Numbers">
+                                    RIGHT : Numbers
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="toggle">▶ Deuteronomy</span>
+                        <ul class="nested">
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Law/Deuteronomy">
+                                    LEFT : Deuteronomy
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Law/Deuteronomy">
+                                    RIGHT : Deuteronomy
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>     
+            <li>
+                <span class="toggle">▶ History</span>
+                <ul class="nested">
+                    <li>
+                        <span class="toggle">▶ Joshua</span>
+                        <ul class="nested">
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Law/Genesis">
+                                    LEFT : Joshua
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Law/Genesis">
+                                    RIGHT : Joshua
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="toggle">▶ Judges</span>
+                        <ul class="nested">
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Law/Exodus">
+                                    LEFT : Judges
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Law/Exodus">
+                                    RIGHT : Judges
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="toggle">▶ Ruth</span>
+                        <ul class="nested">
+
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Law/Leviticus">
+                                    LEFT : Ruth
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Law/Leviticus">
+                                    RIGHT : Ruth
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="toggle">▶ 1 Samuel</span>
+                        <ul class="nested">
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Law/Numbers">
+                                    LEFT : 1 Samuel
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Law/Numbers">
+                                    RIGHT : 1 Samuel
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="toggle">▶ 2 Samuel</span>
+                        <ul class="nested">
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Law/Deuteronomy">
+                                    LEFT : 2 Samuel
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Law/Deuteronomy">
+                                    RIGHT : 2 Samuel
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+					<li>
+                        <span class="toggle">▶ 1 Kings</span>
+                        <ul class="nested">
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Law/Genesis">
+                                    LEFT : 1 Kings
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Law/Genesis">
+                                    RIGHT : 1 Kings
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="toggle">▶ 2 Kings</span>
+                        <ul class="nested">
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Law/Exodus">
+                                    LEFT : 2 Kings
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Law/Exodus">
+                                    RIGHT : 2 Kings
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="toggle">▶ 1 Chronicles</span>
+                        <ul class="nested">
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Law/Leviticus">
+                                    LEFT : 1 Chronicles
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Law/Leviticus">
+                                    RIGHT : 1 Chronicles
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="toggle">▶ 2 Chronicles</span>
+                        <ul class="nested">
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Law/Numbers">
+                                    LEFT : 2 Chronicles
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Law/Numbers">
+                                    RIGHT : 2 Chronicles
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="toggle">▶ Ezra</span>
+                        <ul class="nested">
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Law/Deuteronomy">
+                                    LEFT : Ezra
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Law/Deuteronomy">
+                                    RIGHT : Ezra
+                                </span>
+                            </li>
+                            	</ul>
+	</li>
+					<li>
+                        <span class="toggle">▶ Nehemiah</span>
+                        <ul class="nested">
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Law/Numbers">
+                                    LEFT : Nehemiah
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Law/Numbers">
+                                    RIGHT : Nehemiah
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="toggle">▶ Esther</span>
+                        <ul class="nested">
+
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Law/Deuteronomy">
+                                    LEFT : Esther
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Law/Deuteronomy">
+                                    RIGHT : Esther
+                                </span>
+                            </li>
+	
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <span class="toggle">▶ Poetry</span>
+                <ul class="nested">
+                    <li>
+                        <span class="toggle">▶ Job</span>
+                        <ul class="nested">
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Law/Genesis">
+                                    LEFT : Job
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Law/Genesis">
+                                    RIGHT : Job
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="toggle">▶ Psalms</span>
+                        <ul class="nested">
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Law/Exodus">
+                                    LEFT : Psalms
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Law/Exodus">
+                                    RIGHT : Psalms
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="toggle">▶ Proverbs</span>
+                        <ul class="nested">
+
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Law/Leviticus">
+                                    LEFT : Proverbs
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Law/Leviticus">
+                                    RIGHT : Proverbs
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="toggle">▶ Ecclesiastes</span>
+                        <ul class="nested">
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Law/Numbers">
+                                    LEFT : Ecclesiastes
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Law/Numbers">
+                                    RIGHT : Ecclesiastes
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="toggle">▶ Song of Songs</span>
+                        <ul class="nested">
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Law/Deuteronomy">
+                                    LEFT : Song of Songs
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Law/Deuteronomy">
+                                    RIGHT : Song of Songs
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>           
+            <li>
+                <span class="toggle">▶ Major Prophets</span>
+                <ul class="nested">
+                    <li>
+                        <span class="toggle">▶ Isiah</span>
+                        <ul class="nested">
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Law/Genesis">
+                                    LEFT : Isiah
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Law/Genesis">
+                                    RIGHT : Isiah
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="toggle">▶ Jeremiah</span>
+                        <ul class="nested">
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Law/Exodus">
+                                    LEFT : Jeremiah
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Law/Exodus">
+                                    RIGHT : Jeremiah
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="toggle">▶ Lamentations</span>
+                        <ul class="nested">
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Law/Leviticus">
+                                    LEFT : Lamentations
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Law/Leviticus">
+                                    RIGHT : Lamentations
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="toggle">▶ Ezekiel</span>
+                        <ul class="nested">
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Law/Numbers">
+                                    LEFT : Ezekiel
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Law/Numbers">
+                                    RIGHT : Ezekiel
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="toggle">▶ Daniel</span>
+                        <ul class="nested">
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Law/Deuteronomy">
+                                    LEFT : Daniel
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Law/Deuteronomy">
+                                    RIGHT : Daniel
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>     
+            <li>
+                <span class="toggle">▶ Minor Prophets</span>
+                <ul class="nested">
+                    <li>
+                        <span class="toggle">▶ Hosea</span>
+                        <ul class="nested">
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Law/Genesis">
+                                    LEFT : Hosea
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Law/Genesis">
+                                    RIGHT : Hosea
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="toggle">▶ Joel</span>
+                        <ul class="nested">
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Law/Exodus">
+                                    LEFT : Joel
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Law/Exodus">
+                                    RIGHT : Joel
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="toggle">▶ Amos</span>
+                        <ul class="nested">
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Law/Leviticus">
+                                    LEFT : Amos
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Law/Leviticus">
+                                    RIGHT : Amos
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="toggle">▶ Obadiah</span>
+                        <ul class="nested">
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Law/Numbers">
+                                    LEFT : Obadiah
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Law/Numbers">
+                                    RIGHT : Obadiah
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="toggle">▶ Jonah</span>
+                        <ul class="nested">
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Law/Deuteronomy">
+                                    LEFT : Jonah
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Law/Deuteronomy">
+                                    RIGHT : Jonah
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+					<li>
+                        <span class="toggle">▶ Micah</span>
+                        <ul class="nested">
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Law/Genesis">
+                                    LEFT : Micah
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Law/Genesis">
+                                    RIGHT : Micah
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="toggle">▶ Nahum</span>
+                        <ul class="nested">
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Law/Exodus">
+                                    LEFT : Nahum
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Law/Exodus">
+                                    RIGHT : Nahum
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="toggle">▶ Habakkuk</span>
+                        <ul class="nested">
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Law/Leviticus">
+                                    LEFT : Habakkuk
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Law/Leviticus">
+                                    RIGHT : Habakkuk
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="toggle">▶ Zephaniah</span>
+                        <ul class="nested">
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Law/Numbers">
+                                    LEFT : Zephaniah
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Law/Numbers">
+                                    RIGHT : Zephaniah
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="toggle">▶ Haggai</span>
+                        <ul class="nested">
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Law/Deuteronomy">
+                                    LEFT : Haggai
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Law/Deuteronomy">
+                                    RIGHT : Haggai
+                                </span>
+                            </li>
+						</ul>
+				</li>
+				<li>
+                        <span class="toggle">▶ Zechariah</span>
+                        <ul class="nested">
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Law/Numbers">
+                                    LEFT : Zechariah
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Law/Numbers">
+                                    RIGHT : Zechariah
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="toggle">▶ Malachi</span>
+                        <ul class="nested">
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Law/Deuteronomy">
+                                    LEFT : Malachi
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Law/Deuteronomy">
+                                    RIGHT : Malachi
+                                </span>
+                            </li>
+
+</li>
+</ul>
+
+                        </ul>
+                    </li>
+
+
+
+
+
+
+
+
+
+  <li class="spacer1"></li>
+
+
+
+
+
+
+
+  <li> English Septuagint 100BC Old Testament</li>
+            <li>
+                <span class="toggle">▶ Law</span>
+                <ul class="nested">
+                    <li>
+                        <span class="toggle">▶ Genesis</span>
+                        <ul class="nested">
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Law/Genesis">
+                                    LEFT : Genesis
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Law/Genesis">
+                                    RIGHT : Genesis
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="toggle">▶ Exodus</span>
+                        <ul class="nested">
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Law/Exodus">
+                                    LEFT : Exodus
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Law/Exodus">
+                                    RIGHT : Exodus
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="toggle">▶ Leviticus</span>
+                        <ul class="nested">
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Law/Leviticus">
+                                    LEFT : Leviticus
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Law/Leviticus">
+                                    RIGHT : Leviticus
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="toggle">▶ Numbers</span>
+                        <ul class="nested">
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Law/Numbers">
+                                    LEFT : Numbers
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Law/Numbers">
+                                    RIGHT : Numbers
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="toggle">▶ Deuteronomy</span>
+                        <ul class="nested">
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Law/Deuteronomy">
+                                    LEFT : Deuteronomy
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Law/Deuteronomy">
+                                    RIGHT : Deuteronomy
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>     
+            <li>
+                <span class="toggle">▶ History</span>
+                <ul class="nested">
+                    <li>
+                        <span class="toggle">▶ Joshua</span>
+                        <ul class="nested">
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Law/Genesis">
+                                    LEFT : Joshua
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Law/Genesis">
+                                    RIGHT : Joshua
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="toggle">▶ Judges</span>
+                        <ul class="nested">
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Law/Exodus">
+                                    LEFT : Judges
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Law/Exodus">
+                                    RIGHT : Judges
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="toggle">▶ Ruth</span>
+                        <ul class="nested">
+
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Law/Leviticus">
+                                    LEFT : Ruth
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Law/Leviticus">
+                                    RIGHT : Ruth
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="toggle">▶ 1 Samuel</span>
+                        <ul class="nested">
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Law/Numbers">
+                                    LEFT : 1 Samuel
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Law/Numbers">
+                                    RIGHT : 1 Samuel
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="toggle">▶ 2 Samuel</span>
+                        <ul class="nested">
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Law/Deuteronomy">
+                                    LEFT : 2 Samuel
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Law/Deuteronomy">
+                                    RIGHT : 2 Samuel
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+					<li>
+                        <span class="toggle">▶ 1 Kings</span>
+                        <ul class="nested">
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Law/Genesis">
+                                    LEFT : 1 Kings
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Law/Genesis">
+                                    RIGHT : 1 Kings
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="toggle">▶ 2 Kings</span>
+                        <ul class="nested">
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Law/Exodus">
+                                    LEFT : 2 Kings
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Law/Exodus">
+                                    RIGHT : 2 Kings
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="toggle">▶ 1 Chronicles</span>
+                        <ul class="nested">
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Law/Leviticus">
+                                    LEFT : 1 Chronicles
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Law/Leviticus">
+                                    RIGHT : 1 Chronicles
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="toggle">▶ 2 Chronicles</span>
+                        <ul class="nested">
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Law/Numbers">
+                                    LEFT : 2 Chronicles
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Law/Numbers">
+                                    RIGHT : 2 Chronicles
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="toggle">▶ Ezra</span>
+                        <ul class="nested">
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Law/Deuteronomy">
+                                    LEFT : Ezra
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Law/Deuteronomy">
+                                    RIGHT : Ezra
+                                </span>
+                            </li>
+                            	</ul>
+	</li>
+					<li>
+                        <span class="toggle">▶ Nehemiah</span>
+                        <ul class="nested">
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Law/Numbers">
+                                    LEFT : Nehemiah
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Law/Numbers">
+                                    RIGHT : Nehemiah
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="toggle">▶ Esther</span>
+                        <ul class="nested">
+
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Law/Deuteronomy">
+                                    LEFT : Esther
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Law/Deuteronomy">
+                                    RIGHT : Esther
+                                </span>
+                            </li>
+	
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <span class="toggle">▶ Poetry</span>
+                <ul class="nested">
+                    <li>
+                        <span class="toggle">▶ Job</span>
+                        <ul class="nested">
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Law/Genesis">
+                                    LEFT : Job
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Law/Genesis">
+                                    RIGHT : Job
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="toggle">▶ Psalms</span>
+                        <ul class="nested">
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Law/Exodus">
+                                    LEFT : Psalms
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Law/Exodus">
+                                    RIGHT : Psalms
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="toggle">▶ Proverbs</span>
+                        <ul class="nested">
+
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Law/Leviticus">
+                                    LEFT : Proverbs
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Law/Leviticus">
+                                    RIGHT : Proverbs
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="toggle">▶ Ecclesiastes</span>
+                        <ul class="nested">
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Law/Numbers">
+                                    LEFT : Ecclesiastes
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Law/Numbers">
+                                    RIGHT : Ecclesiastes
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="toggle">▶ Song of Songs</span>
+                        <ul class="nested">
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Law/Deuteronomy">
+                                    LEFT : Song of Songs
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Law/Deuteronomy">
+                                    RIGHT : Song of Songs
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>           
+            <li>
+                <span class="toggle">▶ Major Prophets</span>
+                <ul class="nested">
+                    <li>
+                        <span class="toggle">▶ Isiah</span>
+                        <ul class="nested">
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Law/Genesis">
+                                    LEFT : Isiah
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Law/Genesis">
+                                    RIGHT : Isiah
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="toggle">▶ Jeremiah</span>
+                        <ul class="nested">
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Law/Exodus">
+                                    LEFT : Jeremiah
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Law/Exodus">
+                                    RIGHT : Jeremiah
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="toggle">▶ Lamentations</span>
+                        <ul class="nested">
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Law/Leviticus">
+                                    LEFT : Lamentations
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Law/Leviticus">
+                                    RIGHT : Lamentations
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="toggle">▶ Ezekiel</span>
+                        <ul class="nested">
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Law/Numbers">
+                                    LEFT : Ezekiel
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Law/Numbers">
+                                    RIGHT : Ezekiel
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="toggle">▶ Daniel</span>
+                        <ul class="nested">
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Law/Deuteronomy">
+                                    LEFT : Daniel
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Law/Deuteronomy">
+                                    RIGHT : Daniel
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>     
+            <li>
+                <span class="toggle">▶ Minor Prophets</span>
+                <ul class="nested">
+                    <li>
+                        <span class="toggle">▶ Hosea</span>
+                        <ul class="nested">
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Law/Genesis">
+                                    LEFT : Hosea
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Law/Genesis">
+                                    RIGHT : Hosea
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="toggle">▶ Joel</span>
+                        <ul class="nested">
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Law/Exodus">
+                                    LEFT : Joel
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Law/Exodus">
+                                    RIGHT : Joel
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="toggle">▶ Amos</span>
+                        <ul class="nested">
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Law/Leviticus">
+                                    LEFT : Amos
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Law/Leviticus">
+                                    RIGHT : Amos
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="toggle">▶ Obadiah</span>
+                        <ul class="nested">
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Law/Numbers">
+                                    LEFT : Obadiah
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Law/Numbers">
+                                    RIGHT : Obadiah
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="toggle">▶ Jonah</span>
+                        <ul class="nested">
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Law/Deuteronomy">
+                                    LEFT : Jonah
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Law/Deuteronomy">
+                                    RIGHT : Jonah
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+					<li>
+                        <span class="toggle">▶ Micah</span>
+                        <ul class="nested">
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Law/Genesis">
+                                    LEFT : Micah
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Law/Genesis">
+                                    RIGHT : Micah
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="toggle">▶ Nahum</span>
+                        <ul class="nested">
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Law/Exodus">
+                                    LEFT : Nahum
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Law/Exodus">
+                                    RIGHT : Nahum
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="toggle">▶ Habakkuk</span>
+                        <ul class="nested">
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Law/Leviticus">
+                                    LEFT : Habakkuk
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Law/Leviticus">
+                                    RIGHT : Habakkuk
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="toggle">▶ Zephaniah</span>
+                        <ul class="nested">
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Law/Numbers">
+                                    LEFT : Zephaniah
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Law/Numbers">
+                                    RIGHT : Zephaniah
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="toggle">▶ Haggai</span>
+                        <ul class="nested">
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Law/Deuteronomy">
+                                    LEFT : Haggai
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Law/Deuteronomy">
+                                    RIGHT : Haggai
+                                </span>
+                            </li>
+						</ul>
+				</li>
+				<li>
+                        <span class="toggle">▶ Zechariah</span>
+                        <ul class="nested">
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Law/Numbers">
+                                    LEFT : Zechariah
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Law/Numbers">
+                                    RIGHT : Zechariah
+                                </span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="toggle">▶ Malachi</span>
+                        <ul class="nested">
+                            <!-- LEFT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameB"
+                                    data-file="./Law/Deuteronomy">
+                                    LEFT : Malachi
+                                </span>
+                            </li>
+                            <!-- RIGHT IFRAME -->
+                            <li>
+                                <span
+                                    class="file-link"
+                                    data-frame="frameD"
+                                    data-file="./Law/Deuteronomy">
+                                    RIGHT : Malachi
+                                </span>
+                            </li>
+
+</li>
+</ul>

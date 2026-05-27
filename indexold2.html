@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="./Code/favicon.ico">
+    <title>The Holy Bible in English, Greek, Latin and Arabic</title>
+    <link rel="stylesheet" href="./Code/style3.css">
+</head>
+
+<body>
+    <div id="main">
+
+        <!-- NAVIGATION (outside table now) -->
+        <aside id="navA" class="nav-column">
+            <div class="nav-controls">
+                <select id="fontSelector">
+                    <option value="12px" selected>12px</option>
+                    <option value="14px">14px</option>
+                    <option value="16px">16px</option>
+                    <option value="18px">18px</option>
+                    <option value="20px">20px</option>
+                    <option value="22px">22px</option>
+                    <option value="24px">24px</option>
+                </select>
+
+                <select id="highlightSelector">
+                    <option value="blue">Blue Highlight</option>
+                    <option value="green" selected>Green Highlight</option>
+                    <option value="yellow">Yellow Highlight</option>
+                    <option value="orange">Orange Highlight</option>
+                    <option value="purple">Purple Highlight</option>
+                    <option value="lightgreen">Light Green Highlight</option>
+                </select>
+
+                <button id="layoutToggle">
+                    Switch to 3 Panel Mode
+                </button>
+            </div>
+
+            <!-- NAV INJECT HERE -->
+        </aside>
+
+        <!-- 4 IFRAME LAYOUT -->
+        <table id="layouttable">
+            <tr>
+                <td>
+                    <div class="iframe-title" id="titleB">A</div>
+                    <iframe id="frameB"></iframe>
+                </td>
+
+                <td class="center-col2">
+                    <div class="iframe-title" id="titleC">B</div>
+                    <iframe id="frameC"></iframe>
+                </td>
+
+                <td class="center-col">
+                    <div class="iframe-title" id="titleD">C</div>
+                    <iframe id="frameD"></iframe>
+                </td>
+
+                <td>
+                    <div class="iframe-title" id="titleE">D</div>
+                    <iframe id="frameE"></iframe>
+                </td>
+            </tr>
+        </table>
+
+    </div>
+</body>
+
+<script src="./Code/highlight16.js"></script>
+<script src="./Code/buildhtml.js"></script>
+<script src="./Code/buildhtmlrender17.js"></script>
+<script src="./Code/titleupdate14.js"></script>
+<script src="./Code/fontsize16.js"></script>
+<script src="./Code/nav14.js"></script>
+<script src="./Code/toggle16.js"></script>
+</html>

@@ -1,0 +1,184 @@
+:root{
+    --font-size:12px;
+    --bg:#111;
+    --navbg:#181818;
+    --border:#333;
+    --hover:#232a36;
+    --text:#E0E0E0;
+}
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+html,
+body{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    background:var(--bg);
+    color:var(--text);
+    font-family:monospace;
+    font-size:var(--font-size);
+}
+body{
+    display:flex;
+    flex-direction:column;
+}
+/* =========================
+   MAIN LAYOUT
+========================= */
+#main{
+    width:100%;
+    height:100vh;
+    overflow:hidden;
+}
+#main.nav-collapsed{
+    --nav-width:60px;
+}
+/* =========================
+   NAVIGATION
+========================= */
+.nav-column,
+#navA{
+    overflow-y:auto;
+    background:#111111 !important;
+    color:#E0E0E0;
+    border-right:1px solid #333;
+    padding:10px;
+       height:100%;
+       overflow-y: auto;
+}
+.nav-controls{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+    margin-bottom:14px;
+}
+select{
+    width:100%;
+    padding:0.2em;
+    font:inherit;
+}
+/* =========================
+   NAV TREE
+========================= */
+ul{
+    list-style:none;
+    padding:3px;
+}
+li{
+    margin:0.15em 0;
+    user-select:none;
+}
+.toggle,
+.file-link{
+    display:block;
+    border-radius:4px;
+    cursor:pointer;
+}
+.toggle{
+    width:100%;
+    padding:0.2em 0.3em;
+    background:none;
+    border:none;
+    color:inherit;
+    text-align:left;
+}
+.file-link{
+    padding:0.15em 0.3em 0.15em 8px;
+    word-break:break-word;
+}
+.toggle:hover,
+.file-link:hover{
+    background:var(--hover);
+}
+.file-link:hover{
+    color:#66CCFF;
+}
+.nested{
+    display:none !important;
+    margin-left:1em;
+    padding-left:0.5em;
+    border-left:1px solid #ccc;
+}
+.nested.open{
+    display:block !important;
+}
+.section-title{
+    font-weight:bold;
+    padding:0.2em 0.3em;
+}
+.spacer{
+    height:0.5em;
+}
+.spacer1{
+    margin:10px 0;
+    border-bottom:1px solid #FFF;
+}
+/* =========================
+   FRAMES
+========================= */
+iframe{
+    display:block;
+    width:100%;
+    height:calc(100vh - 32px);
+    border:none;
+}
+.iframe-title{
+    padding:8px 12px;
+    background:#141414;
+    color:var(--text);
+    font-size:14px;
+    font-weight:bold;
+    border-bottom:1px solid var(--border);
+    height:32px;
+	color:#E0E0E0 !important;
+    padding:10px;
+    margin:0;
+    padding:0 10px;
+    overflow:hidden;
+    align-items:center;
+    display:flex;
+}
+/* =========================================
+   TABLE
+========================================= */
+#layouttable {
+	width:100%;
+    height:100%;
+    table-layout:fixed;
+	padding: 0px;
+	vertical-align:top;
+	border-collapse:collapse;
+    border-spacing:0;
+    overflow:hidden;
+}
+#layouttableframes1 {
+width:240px;
+}
+#layouttable tr td{
+    vertical-align:top;
+}
+/* =========================================
+   3 to 2 panel mode
+========================================= */
+/* NORMAL 3 PANEL */
+.center-col{
+    width: auto;
+}
+/* TWO PANEL MODE */
+body.two-panel .center-col{
+    display:none;
+}
+body.two-panel .center-item,
+body.two-panel .center-item *{
+    display:none !important;
+}
+body.two-panel .center-item *{
+    display:none !important;
+}
+
+mark, .highlight {
+    background: var(--highlight-color, yellow);
+}
