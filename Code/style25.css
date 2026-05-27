@@ -155,6 +155,8 @@ iframe{
 	width:100%;
     height:100vh;
 	padding: 0px;
+	padding-right: 25px;
+	margin-right: 25px;
 	vertical-align:top;
 	border-collapse:collapse;
     border-spacing:0;
