@@ -81,6 +81,38 @@ function getHighlightScheme(highlightSchemes) {
     return scheme;
 }
 // ==============================
+// SAVE HIGHLIGHT SELECTION
+// ==============================
+if(highlightSelector){
+
+    highlightSelector.addEventListener(
+        "change",
+        function(){
+
+            localStorage.setItem(
+                HIGHLIGHT_KEY,
+                this.value
+            );
+
+            // reload all frames
+            ["frameB","frameC","frameD","frameE"]
+                .forEach(frameId => {
+
+                    const file =
+                        currentFiles[frameId];
+
+                    if(file){
+
+                        loadTextFile(
+                            frameId,
+                            file
+                        );
+                    }
+                });
+        }
+    );
+}
+// ==============================
 // fetch text file
 // ==============================
 async function fetchTextFile(file) {
