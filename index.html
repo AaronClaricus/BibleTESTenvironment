@@ -192,6 +192,146 @@ body.hide-search
 #goE{
     display:none;
 }
+/* =========================================
+   TOGGLE BUTTON STYLE
+========================================= */
+#toggleGo{
+    height:32px;
+
+    padding:0 14px;
+    margin-left:8px;
+
+    font-size:13px;
+    font-weight:bold;
+    font-family:Arial, sans-serif;
+
+    color:white;
+
+    background:linear-gradient(to bottom,#777,#444);
+
+    border:none;
+    border-radius:8px;
+
+    cursor:pointer;
+
+    box-shadow:0 2px 6px rgba(0,0,0,0.35);
+
+    transition:
+        transform 0.08s ease,
+        filter 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+#toggleGo:hover{
+    filter:brightness(1.1);
+}
+
+#toggleGo:active{
+    transform:scale(0.96);
+}
+
+/* =========================================
+   HIDE GO BUTTONS ONLY
+========================================= */
+body.hide-go #go,
+body.hide-go #goC,
+body.hide-go #goD,
+body.hide-go #goE{
+    display:none;
+}
+#layoutToggle{
+    height:32px;
+
+    padding:0 14px;
+    margin:8px;
+
+    font-size:13px;
+    font-weight:bold;
+    font-family:Arial, sans-serif;
+
+    color:white;
+
+    background:linear-gradient(to bottom,#4A90FF,#2F6EDB);
+
+    border:none;
+    border-radius:8px;
+
+    cursor:pointer;
+
+    box-shadow:0 2px 6px rgba(0,0,0,0.35);
+
+    transition:
+        transform 0.08s ease,
+        filter 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+#layoutToggle:hover{
+    filter:brightness(1.08);
+    box-shadow:0 3px 8px rgba(0,0,0,0.45);
+}
+
+#layoutToggle:active{
+    transform:scale(0.96);
+}
+select{
+    height:32px;
+
+    padding:0 10px;
+    margin:6px;
+
+    font-size:13px;
+    font-family:Arial, sans-serif;
+
+    color:#E0E0E0;
+    background:#1A1A1A;
+
+    border:1px solid #444;
+    border-radius:8px;
+
+    outline:none;
+
+    cursor:pointer;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+select:hover{
+    background:#222;
+    border-color:#666;
+}
+
+select:focus{
+    border-color:#66A3FF;
+
+    box-shadow:0 0 6px rgba(102,163,255,0.45);
+
+    background:#20242C;
+}
+input[type="text"]{
+    display:block;
+
+    margin:8px auto;
+
+    text-align:center;
+}
+.search-row{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    margin-bottom:6px;
+}
+#go,
+#goC,
+#goD,
+#goE{
+    min-width: 70px;
+    padding:0 16px;
+    text-align:center;
+}
     </style>
 </head>
 
@@ -203,6 +343,9 @@ body.hide-search
             <div class="nav-controls">
 				<button id="toggleSearch">
 					Hide Search
+				</button>
+				<button id="toggleGo">
+					Hide Go
 				</button>
                 <select id="fontSelector">
                     <option value="12px" selected>12px</option>
@@ -234,31 +377,31 @@ body.hide-search
         <!-- 4 IFRAME LAYOUT -->
         <table id="layouttable">
             <tr>
-                <td class="left-item">
+                <td class="left-item"><div class="search-row">
 				<input id="search" type="text" placeholder="Search text...">
 					<input id="go" type="button" value="Go">
-
+</div>
                     <div class="iframe-title" id="titleB">A </div>
                     <iframe id="frameB"></iframe>
                 </td>
 
-                <td class="center-col2">
+                <td class="center-col2"><div class="search-row">
 					<input id="searchC" type="text" placeholder="Search C">
-<input id="goC" type="button" value="Go">
+<input id="goC" type="button" value="Go"></div>
                     <div class="iframe-title" id="titleC">B</div>
                     <iframe id="frameC"></iframe>
                 </td>
 
-                <td class="center-col">
+                <td class="center-col"><div class="search-row">
 					<input id="searchD" type="text" placeholder="Search D">
-<input id="goD" type="button" value="Go">
+<input id="goD" type="button" value="Go"></div>
                     <div class="iframe-title" id="titleD">C</div>
                     <iframe id="frameD"></iframe>
                 </td>
 
-                <td class="right-item">
+                <td class="right-item"><div class="search-row">
 					<input id="searchE" type="text" placeholder="Search E">
-<input id="goE" type="button" value="Go">
+<input id="goE" type="button" value="Go"></div>
                     <div class="iframe-title" id="titleE">D</div>
                     <iframe id="frameE"></iframe>
                 </td>
@@ -299,6 +442,22 @@ toggleSearch.addEventListener(
         }
     }
 );
+
+
+
+const toggleGo =
+    document.getElementById("toggleGo");
+
+toggleGo.addEventListener("click", () => {
+
+    document.body.classList.toggle("hide-go");
+
+    if(document.body.classList.contains("hide-go")){
+        toggleGo.textContent = "Show Go";
+    } else {
+        toggleGo.textContent = "Hide Go";
+    }
+});
 // ======================================
 // REMOVE OLD HIGHLIGHTS
 // ======================================
