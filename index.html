@@ -250,6 +250,13 @@ width:215px;
     </div>
 </body>
 <script>
+// ======================================
+// TOGGLE NAV CONTROLS
+// ======================================
+
+const CONTROLS_KEY =
+    "navControlsHidden";
+
 document.addEventListener(
     "DOMContentLoaded",
     () => {
@@ -271,23 +278,61 @@ document.addEventListener(
             return;
         }
 
+        // ==========================
+        // RESTORE SAVED STATE
+        // ==========================
+        const hidden =
+            localStorage.getItem(
+                CONTROLS_KEY
+            ) === "true";
+
+        if(hidden){
+            navControls.style.display =
+                "none";
+
+            toggleControls.textContent =
+                "Show Controls";
+        }
+
+        // ==========================
+        // TOGGLE
+        // ==========================
         toggleControls.addEventListener(
             "click",
             () => {
 
-                navControls.classList.toggle(
-                    "hidden-controls"
-                );
+                const isHidden =
+                    navControls.style.display ===
+                    "none";
 
-                toggleControls.textContent =
-                    navControls.classList.contains(
-                        "hidden-controls"
-                    )
-                    ? "Show Controls"
-                    : "Hide Controls";
+                if(isHidden){
+
+                    navControls.style.display =
+                        "flex";
+
+                    toggleControls.textContent =
+                        "Hide Controls";
+
+                    localStorage.setItem(
+                        CONTROLS_KEY,
+                        "false"
+                    );
+
+                }else{
+
+                    navControls.style.display =
+                        "none";
+
+                    toggleControls.textContent =
+                        "Show Controls";
+
+                    localStorage.setItem(
+                        CONTROLS_KEY,
+                        "true"
+                    );
+                }
             }
         );
-
     }
 );
 
