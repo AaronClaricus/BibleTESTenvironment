@@ -14,7 +14,7 @@
 
 <body class="four-panel">
     <div id="main">
-
+		
         <!-- NAVIGATION (outside table now) -->
         <aside id="navA" class="nav-column">
             <div class="nav-controls">
@@ -55,7 +55,8 @@
         <table id="layouttable">
             <tr>
                 <td class="left-item"><div class="search-row">
-				<input id="search" type="text" placeholder="Search text..."><div id="count"></div>
+					
+				<input id="search" type="text" placeholder="Search text..."><span id="countB">0/0</span>
 					<input id="go" type="button" value="Go">
 </div>
                     <div class="iframe-title" id="titleB">A </div>
@@ -63,21 +64,21 @@
                 </td>
 
                 <td class="center-col2"><div class="search-row">
-					<input id="searchC" type="text" placeholder="Search C"><div id="countC"></div>
+					<input id="searchC" type="text" placeholder="Search C"><span id="countC">0/0</span>
 <input id="goC" type="button" value="Go"></div>
                     <div class="iframe-title" id="titleC">B</div>
                     <iframe id="frameC"></iframe>
                 </td>
 
                 <td class="center-col"><div class="search-row">
-					<input id="searchD" type="text" placeholder="Search D"><div id="countD"></div>
+					<input id="searchD" type="text" placeholder="Search D"><span id="countD">0/0</span>
 <input id="goD" type="button" value="Go"></div>
                     <div class="iframe-title" id="titleD">C</div>
                     <iframe id="frameD"></iframe>
                 </td>
 
                 <td class="right-item"><div class="search-row">
-					<input id="searchE" type="text" placeholder="Search E"><div id="countE"></div>
+					<input id="searchE" type="text" placeholder="Search E"><span id="countE">0/0</span>
 <input id="goE" type="button" value="Go"></div>
                     <div class="iframe-title" id="titleE">D</div>
                     <iframe id="frameE"></iframe>
@@ -91,7 +92,7 @@
 
 
 </script>
-<script src="./Code/search.js"></script>
+<script src="./Code/search2.js"></script>
 <script src="./Code/highlight16.js"></script>
 <script src="./Code/buildhtml.js"></script>
 <script src="./Code/buildhtmlrender24.js"></script>
@@ -99,18 +100,6 @@
 <script src="./Code/fontsize16.js"></script>
 <script src="./Code/nav14.js"></script>
 <script src="./Code/toggle25.js"></script>
-<style>body.one-panel .search-row,
-body.one-panel #search,
-body.one-panel #go,
-body.one-panel #searchC,
-body.one-panel #goC,
-body.one-panel #searchD,
-body.one-panel #goD,
-body.one-panel #searchE,
-body.one-panel #goE,
-body.one-panel .search-count{
-    display:flex !important;
-    visibility:visible !important;
-    opacity:1 !important;
-}</style>
+<style>
+</style>
 </html>
