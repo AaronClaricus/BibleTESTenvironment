@@ -60,6 +60,112 @@ width:215px;
     cursor:pointer;
 width:215px;
     box-shadow:0 2px 6px rgba(0,0,0,0.35);}
+    #toggleInfo{
+    height:32px;
+
+    padding:0 14px;
+    margin-left:8px;
+
+    font-size:13px;
+    font-weight:bold;
+    font-family:Arial,sans-serif;
+
+    color:white;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #666,
+            #444
+        );
+
+    border:none;
+    border-radius:8px;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 2px 6px rgba(0,0,0,0.35);
+
+    transition:
+        transform 0.08s ease,
+        filter 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+#toggleInfo:hover{
+    filter:brightness(1.08);
+
+    box-shadow:
+        0 3px 8px rgba(0,0,0,0.45);
+}
+
+#toggleInfo:active{
+    transform:scale(0.96);
+}
+
+/* hidden state */
+.hidden-info{
+    display:none !important;
+}
+.hidden-controls{
+    display:none !important;
+}
+
+/* =========================================
+   TOGGLE CONTROLS BUTTON
+========================================= */
+#toggleControls{
+    height:32px;
+
+    padding:0 14px;
+	margin:10px;
+    margin-left:8px;
+width:215px;
+    font-size:13px;
+    font-weight:bold;
+    font-family:Arial,sans-serif;
+
+    color:white;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #666,
+            #444
+        );
+
+    border:none;
+    border-radius:8px;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 2px 6px rgba(0,0,0,0.35);
+
+    transition:
+        transform 0.08s ease,
+        filter 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+#toggleControls:hover{
+    filter:brightness(1.08);
+
+    box-shadow:
+        0 3px 8px rgba(0,0,0,0.45);
+}
+
+#toggleControls:active{
+    transform:scale(0.96);
+}
+
+/* =========================================
+   HIDDEN CONTROLS
+========================================= */
+.hidden-controls{
+    display:none !important;
+
     </style>
 </head>
 
@@ -68,6 +174,9 @@ width:215px;
 		
         <!-- NAVIGATION (outside table now) -->
         <aside id="navA" class="nav-column">
+			<button id="toggleControls">
+				Hide Controls
+			</button>
             <div class="nav-controls">
 				<button id="toggleSearch">
 					Hide Search
@@ -141,7 +250,46 @@ width:215px;
     </div>
 </body>
 <script>
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
 
+        const toggleControls =
+            document.getElementById(
+                "toggleControls"
+            );
+
+        const navControls =
+            document.querySelector(
+                ".nav-controls"
+            );
+
+        if(
+            !toggleControls ||
+            !navControls
+        ){
+            return;
+        }
+
+        toggleControls.addEventListener(
+            "click",
+            () => {
+
+                navControls.classList.toggle(
+                    "hidden-controls"
+                );
+
+                toggleControls.textContent =
+                    navControls.classList.contains(
+                        "hidden-controls"
+                    )
+                    ? "Show Controls"
+                    : "Hide Controls";
+            }
+        );
+
+    }
+);
 
 </script>
 <script src="./Code/search2.js"></script>
