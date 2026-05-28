@@ -662,8 +662,10 @@ FRAMES.forEach(frame => {
 			}
 
 			const link =
-				document.createElement("span");
+				document.createElement("button");
 
+				link.type = "button";
+			
 			link.className = "file-link";
 			link.dataset.frame = frame[0];
 			link.dataset.file = node[1];
