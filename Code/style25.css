@@ -253,7 +253,7 @@ body.two-panel .center-item2{
 
 body.one-panel #layouttable {
     width: 100% !important;
-    height: 100vh !important;
+    height: 100% !important;
     table-layout: auto;
 }
 
@@ -267,7 +267,7 @@ body.one-panel .dummy {
 /* SINGLE REMAINING CELL */
 body.one-panel .left-item {
     width: 100% !important;
-    height: 100vh !important;
+    height: 100% !important;
     padding: 0;
 }
 
@@ -282,7 +282,7 @@ body.one-panel #frameB {
     width: 100% !important;
 
     /* THIS IS THE IMPORTANT FIX */
-    height: 100vh !important;
+    height: 100% !important;
 
     display: block;
     border: none;
