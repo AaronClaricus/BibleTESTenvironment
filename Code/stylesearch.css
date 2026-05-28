@@ -184,6 +184,9 @@ body.hide-search
 #goE{
     display:none;
 }
+body.hide-search .search-row {
+    display: none !important;
+}
 /* =========================================
    TOGGLE BUTTON STYLE
 ========================================= */
