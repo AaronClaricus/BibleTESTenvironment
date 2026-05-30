@@ -1,0 +1,819 @@
+:root{
+    --font-size:12px;
+    --bg:#111;
+    --navbg:#181818;
+    --border:#333;
+    --hover:#232a36;
+    --text:#E0E0E0;
+}
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+html,
+body{
+    width:100%;
+    height:100%;
+  overflow: hidden;
+    background:var(--bg);
+    color:var(--text);
+    font-family:monospace;
+    font-size:var(--font-size);
+}
+
+body{
+    display:flex;
+    flex-direction:column;
+}
+/* =========================
+   MAIN LAYOUT
+========================= */
+#main{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    display: flex;
+}
+#main.nav-collapsed{
+    --nav-width:60px;
+}
+/* =========================
+   NAVIGATION
+========================= */
+.nav-column,
+#navA{
+    overflow-y:auto;
+    flex: 0 0 240px;
+    background:#111111 !important;
+    color:#E0E0E0;
+    border-right:1px solid #333;
+    padding:6px;
+          height: 100%;
+    overflow-y: auto;
+    display: block;
+    box-sizing: border-box;
+}
+
+.nav-controls{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+    margin-bottom:14px;
+}
+select{
+    width:100%;
+    padding:0.2em;
+    font:inherit;
+}
+/* =========================
+   NAV TREE
+========================= */
+ul{
+    list-style:none;
+    padding:1px;
+}
+li{
+    margin:1px;
+    user-select:none;
+}
+.toggle,
+.file-link{
+    display:block;
+    border-radius:2px;
+    cursor:pointer;
+}
+.toggle{
+    width:100%;
+    padding:2px;
+    background:none;
+    border:none;
+    color:inherit;
+    text-align:left;
+}
+.file-link{
+    padding:2px;
+    word-break:break-word;
+}
+.toggle:hover,
+.file-link:hover{
+    background:var(--hover);
+}
+.file-link:hover{
+    color:#66CCFF;
+}
+.nested{
+    display:none !important;
+    margin-left:1em;
+    padding-left:1px;
+    border-left:1px solid #ccc;
+}
+.nested.open{
+    display:block !important;
+}
+.section-title{
+    font-weight:bold;
+    padding:1px;
+}
+.spacer{
+    height:0.5em;
+}
+.spacer1{
+    margin:10px 0;
+    border-bottom:1px solid #FFF;
+}
+/* =========================
+   FRAMES
+========================= */
+iframe{
+    display:block;
+    width:100%;
+   height:100%;
+    border:none;
+    padding-bottom:30px;
+}
+.iframe-title{
+    padding:8px 12px;
+    background:#141414;
+    color:var(--text);
+    font-size:14px;
+    font-weight:bold;
+    border-bottom:1px solid var(--border);
+    height:32px;
+	color:#E0E0E0 !important;
+    padding:10px;
+    margin:0;
+    padding:0 10px;
+    overflow:hidden;
+    align-items:center;
+    display:flex;
+}
+/* =========================================
+   TABLE
+========================================= */
+#layouttable {
+	width:100%;
+    height:100%;
+	padding: 0px;
+	padding-right: 1px;
+	margin-right: 1px;
+	vertical-align:top;
+	border-collapse:collapse;
+    border-spacing:0;
+    overflow:hidden;
+    min-width:0;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+#layouttableframes1 {
+width:240px;
+}
+#layouttable tr td{
+    vertical-align:top;
+}
+
+#layouttable tr,
+#layouttable td {
+    height: 100%;
+    vertical-align: top;
+}
+/* =========================================
+   LAYOUT BASE
+========================================= */
+#layouttable{
+    width: 100%;
+    height: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+
+#layoutRow td{
+    vertical-align: top;
+    height: 100%;
+}
+.dummy {width:2px;
+		color:#000000;
+		padding:0px;
+		margin:0px:
+		
+}
+.table-wrap {
+  overflow: hidden;
+  width: calc(100% - 10px);
+}
+
+table {
+  margin-right: -10px;
+}
+html,
+body{
+    height:100%;
+}
+
+#main{
+    height:100%;
+}
+
+#layouttable{
+    height:100%;
+}
+
+#layouttable tr{
+    height:100%;
+}
+#layouttable td{
+    overflow:hidden;
+}
+#navA{
+    flex-shrink:0;
+}
+/* =========================================
+   4 PANEL (DEFAULT)
+========================================= */
+body.four-panel .left-item,
+body.four-panel .center-col2,
+body.four-panel .center-col,
+body.four-panel .right-item{
+    display: table-cell;
+}
+body.four-panel .dummy {width:2px;
+		color:#000000;
+			padding:0px;
+		margin:0px:
+}
+/* =========================================
+   3 PANEL
+========================================= */
+body.three-panel .center-col{
+    display: none;
+}
+body.three-panel .dummy {width:2px;
+		color:#000000:
+}
+body.three-panel .center-item2{
+    display: none;
+}
+/* =========================================
+   2 PANEL
+========================================= */
+body.two-panel .center-col,
+body.two-panel .center-col2{
+    display: none;
+}
+body.two-panel .dummy {width:2px;
+		color:#000000;
+}
+body.two-panel .center-item{
+    display: none;
+}
+body.two-panel .center-item2{
+    display: none;
+}
+/* =========================================
+   1 PANEL
+========================================= */
+
+body.one-panel #layouttable {
+    width: 100% !important;
+    height: 100% !important;
+    table-layout: auto;
+}
+
+body.one-panel .center-col2,
+body.one-panel .center-col,
+body.one-panel .right-item,
+body.one-panel .dummy {
+    display: none !important;
+}
+
+/* SINGLE REMAINING CELL */
+body.one-panel .left-item {
+    width: 100% !important;
+    height: 100% !important;
+    padding: 0;
+}
+
+/* TITLE */
+body.one-panel #titleB {
+    width: 100% !important;
+    height: 32px !important;
+}
+
+/* IFRAME */
+body.one-panel #frameB {
+    width: 100% !important;
+
+    /* THIS IS THE IMPORTANT FIX */
+    height: 100% !important;
+
+    display: block;
+    border: none;
+}
+body.one-panel .center-item3{
+    display: none !important;
+}
+body.one-panel .center-item{
+    display: none !important;
+}
+body.one-panel .center-item2{
+    display: none !important;
+}
+
+
+/* =========================================
+   ALL SEARCH INPUTS
+========================================= */
+#search,
+#searchC,
+#searchD,
+#searchE{
+    width:220px;
+    height:32px;
+
+    padding:0 10px;
+
+    font-size:14px;
+    font-family:Arial, sans-serif;
+
+    color:#E0E0E0;
+    background:#1A1A1A;
+
+    border:1px solid #444;
+    border-radius:8px;
+
+    outline:none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+#search:hover,
+#searchC:hover,
+#searchD:hover,
+#searchE:hover{
+    background:#222;
+    border-color:#666;
+}
+
+#search:focus,
+#searchC:focus,
+#searchD:focus,
+#searchE:focus{
+    border-color:#66A3FF;
+
+    box-shadow:
+        0 0 6px rgba(102,163,255,0.45);
+
+    background:#20242C;
+}
+
+#search::placeholder,
+#searchC::placeholder,
+#searchD::placeholder,
+#searchE::placeholder{
+    color:#888;
+}
+
+/* =========================================
+   ALL GO BUTTONS
+========================================= */
+#go,
+#goC,
+#goD,
+#goE{
+    height:32px;
+
+    padding:0 14px;
+
+    margin-left:6px;
+
+    font-size:13px;
+    font-weight:bold;
+    font-family:Arial, sans-serif;
+
+    color:white;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #4A90FF,
+            #2F6EDB
+        );
+
+    border:none;
+    border-radius:8px;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 2px 6px rgba(0,0,0,0.35);
+
+    transition:
+        transform 0.08s ease,
+        box-shadow 0.2s ease,
+        filter 0.2s ease;
+}
+
+#go:hover,
+#goC:hover,
+#goD:hover,
+#goE:hover{
+    filter:brightness(1.08);
+
+    box-shadow:
+        0 3px 8px rgba(0,0,0,0.45);
+}
+
+#go:active,
+#goC:active,
+#goD:active,
+#goE:active{
+    transform:scale(0.96);
+
+    box-shadow:
+        0 1px 3px rgba(0,0,0,0.4);
+}
+    /* =========================================
+   TOGGLE BUTTON
+========================================= */
+#toggleSearch{
+    height:32px;
+
+    padding:0 14px;
+
+    margin-left:8px;
+
+    font-size:13px;
+    font-weight:bold;
+    font-family:Arial, sans-serif;
+
+    color:white;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #666,
+            #444
+        );
+
+    border:none;
+    border-radius:8px;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 2px 6px rgba(0,0,0,0.35);
+
+    transition:
+        transform 0.08s ease,
+        filter 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+#toggleSearch:hover{
+    filter:brightness(1.08);
+
+    box-shadow:
+        0 3px 8px rgba(0,0,0,0.45);
+}
+
+#toggleSearch:active{
+    transform:scale(0.96);
+}
+
+/* =========================================
+   HIDDEN STATE
+========================================= */
+body.hide-search
+#search,
+body.hide-search
+#searchC,
+body.hide-search
+#searchD,
+body.hide-search
+#searchE,
+
+body.hide-search
+#go,
+body.hide-search
+#goC,
+body.hide-search
+#goD,
+body.hide-search
+#goE{
+    display:none;
+}
+body.hide-search .search-row {
+    display: none !important;
+}
+/* =========================================
+   TOGGLE BUTTON STYLE
+========================================= */
+#toggleGo{
+    height:32px;
+
+    padding:0 14px;
+    margin-left:8px;
+
+    font-size:13px;
+    font-weight:bold;
+    font-family:Arial, sans-serif;
+
+    color:white;
+
+    background:linear-gradient(to bottom,#777,#444);
+
+    border:none;
+    border-radius:8px;
+
+    cursor:pointer;
+
+    box-shadow:0 2px 6px rgba(0,0,0,0.35);
+
+    transition:
+        transform 0.08s ease,
+        filter 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+#toggleGo:hover{
+    filter:brightness(1.1);
+}
+
+#toggleGo:active{
+    transform:scale(0.96);
+}
+
+/* =========================================
+   HIDE GO BUTTONS ONLY
+========================================= */
+body.hide-go #go,
+body.hide-go #goC,
+body.hide-go #goD,
+body.hide-go #goE{
+    display:none;
+}
+#layoutToggle{
+    height:32px;
+
+    padding:0 14px;
+    margin:8px;
+
+    font-size:13px;
+    font-weight:bold;
+    font-family:Arial, sans-serif;
+
+    color:white;
+
+    background:linear-gradient(to bottom,#4A90FF,#2F6EDB);
+
+    border:none;
+    border-radius:8px;
+
+    cursor:pointer;
+
+    box-shadow:0 2px 6px rgba(0,0,0,0.35);
+
+    transition:
+        transform 0.08s ease,
+        filter 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+#layoutToggle:hover{
+    filter:brightness(1.08);
+    box-shadow:0 3px 8px rgba(0,0,0,0.45);
+}
+
+#layoutToggle:active{
+    transform:scale(0.96);
+}
+select{
+    height:32px;
+
+    padding:0 10px;
+    margin:6px;
+
+    font-size:13px;
+    font-family:Arial, sans-serif;
+
+    color:#E0E0E0;
+    background:#1A1A1A;
+
+    border:1px solid #444;
+    border-radius:8px;
+
+    outline:none;
+
+    cursor:pointer;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+select:hover{
+    background:#222;
+    border-color:#666;
+}
+
+select:focus{
+    border-color:#66A3FF;
+
+    box-shadow:0 0 6px rgba(102,163,255,0.45);
+
+    background:#20242C;
+}
+input[type="text"]{
+    display:block;
+
+    margin:8px auto;
+
+    text-align:center;
+}
+.search-row{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    margin-bottom:6px;
+}
+#go,
+#goC,
+#goD,
+#goE{
+    min-width: 70px;
+    padding:0 16px;
+    text-align:center;
+}
+.search-row{
+    display:flex;
+    align-items:center;
+    gap:6px;
+}
+
+.search-count{
+    min-width:40px;
+    font-size:12px;
+    color:#aaa;
+    font-family:Arial, sans-serif;
+}
+.file-link{
+    display:block;
+    width:100%;
+    text-align:left;
+    background:none;
+    border:none;
+    color:inherit;
+    padding:2px;
+    cursor:pointer;
+    word-break:break-word;
+}
+
+#fontSelector {
+  height:32px;
+
+    padding:0 14px;
+    margin-left:8px;
+
+    font-size:13px;
+    font-weight:bold;
+    font-family:Arial, sans-serif;
+
+    color:white;
+
+    background:linear-gradient(to bottom,#777,#444);
+
+    border:none;
+    border-radius:8px;
+width:215px;
+    cursor:pointer;
+
+    box-shadow:0 2px 6px rgba(0,0,0,0.35);}
+    #highlightSelector {
+  height:32px;
+
+    padding:0 14px;
+    margin-left:8px;
+
+    font-size:13px;
+    font-weight:bold;
+    font-family:Arial, sans-serif;
+
+    color:white;
+
+    background:linear-gradient(to bottom,#777,#444);
+
+    border:none;
+    border-radius:8px;
+
+    cursor:pointer;
+width:215px;
+    box-shadow:0 2px 6px rgba(0,0,0,0.35);}
+    #toggleInfo{
+    height:32px;
+
+    padding:0 14px;
+    margin-left:8px;
+
+    font-size:13px;
+    font-weight:bold;
+    font-family:Arial,sans-serif;
+
+    color:white;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #666,
+            #444
+        );
+
+    border:none;
+    border-radius:8px;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 2px 6px rgba(0,0,0,0.35);
+
+    transition:
+        transform 0.08s ease,
+        filter 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+#toggleInfo:hover{
+    filter:brightness(1.08);
+
+    box-shadow:
+        0 3px 8px rgba(0,0,0,0.45);
+}
+
+#toggleInfo:active{
+    transform:scale(0.96);
+}
+
+/* hidden state */
+.hidden-info{
+    display:none !important;
+}
+.hidden-controls{
+    display:none !important;
+}
+
+/* =========================================
+   TOGGLE CONTROLS BUTTON
+========================================= */
+#toggleControls{
+    height:32px;
+
+    padding:0 14px;
+	margin:10px;
+    margin-left:8px;
+width:215px;
+    font-size:13px;
+    font-weight:bold;
+    font-family:Arial,sans-serif;
+
+    color:white;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #666,
+            #444
+        );
+
+    border:none;
+    border-radius:8px;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 2px 6px rgba(0,0,0,0.35);
+
+    transition:
+        transform 0.08s ease,
+        filter 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+#toggleControls:hover{
+    filter:brightness(1.08);
+
+    box-shadow:
+        0 3px 8px rgba(0,0,0,0.45);
+}
+
+#toggleControls:active{
+    transform:scale(0.96);
+}
+
+/* =========================================
+   HIDDEN CONTROLS
+========================================= */
+.hidden-controls{
+    display:none !important;
