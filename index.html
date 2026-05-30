@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="./Code/favicon.ico">
     <title>The Holy Bible in English, Greek, Latin and Arabic</title>
-    <link rel="stylesheet" href="./Code/style25.css">
-    <link rel="stylesheet" href="./Code/stylesearch.css">
+    <link rel="stylesheet" href="./Code/basis/style25.css">
+    <link rel="stylesheet" href="./Code/basis/stylesearch.css">
     <style>
 .file-link{
     display:block;
@@ -250,101 +250,17 @@ width:215px;
     </div>
 </body>
 <script>
-// ======================================
-// TOGGLE NAV CONTROLS
-// ======================================
-
-const CONTROLS_KEY =
-    "navControlsHidden";
-
-document.addEventListener(
-    "DOMContentLoaded",
-    () => {
-
-        const toggleControls =
-            document.getElementById(
-                "toggleControls"
-            );
-
-        const navControls =
-            document.querySelector(
-                ".nav-controls"
-            );
-
-        if(
-            !toggleControls ||
-            !navControls
-        ){
-            return;
-        }
-
-        // ==========================
-        // RESTORE SAVED STATE
-        // ==========================
-        const hidden =
-            localStorage.getItem(
-                CONTROLS_KEY
-            ) === "true";
-
-        if(hidden){
-            navControls.style.display =
-                "none";
-
-            toggleControls.textContent =
-                "Show Controls";
-        }
-
-        // ==========================
-        // TOGGLE
-        // ==========================
-        toggleControls.addEventListener(
-            "click",
-            () => {
-
-                const isHidden =
-                    navControls.style.display ===
-                    "none";
-
-                if(isHidden){
-
-                    navControls.style.display =
-                        "flex";
-
-                    toggleControls.textContent =
-                        "Hide Controls";
-
-                    localStorage.setItem(
-                        CONTROLS_KEY,
-                        "false"
-                    );
-
-                }else{
-
-                    navControls.style.display =
-                        "none";
-
-                    toggleControls.textContent =
-                        "Show Controls";
-
-                    localStorage.setItem(
-                        CONTROLS_KEY,
-                        "true"
-                    );
-                }
-            }
-        );
-    }
-);
 
 </script>
-<script src="./Code/search2.js"></script>
-<script src="./Code/highlight16.js"></script>
-<script src="./Code/buildhtml.js"></script>
-<script src="./Code/buildhtmlrender24.js"></script>
-<script src="./Code/titleupdate14.js"></script>
-<script src="./Code/fontsize16.js"></script>
-<script src="./Code/nav14.js"></script>
-<script src="./Code/toggle25.js"></script>
+
+<script src="./Code/basis/combined.js"></script>
+<script src="./Code/basis/combined2.js"></script>
+
+
+
+
+
+
 <style>
 </style>
 </html>
