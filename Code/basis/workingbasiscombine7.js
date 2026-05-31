@@ -359,28 +359,19 @@ async function loadTextFile(
 	// BEGIN GENERAL FUNCTIONS
 	// ======================================
 function restoreFontSize(){
+    const size = AppStorage.get(
+        FONT_SIZE_KEY,
+        "12px"
+    );
 
-    const savedFontSize =
-        AppStorage.get(
-            FONT_SIZE_KEY,
-            null
-        );
-
-    if(!savedFontSize){
-        return;
-    }
-
-    document.documentElement.style
-        .setProperty(
-            "--font-size",
-            savedFontSize
-        );
+    document.documentElement.style.setProperty(
+        "--font-size",
+        size
+    );
 
     if(fontSelector){
-        fontSelector.value =
-            savedFontSize;
+        fontSelector.value = size;
     }
-
 }
 function restoreHighlightScheme(){
 	const saved =
@@ -657,58 +648,36 @@ function saveScrollPosition(frameId, scrollY) {
 // ==============================
 // UPDATE IFRAME TITLE
 // ==============================
-function updateIframeTitle(frameId, filePath){
-    const titleMap = {
-        frameB: "titleB",
-        frameC: "titleC",
-        frameD: "titleD",
-        frameE: "titleE"
-    };
+function updateIframeTitle(
+    frameId,
+    filePath
+){
+
     const titleBar =
-	document.getElementById(
-		FRAME_TITLES[frameId]
-	);
-    if(!titleBar) return;
+        document.getElementById(
+            FRAME_TITLES[frameId]
+        );
+
+    if(!titleBar){
+        return;
+    }
+
+    if(!filePath){
+        titleBar.textContent =
+            "No File";
+        return;
+    }
+
     const fileName =
         filePath.split("/").pop();
+
     titleBar.textContent =
         fileName;
 }
 // ==============================
 // UPDATE IFRAME FONT SIZE
 // ==============================
-function updateIframeFonts(){
 
-	FRAMES.forEach(frame => {
-
-		const iframe =
-			document.getElementById(
-				frame[0]
-			);
-
-		try{
-
-			const doc =
-				iframe.contentDocument ||
-				iframe.contentWindow.document;
-
-			if(doc && doc.body){
-
-				doc.body.style.fontSize =
-					getComputedStyle(
-						document.documentElement
-					)
-					.getPropertyValue(
-						"--font-size"
-					);
-
-			}
-
-		}catch(e){}
-
-	});
-
-}
 // ==========================================
 // SIMPLE TREE FORMAT
 // ==========================================
@@ -1138,6 +1107,24 @@ function exeIframeSearch(){
 		"countE"
 	);
 }
+// ======================================
+// END GENERAL FUNCTIONS
+// ======================================
+function restoreAppState(){
+
+	APP.state.lastOpened =
+		loadLastOpenedFiles();
+
+	APP.state.settings.fontSize =
+		AppStorage.get(
+			FONT_SIZE_KEY,
+			"12px"
+		);
+
+	restoreLayoutMode();
+	restoreFontSize();
+	restoreHighlightScheme();
+}
 	// ======================================
 	// END GENERAL FUNCTIONS
 	// ======================================
@@ -1146,7 +1133,7 @@ function exeIframeSearch(){
 	// ======================================
 document.addEventListener("DOMContentLoaded", init);
 function init() {
-
+	
     console.log("APP INIT");
 	
 	Object.assign(
@@ -1156,18 +1143,18 @@ function init() {
 		loadLastOpenedFiles()
 
 	);
-	restoreLayoutMode();
+	
+	restoreAppState()
 	applyLayoutMode();
 	setupNavControlsToggle();
 	setupSearchToggle();
 	setupGoToggle();
 	
     setupLayoutToggle();
-	restoreHighlightScheme();
+	
 	buildNavNew();
 	setupClickRouter();
     loadtheTextFiles ();
-    applyLayoutMode();
 	exeIframeSearch()
 }
 // ==============================
@@ -1216,35 +1203,78 @@ FRAMES.forEach(frame => {
 // ==============================
 // RESTORE SAVED FONT SIZE
 // ==============================
-if(savedFontSize){
+// ==============================
+function restoreFontSize(){
 
-    document.documentElement.style
-        .setProperty(
-            "--font-size",
-            savedFontSize
-        );
+	setFontSize(
+		AppStorage.get(
+			FONT_SIZE_KEY,
+			"12px"
+		)
+	);
 
 }
+// ==============================
+// FONT SYSTEM
+// ==============================
+function setFontSize(size){
+
+	APP.state.settings.fontSize = size;
+
+	document.documentElement.style.setProperty(
+		"--font-size",
+		size
+	);
+
+	AppStorage.set(
+		FONT_SIZE_KEY,
+		size
+	);
+
+	if(fontSelector){
+		fontSelector.value = size;
+	}
+
+
+}
+// ==============================
+// RESTORE FONT SIZE
+// ==============================
+
 // ==============================
 // FONT SELECTOR CHANGE
 // ==============================
 if(fontSelector){
+
 	fontSelector.addEventListener(
 		"change",
 		function(){
-			document.documentElement
-				.style.setProperty(
-					"--font-size",
-					this.value
-				);
-			// save font
-			AppStorage.set(
-				FONT_SIZE_KEY,
+
+			setFontSize(
 				this.value
 			);
-			updateIframeFonts();
+
+			FRAMES.forEach(frame => {
+
+				const file =
+					APP.state.currentFiles[
+						frame[0]
+					];
+
+				if(file){
+
+					loadTextFile(
+						frame[0],
+						file
+					);
+
+				}
+
+			});
+
 		}
 	);
+
 }
 // apply immediately
 	// ======================================

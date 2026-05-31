@@ -993,8 +993,7 @@ const CONTROLS_KEY =
 	CONFIG.storage.controlsKey;
 	const highlightSelector =
     document.getElementById("highlightSelector");
-const savedFontSize =
-    APP.state.settings.fontSize;
+
 
 // ==============================
 // TEMPLATE CACHE
