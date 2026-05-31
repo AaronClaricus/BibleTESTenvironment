@@ -1,19 +1,11 @@
 	// ======================================
 	// BEGIN EVENTS LISTENERS
 	// ======================================
-const SEARCH_KEY =
-	CONFIG.storage.searchKey;
 
-const GO_KEY =
-	CONFIG.storage.goKey;
 // ==============================
 // RESTORE SAVED FONT SIZE
 // ==============================
-const savedFontSize =
-	AppStorage.get(
-		FONT_SIZE_KEY,
-		null
-	);
+
 // ==============================
 // LAYOUT MODE BUTTON
 // cycles:
@@ -195,6 +187,19 @@ function setupSearchToggle(){
 // ==========================================
 // FILE LINKS
 // ==========================================
+function getLayoutMode(){
+
+	return APP.state.layoutMode;
+
+}
+
+function setLayoutMode(mode){
+
+	APP.state.layoutMode = mode;
+
+}
+
+
 function setupLayoutToggle(){
 	toggleButton.addEventListener("click", function () {
 		// ======================
@@ -209,8 +214,8 @@ function setupLayoutToggle(){
 		// ======================
 		// CYCLE MODES
 		// ======================
-		if (layoutMode === 4) {
-			layoutMode = 3;
+		if (getLayoutMode() === 4) {
+			setLayoutMode(3);
 			AppStorage.set(
 				LAYOUT_MODE_KEY,
 				layoutMode
@@ -219,8 +224,8 @@ function setupLayoutToggle(){
 			toggleButton.textContent =
 				"Switch to 2 Panel Mode";
 		}
-		else if (layoutMode === 3) {
-			layoutMode = 2;
+		else if (getLayoutMode() === 3) {
+			setLayoutMode(2);
 			AppStorage.set(
 				LAYOUT_MODE_KEY,
 				layoutMode
@@ -229,8 +234,8 @@ function setupLayoutToggle(){
 			toggleButton.textContent =
 				"Switch to 1 Panel Mode";
 		}
-		else if (layoutMode === 2) {
-			layoutMode = 1;
+		else if (getLayoutMode() === 2) {
+			setLayoutMode(1);
 			AppStorage.set(
 				LAYOUT_MODE_KEY,
 				layoutMode
@@ -240,7 +245,7 @@ function setupLayoutToggle(){
 				"Switch to 4 Panel Mode";
 		}
 		else {
-			layoutMode = 4;
+			setLayoutMode(4);
 			AppStorage.set(
 				LAYOUT_MODE_KEY,
 				layoutMode
@@ -274,12 +279,12 @@ async function fetchTextFile(file) {
     // ==========================
     // RETURN CACHED VERSION
     // ==========================
-    if (fileCache[file]) {
+    if (APP.state.fileCache[file]) {
         console.log(
             "[CACHE HIT]",
             file
         );
-        return fileCache[file];
+        return APP.state.fileCache[file];
     }
     // ==========================
     // FETCH FILE
@@ -300,21 +305,20 @@ async function fetchTextFile(file) {
 	// ==============================
 	// CACHE FILE
 	// ==============================
-	fileCache[file] = text;
+	APP.state.fileCache[file] = text;
 	// remember order
-	cacheOrder.push(file);
+	APP.state.cacheOrder.push(file)
 	// remove oldest cache entry
 	if (
-			cacheOrder.length >
-			CONFIG.cache.maxFiles
-		) {
+		APP.state.cacheOrder.length >
+		CONFIG.cache.maxFiles
+	) {
 		const oldest =
-			cacheOrder.shift();
-		delete fileCache[oldest];
-		console.log(
-			"[CACHE REMOVED]",
-			oldest
-		);
+		APP.state.cacheOrder.shift();
+
+		delete APP.state.fileCache[oldest];
+
+		console.log("[CACHE REMOVED]", oldest);
 	}
     return text;
 }
@@ -327,7 +331,7 @@ async function loadTextFile(
 ) {
     const iframe = document.getElementById(frameId);
     if (!iframe) return;
-    currentFiles[frameId] = file;
+    APP.state.currentFiles[frameId] = file;
     saveLastOpenedFile(
 		frameId,
 		file
@@ -466,7 +470,7 @@ function loadLastOpenedFiles(){
 // RESTORE SCROLL Position 
 // ==============================
 function restoreScrollPosition(frameId, iframe) {
-    const file = currentFiles[frameId];
+    const file = APP.state.currentFiles[frameId];
     if (!file) {
         console.log("[RESTORE BLOCKED] No file for", frameId);
         return;
@@ -524,7 +528,7 @@ function attachScrollTracking(frameId) {
 			iframe.contentWindow;
 		// current file for this frame
 		const file =
-			currentFiles[frameId];
+			APP.state.currentFiles[frameId];
 		let scrollTimeout;
 		// ONE scroll handler
 		iframeWindow.onscroll = () => {
@@ -593,7 +597,7 @@ function attachScrollTracking(frameId) {
 // ==============================
 function saveScrollPosition(frameId, scrollY) {
     const file =
-        currentFiles[frameId];
+        APP.state.currentFiles[frameId];
     console.log(
         "[SCROLL SAVE TRIGGERED]",
         "frame:",
@@ -822,14 +826,14 @@ function setupIframeSearch(
         document.getElementById(iframeId);
     const counter =
         document.getElementById(counterId);
-    searchState[iframeId] = {
+    APP.state.searchState[iframeId] = {
         matches: [],
         index: -1,
         lastTerm: ""
     };
     function updateCounter(){
         const state =
-            searchState[iframeId];
+            APP.state.searchState[iframeId];
         if(state.matches.length === 0){
             counter.textContent =
                 "0/0";
@@ -847,7 +851,7 @@ function setupIframeSearch(
             return;
         }
         const state =
-            searchState[iframeId];
+            APP.state.searchState[iframeId];
         const doc =
             iframe.contentDocument ||
             iframe.contentWindow.document;
@@ -1099,7 +1103,13 @@ function init() {
 
     console.log("APP INIT");
 	
-	lastOpened = loadLastOpenedFiles();
+	Object.assign(
+
+		APP.state.lastOpened,
+
+		loadLastOpenedFiles()
+
+	);
 	setupNavControlsToggle();
 	setupSearchToggle();
 	setupGoToggle();
@@ -1130,7 +1140,7 @@ if(highlightSelector){
 					frame[0];
 
 				const file =
-					currentFiles[frameId];
+					APP.state.currentFiles[frameId];
 
 				if(file){
 

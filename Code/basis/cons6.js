@@ -1,18 +1,16 @@
 // ======================================
 // BEGIN GLOBAL VARIABLES
 // ======================================
-const CONTROLS_KEY =
-	CONFIG.storage.controlsKey;
+
 const toggleSearch =
     document.getElementById(
         "toggleSearch"
     );
-const searchState = {};
+
 
 const toggleGo =
     document.getElementById("toggleGo");
-const highlightSelector =
-    document.getElementById("highlightSelector");
+
 const highlightSchemes = {
     blue: {
         bg: "#141414",
@@ -42,16 +40,16 @@ const highlightSchemes = {
 // ==============================
 // TRACKING STORAGE
 // ==============================
-const currentFiles = {};
-const savedScrollPositions = {};
+
+
 // ==============================
 // FILE CACHE
 // ==============================
-const fileCache = {};
+
 // max cached files
 const MAX_CACHE = 500;
 // tracks cache order
-const cacheOrder = [];
+
 // ==============================
 // SCROLL STATE STORAGE
 // ==============================
@@ -61,7 +59,7 @@ const LAST_OPENED_KEY =
     "last-opened-files";
 // max saved files PER FRAME
 const MAX_SCROLL_HISTORY = 500;
-let lastOpened = {};
+
 // ======================================
 // CONFIG
 // ======================================
@@ -123,7 +121,31 @@ const FRAME_TITLES = {
 	frameE: "titleE"
 
 };
+// ======================================
+// APP STATE
+// ======================================
 
+const APP = {
+
+	state: {
+
+		currentFiles: {},
+
+		fileCache: {},
+
+		cacheOrder: [],
+
+		searchState: {},
+
+		savedScrollPositions: {},
+
+		lastOpened: {},
+
+		layoutMode: 4
+
+	}
+
+};
 // ======================================
 // STORAGE SYSTEM
 // ======================================
@@ -347,11 +369,7 @@ const LAYOUT_MODE_KEY =
 // RESTORE SAVED LAYOUT
 // ==============================
 let layoutMode =
-    Number(
-        localStorage.getItem(
-            LAYOUT_MODE_KEY
-        )
-    ) || 4;
+	APP.state.layoutMode;
 // ==============================
 // NAVIGATION CONSTANT
 // ==============================
@@ -952,16 +970,24 @@ const NAVIGATION = [
     ]
 	
 ];
-// ==========================================
-// FRAME CONFIG
-// ==========================================
-const FRAMES = [
-    ["frameB", "LEFT"],
-    ["frameC", "CENTER"],
-    ["frameD", "RIGHT"],
-    ["frameE", "FAR RIGHT"],
+const SEARCH_KEY =
+	CONFIG.storage.searchKey;
 
-];
+const GO_KEY =
+	CONFIG.storage.goKey;
+const savedFontSize =
+	AppStorage.get(
+		FONT_SIZE_KEY,
+		null
+	);
+const CONTROLS_KEY =
+	CONFIG.storage.controlsKey;
+	const highlightSelector =
+    document.getElementById("highlightSelector");
+    const lastOpened =
+	APP.state.lastOpened;
+	const savedScrollPositions =
+	APP.state.savedScrollPositions;
 // ==============================
 // TEMPLATE CACHE
 // ==============================

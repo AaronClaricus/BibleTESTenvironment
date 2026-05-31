@@ -195,6 +195,19 @@ function setupSearchToggle(){
 // ==========================================
 // FILE LINKS
 // ==========================================
+function getLayoutMode(){
+
+	return APP.state.layoutMode;
+
+}
+
+function setLayoutMode(mode){
+
+	APP.state.layoutMode = mode;
+
+}
+
+
 function setupLayoutToggle(){
 	toggleButton.addEventListener("click", function () {
 		// ======================
@@ -209,8 +222,8 @@ function setupLayoutToggle(){
 		// ======================
 		// CYCLE MODES
 		// ======================
-		if (layoutMode === 4) {
-			layoutMode = 3;
+		if (getLayoutMode() === 4) {
+			setLayoutMode(3);
 			AppStorage.set(
 				LAYOUT_MODE_KEY,
 				layoutMode
@@ -219,8 +232,8 @@ function setupLayoutToggle(){
 			toggleButton.textContent =
 				"Switch to 2 Panel Mode";
 		}
-		else if (layoutMode === 3) {
-			layoutMode = 2;
+		else if (getLayoutMode() === 3 {
+			setLayoutMode(2);
 			AppStorage.set(
 				LAYOUT_MODE_KEY,
 				layoutMode
@@ -229,8 +242,8 @@ function setupLayoutToggle(){
 			toggleButton.textContent =
 				"Switch to 1 Panel Mode";
 		}
-		else if (layoutMode === 2) {
-			layoutMode = 1;
+		else if (getLayoutMode() === 2) {
+			setLayoutMode(1);
 			AppStorage.set(
 				LAYOUT_MODE_KEY,
 				layoutMode
@@ -240,7 +253,7 @@ function setupLayoutToggle(){
 				"Switch to 4 Panel Mode";
 		}
 		else {
-			layoutMode = 4;
+			setLayoutMode(4);
 			AppStorage.set(
 				LAYOUT_MODE_KEY,
 				layoutMode
@@ -300,9 +313,9 @@ async function fetchTextFile(file) {
 	// ==============================
 	// CACHE FILE
 	// ==============================
-	fileCache[file] = text;
+	APP.state.fileCache[file]
 	// remember order
-	cacheOrder.push(file);
+	APP.state.cacheOrder.push(file)
 	// remove oldest cache entry
 	if (
 			cacheOrder.length >
@@ -327,7 +340,7 @@ async function loadTextFile(
 ) {
     const iframe = document.getElementById(frameId);
     if (!iframe) return;
-    currentFiles[frameId] = file;
+    APP.state.currentFiles[frameId] = file;
     saveLastOpenedFile(
 		frameId,
 		file
@@ -1099,7 +1112,13 @@ function init() {
 
     console.log("APP INIT");
 	
-	lastOpened = loadLastOpenedFiles();
+	Object.assign(
+
+		APP.state.lastOpened,
+
+		loadLastOpenedFiles()
+
+	);
 	setupNavControlsToggle();
 	setupSearchToggle();
 	setupGoToggle();
