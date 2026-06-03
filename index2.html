@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="./Code/favicon.ico">
     <title>The Holy Bible in English, Greek, Latin and Arabic</title>
-    <link rel="stylesheet" href="./Code/basis/style27.css">
+    <link rel="stylesheet" href="./Code/basis/style26.css">
     
     <style>
 select{
@@ -38,6 +38,37 @@ select option:hover{
     background:#CFCFCF;
     color:#000;
 }
+    body{
+        margin:0;
+        height:100vh;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        background:#111;
+    }
+
+.container{
+    gap:3px; display:flex;
+}
+
+.square{
+    width:16px;
+    aspect-ratio:1;
+    opacity:.25;
+    transition:
+        opacity .35s ease,
+        transform .35s ease;
+}
+
+.red{ background:#f00; }
+.yellow{ background:#ff0; }
+.green{ background:#0f0; }
+.blue{ background:#00f; }
+
+.square.active{
+    opacity:1;
+    transform:scale(1.06);
+}
     </style>
 </head>
 
@@ -46,6 +77,12 @@ select option:hover{
 		
         <!-- NAVIGATION (outside table now) -->
         <aside id="navA" class="nav-column">
+			<div class="container">
+    <div class="square red"></div>
+    <div class="square yellow"></div>
+    <div class="square green"></div>
+    <div class="square blue"></div>
+</div>
 			<button id="toggleControls">
 				Hide Controls
 			</button>
@@ -123,12 +160,33 @@ select option:hover{
     </div>
 </body>
 <script>
+   const squares =
+        document.querySelectorAll(".square");
 
+    let current = 0;
+
+    function lightNextSquare(){
+        squares.forEach(square =>
+            square.classList.remove("active")
+        );
+
+        squares[current].classList.add("active");
+
+        current =
+            (current + 1) % squares.length;
+    }
+
+    lightNextSquare();
+
+    setInterval(
+        lightNextSquare,
+        3000
+    );
 </script>
 
-<script src="./Code/basis/cons31-14.js"></script>
-
-<script src="./Code/basis/workingbasiscombine31-14.js"></script>
+<script src="./Code/basis/cons15.js"></script>
+<script src="./Code/basis/navigation10.js"></script>
+<script src="./Code/basis/workingbasiscombine15.js"></script>
 
 
 
