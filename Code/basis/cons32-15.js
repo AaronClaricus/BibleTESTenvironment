@@ -433,7 +433,7 @@ const AppStorage = {
 				{
 					layoutMode: 4,
 					fontSize: "12px",
-					highlightScheme: "default",
+					highlightScheme: "blue",
 					hideSearch: false,
 					hideGo: false,
 					hideControls: false
@@ -588,29 +588,46 @@ const UIState = {
         this.applySideEffects(key, value);
     },
     applySideEffects(key, value) {
-        switch (key) {
-            case "fontSize":
-                document.documentElement.style.setProperty("--font-size", value);
-                break;
-            case "layoutMode":
+		switch (key) {
+
+			case "fontSize":
+				document.documentElement.style.setProperty(
+					"--font-size",
+					value
+				);
+
+				if (fontSelector) {
+					fontSelector.value = value;
+				}
+				break;
+
+			case "layoutMode":
 				UIService.applyLayoutMode();
-			break;
-            case "highlightScheme":
+				break;
+
+			case "highlightScheme":
+				if (highlightSelector) {
+					highlightSelector.value = value;
+				}
+
 				EventBus.emit(
 					"documents:reloadAll"
 				);
-			break;
-            case "hideSearch":
-                document.body.classList.toggle("hide-search", value);
-                break;
-            case "hideGo":
-                document.body.classList.toggle("hide-go", value);
-                break;
-            case "hideControls":
-                document.body.classList.toggle("hide-controls", value);
-                break;
-        }
-    }
+				break;
+
+			case "hideSearch":
+				document.body.classList.toggle("hide-search", value);
+				break;
+
+			case "hideGo":
+				document.body.classList.toggle("hide-go", value);
+				break;
+
+			case "hideControls":
+				document.body.classList.toggle("hide-controls", value);
+				break;
+		}
+	}
 };
 const UIService = {
     getHighlightScheme(key) {
