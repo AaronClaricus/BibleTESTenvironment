@@ -1649,7 +1649,234 @@ const SearchService = {
         );
     }
 };
+const HotkeyService = {
 
+   init() {
+
+		document.body.tabIndex = -1;
+
+		document.addEventListener(
+			"keydown",
+			e => this.handleKeydown(e)
+		);
+
+	},
+
+    handleKeydown(e) {
+console.log(
+    "[HOTKEY]",
+    e.code,
+    e.target
+);
+        if (this.isSearchInput(e.target)) {
+
+            if (e.code === "Escape") {
+                e.preventDefault();
+                e.target.blur();
+                return;
+            }
+
+            if (e.code === "Enter") {
+                e.preventDefault();
+                e.target.blur();
+                this.nextSearchMatch();
+                return;
+            }
+
+            return;
+        }
+
+        if (this.isTyping(e)) {
+            return;
+        }
+
+        switch (e.code) {
+
+            case "Digit1":
+                this.setLayout(1);
+                break;
+
+            case "Digit2":
+                this.setLayout(2);
+                break;
+
+            case "Digit3":
+                this.setLayout(3);
+                break;
+
+            case "Digit4":
+                this.setLayout(4);
+                break;
+
+            case "KeyF":
+                e.preventDefault();
+                this.focusSearch();
+                break;
+
+            case "KeyN":
+                e.preventDefault();
+                this.nextSearchMatch();
+                break;
+
+            case "KeyP":
+                e.preventDefault();
+                this.previousSearchMatch();
+                break;
+        }
+
+    },
+
+    isTyping(e) {
+
+		const tag =
+			e.target.tagName.toLowerCase();
+
+		return (
+			tag === "input" ||
+			tag === "textarea" ||
+			e.target.isContentEditable
+		);
+
+	},
+
+    isSearchInput(element) {
+
+        if (
+            !element ||
+            element.tagName.toLowerCase() !== "input"
+        ) {
+            return false;
+        }
+
+        return [
+            "search",
+            "searchC",
+            "searchD",
+            "searchE"
+        ].includes(
+            element.id
+        );
+
+    },
+
+    setLayout(mode) {
+
+        UIState.set(
+            "layoutMode",
+            mode
+        );
+
+    },
+
+    focusSearch() {
+
+		const searchIds = [
+			"search",
+			"searchC",
+			"searchD",
+			"searchE"
+		];
+
+		const activeFrame =
+			AppState.activeFrame || "frameB";
+
+		const searchMap = {
+			frameB: "search",
+			frameC: "searchC",
+			frameD: "searchD",
+			frameE: "searchE"
+		};
+
+		const preferredId =
+			searchMap[activeFrame];
+
+		const preferredInput =
+			preferredId
+				? document.getElementById(preferredId)
+				: null;
+
+		if (
+			preferredInput &&
+			this.isVisible(preferredInput)
+		) {
+			preferredInput.focus();
+			preferredInput.select();
+			return;
+		}
+
+		const fallbackInput =
+			searchIds
+				.map(id => document.getElementById(id))
+				.find(input =>
+					input && this.isVisible(input)
+				);
+
+		if (!fallbackInput) {
+			return;
+		}
+
+		fallbackInput.focus();
+		fallbackInput.select();
+
+	},
+
+    nextSearchMatch() {
+
+		this.clickButton([
+			"go",
+			"goC",
+			"goD",
+			"goE"
+		]);
+
+		if (document.activeElement) {
+			document.activeElement.blur();
+		}
+
+	},
+
+    previousSearchMatch() {
+
+        this.clickButton([
+            "prev",
+            "prevC",
+            "prevD",
+            "prevE"
+        ]);
+
+    },
+
+	clickButton(ids) {
+
+		for (const id of ids) {
+
+			const button =
+				document.getElementById(id);
+
+			if (
+				button &&
+				this.isVisible(button)
+			) {
+				button.click();
+				button.blur();
+				document.body.focus();
+				return;
+			}
+		}
+
+	},
+
+    isVisible(element) {
+
+        return !!(
+            element.offsetWidth ||
+            element.offsetHeight ||
+            element.getClientRects().length
+        );
+
+    }
+
+};
 // ======================================
 // SEARCH CONTROLLER
 // ======================================
@@ -1754,5 +1981,3 @@ const SearchController = {
 };
 const selected = highlightSelector?.value;
 const scheme = UIService.getHighlightScheme(selected);
-const toggleControls =
-    document.getElementById("toggleControls");

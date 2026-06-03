@@ -688,4 +688,6 @@ body.highlight-lightgreen,
         min-width:150px;
     }
 }
-
+body.hide-controls .nav-controls {
+    display: none;
+}

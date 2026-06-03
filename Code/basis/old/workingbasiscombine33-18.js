@@ -362,13 +362,7 @@ async function init(){
         "Show Go",
         "Hide Go"
     );
-	UIBindings.setupVisibilityToggle(
-		toggleControls,
-		"hide-controls",
-		"hideControls",
-		"Show Controls",
-		"Hide Controls"
-	);
+
     UIBindings.setupLayoutToggle();
 
     UIBindings.setupHighlightSelector();
@@ -378,7 +372,7 @@ async function init(){
     UIBindings.setupSearchControllers();
 
     UIBindings.setupScrollTracking();
-
+	HotkeyService.init();
     DocumentService.restoreLast();
 
 }
