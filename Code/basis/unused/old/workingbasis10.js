@@ -238,6 +238,7 @@ async function init(){
 	LayoutService.init();
 	FontService.init();
 	HighlightService.init();
+	VisibilityService.init();
     UIState.hydrate();
 
     await TemplateService.ensure();
@@ -250,29 +251,6 @@ async function init(){
 
     NavigationService.setupTreeToggle();
 
-    UIBindings.setupVisibilityToggle(
-        toggleSearch,
-        "hide-search",
-        "hideSearch",
-        "Show Search",
-        "Hide Search"
-    );
-
-    UIBindings.setupVisibilityToggle(
-        toggleGo,
-        "hide-go",
-        "hideGo",
-        "Show Go",
-        "Hide Go"
-    );
-	UIBindings.setupVisibilityToggle(
-		toggleControls,
-		"hide-controls",
-		"hideControls",
-		"Show Controls",
-		"Hide Controls"
-	);
-   
 
   
 

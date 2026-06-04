@@ -604,15 +604,9 @@ const UIState = {
 			break;
 
 			case "hideSearch":
-				document.body.classList.toggle("hide-search", value);
-				break;
-
 			case "hideGo":
-				document.body.classList.toggle("hide-go", value);
-				break;
-
 			case "hideControls":
-				document.body.classList.toggle("hide-controls", value);
+				VisibilityService.apply(key);
 				break;
 		}
 	}
@@ -911,6 +905,54 @@ const HighlightService = {
                     highlightSelector.value
                 );
             }
+        );
+    }
+};
+const VisibilityService = {
+
+    apply(key) {
+
+        const classMap = {
+            hideSearch: "hide-search",
+            hideGo: "hide-go",
+            hideControls: "hide-controls"
+        };
+
+        const className =
+            classMap[key];
+
+        if (!className) {
+            return;
+        }
+
+        document.body.classList.toggle(
+            className,
+            UIState.get(key)
+        );
+    },
+
+    toggle(key) {
+        UIState.set(
+            key,
+            !UIState.get(key)
+        );
+    },
+
+    init() {
+
+        toggleSearch.addEventListener(
+            "click",
+            () => this.toggle("hideSearch")
+        );
+
+        toggleGo.addEventListener(
+            "click",
+            () => this.toggle("hideGo")
+        );
+
+        toggleControls.addEventListener(
+            "click",
+            () => this.toggle("hideControls")
         );
     }
 };
