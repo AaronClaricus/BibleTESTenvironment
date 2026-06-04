@@ -72,7 +72,7 @@ const KeyboardShortcutService = {
 
     handleKeydown(e, frameId = null) {
         const key = e.key.toLowerCase();
-
+		const code = e.code;
         if (frameId) {
             this.activeFrameId = frameId;
         }
@@ -114,25 +114,41 @@ const KeyboardShortcutService = {
                 this.clickGo();
                 break;
 
-            case "1":
-                e.preventDefault();
-                UIState.set("layoutMode", 1);
-                break;
+          case "1":
+				if (e.location === KeyboardEvent.DOM_KEY_LOCATION_NUMPAD) {
+					return;
+				}
 
-            case "2":
-                e.preventDefault();
-                UIState.set("layoutMode", 2);
-                break;
+				e.preventDefault();
+				UIState.set("layoutMode", 1);
+				break;
 
-            case "3":
-                e.preventDefault();
-                UIState.set("layoutMode", 3);
-                break;
+			case "2":
+				if (e.location === KeyboardEvent.DOM_KEY_LOCATION_NUMPAD) {
+					return;
+				}
 
-            case "4":
-                e.preventDefault();
-                UIState.set("layoutMode", 4);
-                break;
+				e.preventDefault();
+				UIState.set("layoutMode", 2);
+				break;
+
+			case "3":
+				if (e.location === KeyboardEvent.DOM_KEY_LOCATION_NUMPAD) {
+					return;
+				}
+
+				e.preventDefault();
+				UIState.set("layoutMode", 3);
+				break;
+
+			case "4":
+				if (e.location === KeyboardEvent.DOM_KEY_LOCATION_NUMPAD) {
+					return;
+				}
+
+				e.preventDefault();
+				UIState.set("layoutMode", 4);
+				break;
 
             case "/":
                 e.preventDefault();
