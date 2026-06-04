@@ -262,6 +262,24 @@ const SearchController = {
             );
             updateCounter();
         }
+		 function previousMatch() {
+			if (!state.matches.length) {
+				updateCounter();
+				return;
+			}
+
+			state.index--;
+
+			if (state.index < 0) {
+				state.index = state.matches.length - 1;
+			}
+
+			scrollToMatch(
+				state.matches[state.index]
+			);
+
+			updateCounter();
+		}
         function runSearch() {
             const term =
                 input.value.trim();
@@ -280,13 +298,36 @@ const SearchController = {
             runSearch
         );
         input.addEventListener(
-            "keydown",
-            e => {
-                if (e.key === "Enter") {
-                    runSearch();
-                }
-            }
-        );
+			"keydown",
+			e => {
+				if (e.key === "Enter") {
+					e.preventDefault();
+					e.stopPropagation();
+
+					const term = input.value.trim();
+
+					if (!term) {
+						return;
+					}
+
+					if (state.lastTerm !== term) {
+						resetSearch(term);
+					}
+
+					if (e.shiftKey) {
+						previousMatch();
+					}
+					else {
+						advanceMatch();
+					}
+				}
+
+				if (e.key === "Escape") {
+					e.preventDefault();
+					input.blur();
+				}
+			}
+		);
     }
 };
 const SearchBindingsService = {

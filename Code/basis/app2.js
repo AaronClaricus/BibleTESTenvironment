@@ -26,7 +26,7 @@ const AppInitializer = {
         NavigationService.setupTreeToggle();
 
         SearchBindingsService.init();
-
+		KeyboardShortcutService.init();
         ScrollTrackingService.init();
 
         DocumentService.restoreLast();
