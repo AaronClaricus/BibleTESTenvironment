@@ -1,0 +1,515 @@
+// ======================================
+// DOCUMENT LOAD PIPELINE
+// ======================================
+const StatusUIService = {
+
+    getElement(frameId) {
+        return document.querySelector(
+            `[data-status-for="${frameId}"]`
+        );
+    },
+
+    update(context, status) {
+        const el =
+            this.getElement(context.frameId);
+
+        if (!el) {
+            return;
+        }
+
+        el.textContent = status;
+
+        el.dataset.status = status;
+    },
+
+    clear(context) {
+        const el =
+            this.getElement(context.frameId);
+
+        if (!el) {
+            return;
+        }
+
+        el.textContent = "";
+
+        delete el.dataset.status;
+    }
+};
+
+const PipelineStatusService = {
+
+    set(context, status) {
+		context.status = status;
+
+		StatusUIService.update(
+			context,
+			status
+		);
+
+		console.log("[DOCUMENT STATUS]", {
+			frameId: context.frameId,
+			file: context.file,
+			status
+		});
+	},
+
+    loading(context) {
+        this.set(
+            context,
+            "loading"
+        );
+    },
+
+    ready(context) {
+		this.set(
+			context,
+			"ready"
+		);
+
+		StatusUIService.clear(context);
+	},
+
+    error(context, err) {
+        context.error = err;
+
+        this.set(
+            context,
+            "error"
+        );
+    }
+};
+const DocumentPipeline = {
+
+    createContext(frameId, file) {
+		return {
+			frameId,
+			file,
+			iframe: FrameRegistry.get(frameId),
+			text: "",
+			scheme: null,
+			status: "idle",
+			error: null
+		};
+	},
+
+    validate(context) {
+        if (!context.iframe || !context.file) {
+            console.warn("[DOCUMENT PIPELINE BLOCKED]", {
+                frameId: context.frameId,
+                file: context.file
+            });
+
+            return false;
+        }
+
+        return true;
+    },
+
+   start(context) {
+		PipelineStatusService.loading(context);
+
+		console.log("[DOCUMENT PIPELINE START]", {
+			frameId: context.frameId,
+			file: context.file
+		});
+
+		DocumentService.setActive(
+			context.frameId,
+			context.file
+		);
+	},
+
+    async ensureTemplate() {
+        await TemplateService.ensure();
+    },
+
+    async fetchDocument(context) {
+        context.text =
+            await DocumentRepository.fetch(
+                context.file
+            );
+    },
+
+    prepareScheme(context) {
+        context.scheme =
+            UIService.getHighlightScheme(
+                UIState.get("highlightScheme")
+            );
+    },
+
+    render(context) {
+        FrameService.render(
+            context.iframe,
+            context.text,
+            context.scheme
+        );
+    },
+
+    afterRender(context) {
+        FrameService.updateTitle(
+            context.frameId,
+            context.file
+        );
+
+        SearchService.resetFrame(
+            context.iframe
+        );
+
+        ScrollService.restore(
+            context.frameId,
+            context.iframe
+        );
+    },
+
+    fail(context, err) {
+		PipelineStatusService.error(
+			context,
+			err
+		);
+		console.error("[DOCUMENT PIPELINE ERROR]", err);
+
+		FrameService.renderError(
+			context.iframe,
+			err
+		);
+
+		FrameService.updateTitle(
+			context.frameId,
+			context.file
+		);
+	},
+
+    complete(context) {
+		PipelineStatusService.ready(context);
+
+		console.log("[DOCUMENT PIPELINE COMPLETE]", {
+			frameId: context.frameId,
+			file: context.file
+		});
+	},
+	beforeFetch(context) {
+		console.log("[PIPELINE BEFORE FETCH]", {
+			frameId: context.frameId,
+			file: context.file
+		});
+	},
+
+	afterFetch(context) {
+		console.log("[PIPELINE AFTER FETCH]", {
+			frameId: context.frameId,
+			file: context.file,
+			textLength: context.text.length
+		});
+	},
+
+	beforeRender(context) {
+		console.log("[PIPELINE BEFORE RENDER]", {
+			frameId: context.frameId,
+			file: context.file
+		});
+	},
+
+	afterComplete(context) {
+		console.log("[PIPELINE AFTER COMPLETE]", {
+			frameId: context.frameId,
+			file: context.file
+		});
+	},
+	
+    async load(frameId, file) {
+        const context =
+            this.createContext(frameId, file);
+
+        if (!this.validate(context)) {
+            return;
+        }
+
+        try {
+            this.start(context);
+
+           await this.ensureTemplate();
+
+			this.beforeFetch(context);
+
+			await this.fetchDocument(context);
+
+			this.afterFetch(context);
+
+			this.prepareScheme(context);
+
+			this.beforeRender(context);
+
+			this.render(context);
+
+			this.afterRender(context);
+
+			this.complete(context);
+
+			this.afterComplete(context);
+        }
+        catch (err) {
+            this.fail(context, err);
+        }
+    }
+};
+const DocumentSession = {
+
+    restoreLast() {
+        const lastOpened =
+            DocumentService.getLastOpened();
+
+        FRAMES.forEach(frame => {
+            const frameId = frame[0];
+
+            const file =
+                lastOpened[frameId] ||
+                DEFAULT_FILES[frameId];
+
+            console.log("[DOCUMENT SESSION RESTORE]", {
+                frameId,
+                file
+            });
+
+            EventBus.emit(
+                EVENTS.DOCUMENT_LOAD,
+                {
+                    frameId,
+                    file
+                }
+            );
+        });
+    },
+
+    reloadAll() {
+        FRAMES.forEach(frame => {
+            const frameId = frame[0];
+
+            const file =
+                DocumentService.getCurrent(frameId);
+
+            if (!file) {
+                console.warn("[DOCUMENT SESSION RELOAD SKIPPED]", {
+                    frameId,
+                    file
+                });
+                return;
+            }
+
+            EventBus.emit(
+                EVENTS.DOCUMENT_LOAD,
+                {
+                    frameId,
+                    file
+                }
+            );
+        });
+    }
+};
+const FileService = {
+    _cache: new Map(),
+    _order: [],
+    async get(file) {
+        if (this._cache.has(file)) {
+            return this._cache.get(file);
+        }
+        const response = await fetch(file);
+        if (!response.ok) {
+            throw new Error(`Failed to fetch ${file}`);
+        }
+        const text = await response.text();
+        this._cache.set(file, text);
+        this._order.push(file);
+
+        if (this._order.length > CONFIG.cache.maxFiles) {
+            const oldest = this._order.shift();
+            this._cache.delete(oldest);
+        }
+        return text;
+    }
+};
+// ======================================
+// DOCUMENT REPOSITORY
+// ======================================
+const DocumentRepository = {
+    async fetch(file) {
+
+        return FileService.get(
+            file
+        );
+    },
+    async preload(files) {
+        return Promise.all(
+            files.map(
+                file =>
+                    this.fetch(file)
+            )
+        );
+    },
+    async exists(file) {
+        try {
+            await this.fetch(file);
+            return true;
+        }
+        catch {
+
+            return false;
+        }
+    }
+};
+const DocumentService = {
+	  async load(frameId, file) {
+			return DocumentPipeline.load(
+				frameId,
+				file
+			);
+		},
+		setActive(
+        frameId,
+        file
+    ) {
+        console.log(
+            "[DOCUMENT ACTIVE]",
+            {
+                frameId,
+                file
+            }
+        );
+        AppState.setCurrentFile(
+            frameId,
+            file
+        );
+        PersistenceService.saveLastOpened(
+            frameId,
+            file
+        );
+    },
+    getCurrent(frameId) {
+		return AppState.getCurrentFile(frameId);
+	},
+    getActive(
+        frameId
+    ) {
+        return AppState.getCurrentFile(
+            frameId
+        );
+    },
+    // ------------------
+    // RELOAD ONE DOCUMENT
+    // ------------------
+	  reload(frameId) {
+		const file =
+			AppState.getCurrentFile(
+				frameId
+			);
+
+		if (!file) {
+			return;
+		}
+		EventBus.emit(
+			"document:reload",
+			{
+				frameId,
+				file
+			}
+		);
+	},
+    // ------------------
+    // RELOAD ALL DOCUMENTS
+    // ------------------
+	reloadAll() {
+		return DocumentSession.reloadAll();
+	},
+	getLastOpened() {
+		return AppState.getLastOpened() || {};
+	},
+    // ------------------
+    // RESTORE LAST OPENED
+    // ------------------
+	 restoreLast() {
+		return DocumentSession.restoreLast();
+	}
+};
+// ======================================
+// DOCUMENT INDEX
+// ======================================
+const DocumentIndex = {
+    _index: [],
+    build(documents = []) {
+        this._index =
+            documents.map(document => {
+                return {
+                    id: document.id || document.file,
+                    title: document.title || "",
+                    file: document.file || "",
+                    text: document.text || ""
+                };
+
+            });
+        console.log(
+            "[DOCUMENT INDEX BUILT]",
+            this._index.length
+        );
+        return this._index;
+    },
+    query(term) {
+        if (!term) {
+            return [];
+        }
+        const needle =
+            term.toLowerCase();
+        return this._index.filter(entry => {
+            return (
+                entry.title.toLowerCase().includes(needle) ||
+                entry.file.toLowerCase().includes(needle) ||
+                entry.text.toLowerCase().includes(needle)
+            );
+        });
+    },
+    clear() {
+        this._index = [];
+        console.log(
+            "[DOCUMENT INDEX CLEARED]"
+        );
+    }
+};
+const TemplateRepository = {
+    async fetch() {
+        const response =
+            await fetch("./Code/template.html");
+
+        console.log(
+            "[TEMPLATE FETCH]",
+            response.status
+        );
+
+        if (!response.ok) {
+            throw new Error(
+                "Template fetch failed: " +
+                response.status
+            );
+        }
+
+        return await response.text();
+    }
+};
+
+const TemplateService = {
+    async ensure() {
+        console.log("[TEMPLATE] ensure called");
+
+        if (APP.state.templateHTML) {
+            console.log("[TEMPLATE] already cached");
+            return;
+        }
+
+        const html =
+            await TemplateRepository.fetch();
+
+        APP.state.templateHTML = html;
+
+        console.log(
+            "[TEMPLATE] stored",
+            APP.state.templateHTML?.length
+        );
+    }
+};

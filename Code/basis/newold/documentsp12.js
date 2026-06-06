@@ -1,64 +1,222 @@
 // ======================================
 // DOCUMENT LOAD PIPELINE
 // ======================================
-async function loadDocumentPipeline(
-    frameId,
-    file
-) {
-    const iframe =
-        document.getElementById(
-            frameId
-        );
-    if (!iframe) {
-        console.warn(
-            "[PIPELINE BLOCKED] Missing iframe",
-            {
-                frameId,
-                file
-            }
-        );
-        return;
-    }
-    try {
-        DocumentService.setActive(
+const DocumentPipeline = {
+
+    createContext(frameId, file) {
+        return {
             frameId,
-            file
+            file,
+            iframe: FrameRegistry.get(frameId),
+            text: "",
+            scheme: null
+        };
+    },
+
+    validate(context) {
+        if (!context.iframe || !context.file) {
+            console.warn("[DOCUMENT PIPELINE BLOCKED]", {
+                frameId: context.frameId,
+                file: context.file
+            });
+
+            return false;
+        }
+
+        return true;
+    },
+
+    start(context) {
+        console.log("[DOCUMENT PIPELINE START]", {
+            frameId: context.frameId,
+            file: context.file
+        });
+
+        DocumentService.setActive(
+            context.frameId,
+            context.file
         );
+    },
+
+    async ensureTemplate() {
         await TemplateService.ensure();
-        const text =
+    },
+
+    async fetchDocument(context) {
+        context.text =
             await DocumentRepository.fetch(
-                file
+                context.file
             );
-        const scheme =
+    },
+
+    prepareScheme(context) {
+        context.scheme =
             UIService.getHighlightScheme(
-                UIState.get(
-                    "highlightScheme"
-                )
+                UIState.get("highlightScheme")
             );
-        console.log(
-            "[DOCUMENT PIPELINE]",
-            {
-                frameId,
-                file,
-                length: text?.length
-            }
-        );
+    },
+
+    render(context) {
         FrameService.render(
-            iframe,
-            text,
-            scheme
+            context.iframe,
+            context.text,
+            context.scheme
         );
+    },
+
+    afterRender(context) {
+        FrameService.updateTitle(
+            context.frameId,
+            context.file
+        );
+
         SearchService.resetFrame(
-            iframe
+            context.iframe
         );
-    }
-    catch (err) {
+
+        ScrollService.restore(
+            context.frameId,
+            context.iframe
+        );
+    },
+
+    fail(context, err) {
+        console.error("[DOCUMENT PIPELINE ERROR]", err);
+
         FrameService.renderError(
-            iframe,
+            context.iframe,
             err
         );
+
+        FrameService.updateTitle(
+            context.frameId,
+            context.file
+        );
+    },
+
+    complete(context) {
+        console.log("[DOCUMENT PIPELINE COMPLETE]", {
+            frameId: context.frameId,
+            file: context.file
+        });
+    },
+	beforeFetch(context) {
+		console.log("[PIPELINE BEFORE FETCH]", {
+			frameId: context.frameId,
+			file: context.file
+		});
+	},
+
+	afterFetch(context) {
+		console.log("[PIPELINE AFTER FETCH]", {
+			frameId: context.frameId,
+			file: context.file,
+			textLength: context.text.length
+		});
+	},
+
+	beforeRender(context) {
+		console.log("[PIPELINE BEFORE RENDER]", {
+			frameId: context.frameId,
+			file: context.file
+		});
+	},
+
+	afterComplete(context) {
+		console.log("[PIPELINE AFTER COMPLETE]", {
+			frameId: context.frameId,
+			file: context.file
+		});
+	},
+    async load(frameId, file) {
+        const context =
+            this.createContext(frameId, file);
+
+        if (!this.validate(context)) {
+            return;
+        }
+
+        try {
+            this.start(context);
+
+           await this.ensureTemplate();
+
+			this.beforeFetch(context);
+
+			await this.fetchDocument(context);
+
+			this.afterFetch(context);
+
+			this.prepareScheme(context);
+
+			this.beforeRender(context);
+
+			this.render(context);
+
+			this.afterRender(context);
+
+			this.complete(context);
+
+			this.afterComplete(context);
+        }
+        catch (err) {
+            this.fail(context, err);
+        }
     }
-}
+};
+const DocumentSession = {
+
+    restoreLast() {
+        const lastOpened =
+            DocumentService.getLastOpened();
+
+        FRAMES.forEach(frame => {
+            const frameId = frame[0];
+
+            const file =
+                lastOpened[frameId] ||
+                DEFAULT_FILES[frameId];
+
+            console.log("[DOCUMENT SESSION RESTORE]", {
+                frameId,
+                file
+            });
+
+            EventBus.emit(
+                EVENTS.DOCUMENT_LOAD,
+                {
+                    frameId,
+                    file
+                }
+            );
+        });
+    },
+
+    reloadAll() {
+        FRAMES.forEach(frame => {
+            const frameId = frame[0];
+
+            const file =
+                DocumentService.getCurrent(frameId);
+
+            if (!file) {
+                console.warn("[DOCUMENT SESSION RELOAD SKIPPED]", {
+                    frameId,
+                    file
+                });
+                return;
+            }
+
+            EventBus.emit(
+                EVENTS.DOCUMENT_LOAD,
+                {
+                    frameId,
+                    file
+                }
+            );
+        });
+    }
+};
 const FileService = {
     _cache: new Map(),
     _order: [],
@@ -111,16 +269,13 @@ const DocumentRepository = {
     }
 };
 const DocumentService = {
-    async load(
-		frameId,
-		file
-	) {
-		return loadDocumentPipeline(
-			frameId,
-			file
-		);
-	},
-    setActive(
+	  async load(frameId, file) {
+			return DocumentPipeline.load(
+				frameId,
+				file
+			);
+		},
+		setActive(
         frameId,
         file
     ) {
@@ -140,6 +295,9 @@ const DocumentService = {
             file
         );
     },
+    getCurrent(frameId) {
+		return AppState.getCurrentFile(frameId);
+	},
     getActive(
         frameId
     ) {
@@ -171,52 +329,17 @@ const DocumentService = {
     // RELOAD ALL DOCUMENTS
     // ------------------
 	reloadAll() {
-		FRAMES.forEach(frame => {
-			const frameId =
-				frame[0];
-
-			const file =
-				AppState.getCurrentFile(
-					frameId
-				);
-
-			if (!file) {
-				return;
-			}
-			EventBus.emit(
-				"document:reload",
-				{
-					frameId,
-					file
-				}
-			);
-		});
+		return DocumentSession.reloadAll();
+	},
+	getLastOpened() {
+		return AppState.getLastOpened() || {};
 	},
     // ------------------
     // RESTORE LAST OPENED
     // ------------------
-    restoreLast() {
-        const lastOpened =
-            AppState.getLastOpened() || {};
-        FRAMES.forEach(frame => {
-            const frameId =
-                frame[0];
-            const file =
-                lastOpened[frameId] ||
-                DEFAULT_FILES[frameId];
-            console.log(
-                "[DOCUMENT RESTORE LAST]",
-                {
-                    frameId,
-                    file
-                }
-            );
-            this.load(
-                frameId,
-                file
-            );
-        });
-    }
+	 restoreLast() {
+		return DocumentSession.restoreLast();
+	}
 };
 // ======================================
 // DOCUMENT INDEX

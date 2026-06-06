@@ -235,7 +235,15 @@ const NAVIGATION = [
 			]
 		]
 ];
-
+// ======================================
+// DEFAULT OPEN FILES
+// ======================================
+const DEFAULT_FILES = {
+    frameB: "./WEB/Gospel/Matthew",
+    frameC: "./WEB/Gospel/John",
+    frameD: "./WEB/Epistles/Romans",
+    frameE: "./WEB/Prophets/Revelation"
+};
 // ======================================
 // BEGIN GLOBAL VARIABLES
 // ======================================
