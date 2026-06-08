@@ -16,7 +16,7 @@ const KeyboardShortcutService = {
     },
 
     bindIframeFocus() {
-        FRAMES.forEach(([frameId]) => {
+        ConfigService.getFrames().forEach(([frameId]) => {
             const iframe = document.getElementById(frameId);
 
             if (!iframe) {

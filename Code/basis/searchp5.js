@@ -234,7 +234,10 @@ const SearchController = {
                 top:
                     win.scrollY +
                     rect.top -
-                    CONFIG.search.scrollOffset,
+                    ConfigService.get(
+    "config.search.scrollOffset",
+    120
+),
                 behavior: "auto"
             });
         }

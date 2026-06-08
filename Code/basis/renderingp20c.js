@@ -29,9 +29,9 @@ const HTMLRenderer = {
                 `;
         return template
             .replaceAll(
-                "__FONT_SIZE__",
-                size
-            )
+				"__FONT_SIZE__",
+				`${UIState.getFontSize()}px`
+			)
             .replaceAll(
                 "__HIGHLIGHT_BG__",
                 scheme.bg
@@ -63,10 +63,10 @@ const FrameRegistry = {
     },
 
     getAll() {
-        return FRAMES
-            .map(frame => this.get(frame[0]))
-            .filter(Boolean);
-    }
+		return ConfigService.getFrames()
+			.map(frame => this.get(frame[0]))
+			.filter(Boolean);
+	}
 };
 const FrameService = {
     render(iframe, text, scheme) {
@@ -98,7 +98,7 @@ const FrameService = {
     ) {
         const titleBar =
             document.getElementById(
-                FRAME_TITLES[frameId]
+                ConfigService.getFrameTitles()[frameId] || frameId
             );
         if(!titleBar){
             return;
