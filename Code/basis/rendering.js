@@ -6,13 +6,8 @@ import {
 import {
     EventBus
 } from "./event-bus.js";
-import {
-    
-    EVENTS
-} from "./events.js";
-import {
-    DocumentSession
-} from "./documents.js";
+import { EVENTS } from "./event-names.js";
+
 import {
     ConfigService
 } from "./config.js";

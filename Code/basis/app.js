@@ -30,11 +30,15 @@ import {
 import {
     TemplateService,
     DocumentService,
-    DocumentLoadRequest
+    
 } from "./documents.js";
+
+import {
+    DocumentLoadRequest
+} from "./document-load-request.js";
 import {
     registerEventBusHandlers,
-    EVENTS
+ 
 } from "./events.js";
 import {
     Router

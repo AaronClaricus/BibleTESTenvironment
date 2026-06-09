@@ -9,10 +9,7 @@ import {
 import {
     EventBus
 } from "./event-bus.js";
-import {
-    
-    EVENTS
-} from "./events.js";
+import { EVENTS } from "./event-names.js";
 import {
     DocumentSession
 } from "./documents.js";

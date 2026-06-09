@@ -1,41 +1,19 @@
 import {
-    TemplateService,
-    DocumentService,
-    DocumentLoadRequest
-} from "./documents.js";
-import {
-    PersistenceService
-} from "./storage.js";
-import {
-	AppState,
-	APP,
-	UIState
-} from "./state.js";
-import {
-  
-    UIService
-} from "./ui.js";
-import {
-    FrameRegistry,
-    FrameService
-} from "./rendering.js";
-import {
-    SearchService
-} from "./search.js";
-import {
-    DocumentSession
-} from "./documents.js";
-import {
-   
-    EVENTS
-} from "./events.js";
-import {
     ConfigService,
     DocumentPipelineDebug
 } from "./config.js";
+
 import {
     EventBus
 } from "./event-bus.js";
+
+import {
+    EVENTS
+} from "./event-names.js";
+
+import {
+    DocumentLoadRequest
+} from "./document-load-request.js";
 export const Router = {
     init() {
         this.bindDocumentLinks();

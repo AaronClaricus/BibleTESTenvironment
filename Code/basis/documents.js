@@ -7,9 +7,7 @@ import {
 import {
     EventBus
 } from "./event-bus.js";
-import {
-    EVENTS
-} from "./events.js";
+import { EVENTS } from "./event-names.js";
 import {
     PersistenceService
 } from "./storage.js";
@@ -29,6 +27,9 @@ import {
     ConfigService,
     DocumentPipelineDebug
 } from "./config.js";
+import {
+    DocumentLoadRequest
+} from "./document-load-request.js";
 // ======================================
 // DOCUMENT LOAD PIPELINE
 // ======================================
@@ -166,39 +167,7 @@ const DocumentPipelineEvents = {
         );
     }
 };
-export const DocumentLoadRequest = {
 
-    create(frameId, file, options = {}) {
-        return {
-            frameId,
-            file,
-            source: options.source || "unknown",
-            restoreScroll: options.restoreScroll !== false,
-            resetSearch: options.resetSearch !== false,
-            timestamp: Date.now()
-        };
-    },
-
-    fromPayload(payload = {}) {
-        return this.create(
-            payload.frameId,
-            payload.file,
-            {
-                source: payload.source,
-                restoreScroll: payload.restoreScroll,
-                resetSearch: payload.resetSearch
-            }
-        );
-    },
-
-    isValid(request) {
-        return !!(
-            request &&
-            request.frameId &&
-            request.file
-        );
-    }
-};
 
 
 const DocumentPipeline = {
