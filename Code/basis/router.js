@@ -29,7 +29,10 @@ import {
    
     EVENTS
 } from "./events.js";
-
+import {
+    ConfigService,
+    DocumentPipelineDebug
+} from "./config.js";
 export const EventBus = {
     events: {},
     on(eventName, handler) {

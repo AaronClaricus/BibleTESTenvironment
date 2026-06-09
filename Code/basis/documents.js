@@ -25,7 +25,10 @@ import {
     
     SearchService
 } from "./search.js";
-
+import {
+    ConfigService,
+    DocumentPipelineDebug
+} from "./config.js";
 // ======================================
 // DOCUMENT LOAD PIPELINE
 // ======================================

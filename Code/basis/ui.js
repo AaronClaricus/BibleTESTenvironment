@@ -16,6 +16,9 @@ import {
 import {
     DocumentSession
 } from "./documents.js";
+import {
+    ConfigService
+} from "./config.js";
 export const UIService = {
     getHighlightScheme(key) {
         return (

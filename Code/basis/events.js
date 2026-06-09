@@ -29,7 +29,10 @@ import {
 import {
     DocumentSession
 } from "./documents.js";
-
+import {
+    ConfigService,
+    DocumentPipelineDebug
+} from "./config.js";
 // ======================================
 // EVENT BUS HANDLERS
 // ======================================

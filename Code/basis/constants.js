@@ -11,8 +11,6 @@ import {
 
 
 
-window.ConfigService = ConfigService;
-window.DocumentPipelineDebug = DocumentPipelineDebug;
 
 
 

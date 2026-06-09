@@ -54,7 +54,10 @@ import {
 import {
     KeyboardShortcutService
 } from "./shortcuts.js";
-
+import {
+    ConfigService,
+    DocumentPipelineDebug
+} from "./config.js";
 const AppInitializer = {
     async init() {
         console.log("APP INIT");

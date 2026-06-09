@@ -1,7 +1,9 @@
 import {
 	UIState
 } from "./state.js";
-
+import {
+    ConfigService,
+} from "./config.js";
 
 export const KeyboardShortcutService = {
     activeFrameId: "frameB",

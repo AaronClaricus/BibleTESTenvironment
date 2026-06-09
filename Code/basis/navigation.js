@@ -2,7 +2,10 @@ import {
     NAVIGATION,
     
 } from "./Navigationlist.js";
-
+import {
+    ConfigService,
+   
+} from "./config.js";
 
 const NavigationModel = {
     structure: NAVIGATION,
