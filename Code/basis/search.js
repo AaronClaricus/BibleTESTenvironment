@@ -2,6 +2,13 @@ import {
     FrameRegistry
 } from "./rendering.js";
 import { DOM } from "./dom.js";
+
+import {
+   
+    ConfigService,
+    DocumentPipelineDebug
+} from "./config.js";
+
 const SearchEngine = {
     findMatches(doc, term) {
         const escaped = term.replace(/[.*?^${}()|[\]\\]/g, "\\$&");
