@@ -1,6 +1,6 @@
 import {
 	UIState
-} from "./modules/state.js";
+} from "./state.js";
 
 
 export const KeyboardShortcutService = {

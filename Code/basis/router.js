@@ -2,7 +2,7 @@ import {
     TemplateService,
     DocumentService,
     DocumentLoadRequest
-} from "./documentsp20.js";
+} from "./documents.js";
 import {
     PersistenceService
 } from "./storage.js";
@@ -10,19 +10,18 @@ import {
 	AppState,
 	APP,
 	UIState
-} from "./modules/state.js";
+} from "./state.js";
 import {
   
     UIService
-} from "./uip20.js";
+} from "./ui.js";
 import {
     FrameRegistry,
     FrameService
-} from "./renderingp20c.js";
+} from "./rendering.js";
 import {
-    
     SearchService
-} from "./searchp5.js";
+} from "./search.js";
 
 export const EventBus = {
     events: {},

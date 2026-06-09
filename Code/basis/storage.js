@@ -2,11 +2,11 @@ import {
     StateManager,
 	APP,
 	AppState
-} from "./modules/state.js";
+} from "./state.js";
 import {
     LAST_OPENED_KEY,
     SCROLL_STORE_KEY
-} from "./constantsnew20c.js";
+} from "./constants.js";
 
 // ======================================
 // STORAGE SYSTEM
