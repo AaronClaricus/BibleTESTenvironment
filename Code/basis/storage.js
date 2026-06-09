@@ -1,8 +1,4 @@
-import {
-    StateManager,
-	APP,
-	AppState
-} from "./state.js";
+
 import {
     LAST_OPENED_KEY,
     SCROLL_STORE_KEY
@@ -86,12 +82,10 @@ export const AppStorage = {
 	// SETTINGS
 	// ==============================
 	settings: {
-		load(){
+		load(fallback = {}){
 			return AppStorage.get(
 				"settings",
-				{
-					...APP.state.ui
-				}
+				fallback
 			);
 		},
 		save(settings){
@@ -146,21 +140,4 @@ export const AppStorage = {
 		}
 	}
 };
-export const PersistenceService = {
-    saveLastOpened(
-        frameId,
-        file
-    ) {
-        AppStorage.lastOpened.setFile(
-            frameId,
-            file
-        );
-        const current =
-            AppState.getLastOpened() || {};
-        current[frameId] =
-            file;
-        AppState.setLastOpened(
-            current
-        );
-    }
-};
+

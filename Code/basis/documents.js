@@ -8,9 +8,7 @@ import {
     EventBus
 } from "./event-bus.js";
 import { EVENTS } from "./event-names.js";
-import {
-    PersistenceService
-} from "./storage.js";
+
 import {
   
     UIService
@@ -30,9 +28,31 @@ import {
 import {
     DocumentLoadRequest
 } from "./document-load-request.js";
+import {
+    AppStorage
+    
+} from "./storage.js";
 // ======================================
 // DOCUMENT LOAD PIPELINE
 // ======================================
+export const PersistenceService = {
+    saveLastOpened(
+        frameId,
+        file
+    ) {
+        AppStorage.lastOpened.setFile(
+            frameId,
+            file
+        );
+        const current =
+            AppState.getLastOpened() || {};
+        current[frameId] =
+            file;
+        AppState.setLastOpened(
+            current
+        );
+    }
+};
 const StatusUIService = {
 
     getElement(frameId) {

@@ -14,11 +14,12 @@ import {
 
 import {
     StateManager,
-	UIState
+	UIState,
+	APP
 } from "./state.js";
 import {
-    AppStorage,
-    PersistenceService
+    AppStorage
+    
 } from "./storage.js";
 import {
     LayoutService,
@@ -30,7 +31,7 @@ import {
 import {
     TemplateService,
     DocumentService,
-    
+    PersistenceService
 } from "./documents.js";
 
 import {
@@ -61,21 +62,33 @@ import {
     KeyboardShortcutService
 } from "./shortcuts.js";
 import { DOM } from "./dom.js";
+
 const AppInitializer = {
     async init() {
         console.log("APP INIT");
 		ConfigValidator.validate();
 		DOM.clear();
-        StateManager.hydrate();
+		const savedSettings =
+			AppStorage.settings.load(APP.state.ui);
 
-        UIState.init();
+		const lastOpened =
+			AppStorage.lastOpened.load(APP.state.app.lastOpened);
 
-        LayoutService.init();
-        FontService.init();
-        HighlightService.init();
-        VisibilityService.init();
-		
-        UIState.hydrate();
+		StateManager.hydrate({
+			ui: savedSettings,
+			app: {
+				lastOpened
+			}
+		});
+
+		UIState.hydrate(savedSettings);
+
+		UIState.init();
+
+		LayoutService.init();
+		FontService.init();
+		HighlightService.init();
+		VisibilityService.init();
 
         await TemplateService.ensure();
 

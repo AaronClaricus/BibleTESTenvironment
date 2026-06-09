@@ -1,4 +1,7 @@
-
+import {
+    AppStorage
+    
+} from "./storage.js";
 export const EventBus = {
     events: {},
 

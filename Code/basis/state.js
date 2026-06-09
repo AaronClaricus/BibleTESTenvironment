@@ -1,6 +1,4 @@
-import {
-    AppStorage
-} from "./storage.js";
+import { AppStorage } from "./storage.js";
 import {
     LayoutService,
 	FontService,
@@ -58,18 +56,34 @@ export const StateManager = {
 		target[last] = value;
 		this.notify(path, value);
 	},
-	hydrate(){
-    const settings =
-        AppStorage.settings.load();
-    if(settings){
-        Object.assign(
-            this.state.ui,
-            settings
-        );
-    }
-    this.state.app.lastOpened =
-        AppStorage.lastOpened.load() || {};
-},
+	hydrate(initialState = {}) {
+		this.state = {
+			...APP.state,
+
+			app: {
+				...APP.state.app,
+				...(initialState.app || {})
+			},
+
+			ui: {
+				...APP.state.ui,
+				...(initialState.ui || {})
+			},
+
+			searchState: {
+				...APP.state.searchState,
+				...(initialState.searchState || {})
+			},
+
+			scrollStore: {
+				...APP.state.scrollStore,
+				...(initialState.scrollStore || {})
+			},
+
+			templateHTML:
+				initialState.templateHTML ?? APP.state.templateHTML
+		};
+	},
     subscribe(path,callback) {
         if(!this.listeners[path]){
 
@@ -94,16 +108,11 @@ export const UIState = {
     init(){
 
 },
-    hydrate() {
-		const savedSettings =
-			AppStorage.settings.load();
-
+    hydrate(savedSettings = {}) {
 		StateManager.state.ui = {
 			...APP.state.ui,
 			...savedSettings
 		};
-
-		
 
 		Object.entries(StateManager.state.ui).forEach(
 			([key, value]) => {
@@ -117,7 +126,10 @@ export const UIState = {
     set(key, value) {
 		StateManager.set(`ui.${key}`, value);
 
-		AppStorage.set(this.key, StateManager.get("ui"));
+		AppStorage.settings.save(
+			StateManager.get("ui")
+		);
+
 		this.applySideEffects(key, value);
 	},
 	getFontSize() {
