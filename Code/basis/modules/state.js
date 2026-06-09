@@ -7,6 +7,9 @@ import {
 	HighlightService,
 	VisibilityService
 } from "../uip20.js";
+import {
+    LAST_OPENED_KEY
+} from "../constantsnew20c.js";
 export const APP = {
     state: {
         app: {

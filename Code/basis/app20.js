@@ -2,7 +2,10 @@ import {
     ConfigValidator,
     AppConfig
 } from "./modules/config.js";
-
+import {
+    LAST_OPENED_KEY,
+    SCROLL_STORE_KEY
+} from "./constantsnew20c.js";
 import {
     NavigationService,
 } from "./navigationp20c.js";

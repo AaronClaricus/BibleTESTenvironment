@@ -3,7 +3,10 @@ import {
 	APP,
 	AppState
 } from "./modules/state.js";
-
+import {
+    LAST_OPENED_KEY,
+    SCROLL_STORE_KEY
+} from "./constantsnew20c.js";
 
 // ======================================
 // STORAGE SYSTEM
