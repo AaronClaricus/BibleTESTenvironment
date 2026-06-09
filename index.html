@@ -8,7 +8,48 @@
     <link rel="stylesheet" href="./Code/basis/style28.css">
     
     <style>
+/* =====================================
+   BIBLE REPOSITORY FONT OVERRIDE
+   DROP-IN BLOCK
+===================================== */
 
+@import url("https://fonts.googleapis.com/css2?family=EB+Garamond:wght@600;700&family=Inter:wght@400;500;600;700&family=Source+Serif+4:wght@400;500;600;700&display=swap");
+
+:root{
+    --font-scripture:"Source Serif 4", Georgia, serif;
+    --font-heading:"EB Garamond", Georgia, serif;
+    --font-ui:"Inter", Arial, sans-serif;
+}
+
+/* Entire application */
+html,
+body{
+    font-family:var(--font-ui) !important;
+}
+
+/* Navigation */
+.toggle,
+.file-link,
+.nav-controls,
+button,
+select,
+input,
+.search-count,
+#countB,
+#countC,
+#countD,
+#countE{
+    font-family:var(--font-ui) !important;
+}
+
+/* Panel titles */
+.iframe-title{
+    font-family:var(--font-heading) !important;
+    font-weight:600;
+    font-size:20px;
+    letter-spacing:.03em;
+    text-transform:none;
+}
     </style>
 </head>
 
