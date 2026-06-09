@@ -6,7 +6,7 @@ import {
     ConfigService,
    
 } from "./config.js";
-
+import { DOM } from "./dom.js";
 const NavigationModel = {
     structure: NAVIGATION,
     getStructure() {
@@ -16,7 +16,7 @@ const NavigationModel = {
 
 function buildNavigation(containerId, data){
     const container =
-        document.getElementById(containerId);
+        DOM.get(containerId);
     const ul = document.createElement("ul");
     data.forEach(node => {
         ul.appendChild(

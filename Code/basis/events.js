@@ -5,7 +5,7 @@ import {
 } from "./documents.js";
 import {
     EventBus
-} from "./router.js";
+} from "./event-bus.js";
 import {
     PersistenceService
 } from "./storage.js";
@@ -38,6 +38,7 @@ import {
 // ======================================
 export const EVENTS = {
     DOCUMENT_LOAD: "document:load",
+    DOCUMENT_RELOAD: "document:reload",
     DOCUMENTS_RELOAD_ALL: "documents:reloadAll",
 
     PIPELINE_STARTED: "pipeline:started",
@@ -46,9 +47,15 @@ export const EVENTS = {
     PIPELINE_COMPLETED: "pipeline:completed",
     PIPELINE_FAILED: "pipeline:failed",
 
+    SEARCH_RUN: "search:run",
+    SEARCH_CLEAR: "search:clear",
     SEARCH_NEXT: "search:next",
     SEARCH_PREVIOUS: "search:previous",
-    UI_RELOAD_ALL: "ui:reloadAll"
+
+    UI_RELOAD_ALL: "ui:reloadAll",
+    UI_LAYOUT_CHANGE: "ui:layoutChange",
+    UI_FONT_CHANGE: "ui:fontChange",
+    UI_HIGHLIGHT_CHANGE: "ui:highlightChange"
 };
 export function registerEventBusHandlers() {
     EventBus.on(
@@ -71,7 +78,7 @@ export function registerEventBusHandlers() {
 	);
 
     EventBus.on(
-        "document:reload",
+        EVENTS.DOCUMENT_RELOAD,
         payload => {
             if (!payload) {
                 return;
@@ -93,14 +100,14 @@ export function registerEventBusHandlers() {
 	EventBus.on(
 		EVENTS.PIPELINE_COMPLETED,
 		payload => {
-			console.log("[EVENT PIPELINE COMPLETED]", payload);
+			DocumentPipelineDebug.log("[EVENT PIPELINE COMPLETED]", payload);
 		}
 	);
 
 	EventBus.on(
 		EVENTS.PIPELINE_FAILED,
 		payload => {
-			console.warn("[EVENT PIPELINE FAILED]", payload);
+			DocumentPipelineDebug.warn("[EVENT PIPELINE FAILED]", payload);
 		}
 	);
 }

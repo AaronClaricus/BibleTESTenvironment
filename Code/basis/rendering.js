@@ -5,7 +5,7 @@ import {
 } from "./state.js";
 import {
     EventBus
-} from "./router.js";
+} from "./event-bus.js";
 import {
     
     EVENTS

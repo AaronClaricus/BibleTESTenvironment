@@ -37,9 +37,11 @@ import {
     EVENTS
 } from "./events.js";
 import {
-    EventBus,
     Router
 } from "./router.js";
+import {
+    EventBus
+} from "./event-bus.js";
 import {
     FrameRegistry,
     FrameService
@@ -54,11 +56,12 @@ import {
 import {
     KeyboardShortcutService
 } from "./shortcuts.js";
-
+import { DOM } from "./dom.js";
 const AppInitializer = {
     async init() {
         console.log("APP INIT");
 		ConfigValidator.validate();
+		DOM.clear();
         StateManager.hydrate();
 
         UIState.init();
@@ -67,7 +70,7 @@ const AppInitializer = {
         FontService.init();
         HighlightService.init();
         VisibilityService.init();
-
+		
         UIState.hydrate();
 
         await TemplateService.ensure();

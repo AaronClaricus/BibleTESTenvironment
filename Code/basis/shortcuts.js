@@ -4,7 +4,7 @@ import {
 import {
     ConfigService,
 } from "./config.js";
-
+import { DOM } from "./dom.js";
 export const KeyboardShortcutService = {
     activeFrameId: "frameB",
 
@@ -24,7 +24,7 @@ export const KeyboardShortcutService = {
 
     bindIframeFocus() {
         ConfigService.getFrames().forEach(([frameId]) => {
-            const iframe = document.getElementById(frameId);
+            const iframe = DOM.get(frameId);
 
             if (!iframe) {
                 return;
@@ -172,7 +172,7 @@ export const KeyboardShortcutService = {
             frameE: "searchE"
         };
 
-        return document.getElementById(
+        return DOM.get(
             map[this.activeFrameId] || "search"
         );
     },
@@ -185,7 +185,7 @@ export const KeyboardShortcutService = {
             frameE: "goE"
         };
 
-        return document.getElementById(
+        return DOM.get(
             map[this.activeFrameId] || "go"
         );
     },

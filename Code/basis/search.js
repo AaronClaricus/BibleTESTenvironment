@@ -1,7 +1,7 @@
 import {
     FrameRegistry
 } from "./rendering.js";
-
+import { DOM } from "./dom.js";
 const SearchEngine = {
     findMatches(doc, term) {
         const escaped = term.replace(/[.*?^${}()|[\]\\]/g, "\\$&");
@@ -348,10 +348,10 @@ export const SearchBindingsService = {
             ([inputId, buttonId, frameId, counterId]) => {
 
                 SearchController.create({
-                    input: document.getElementById(inputId),
-                    button: document.getElementById(buttonId),
+                    input: DOM.get(inputId),
+                    button: DOM.get(buttonId),
                     iframe: FrameRegistry.get(frameId),
-                    counter: document.getElementById(counterId)
+                    counter: DOM.get(counterId)
                 });
 
             }

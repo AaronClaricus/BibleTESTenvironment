@@ -8,7 +8,7 @@ import {
 } from "./rendering.js";
 import {
     EventBus
-} from "./router.js";
+} from "./event-bus.js";
 import {
     
     EVENTS
@@ -19,6 +19,7 @@ import {
 import {
     ConfigService
 } from "./config.js";
+import { DOM } from "./dom.js";
 export const UIService = {
     getHighlightScheme(key) {
         return (
@@ -93,7 +94,7 @@ export const LayoutService = {
             UIState.get("layoutMode");
 
         const toggleButton =
-            document.getElementById("layoutToggle");
+            DOM.get("layoutToggle");
 
         document.body.classList.remove(
             "four-panel",
@@ -118,7 +119,7 @@ export const LayoutService = {
 
     init() {
         const toggleButton =
-            document.getElementById("layoutToggle");
+            DOM.get("layoutToggle");
 
         if (!toggleButton) {
             return;
@@ -140,7 +141,7 @@ export const LayoutService = {
 export const FontService = {
 
     getSelector() {
-        return document.getElementById("fontSelector");
+        return DOM.get("fontSelector");
     },
 
     init() {
@@ -172,7 +173,7 @@ export const FontService = {
 export const HighlightService = {
 
     getSelector() {
-        return document.getElementById("highlightSelector");
+        return DOM.get("highlightSelector");
     },
 
     init() {
@@ -233,17 +234,17 @@ export const VisibilityService = {
 
 	   init() {
 		const toggleSearch =
-			document.getElementById(
+			DOM.get(
 				"toggleSearch"
 			);
 
 		const toggleGo =
-			document.getElementById(
+			DOM.get(
 				"toggleGo"
 			);
 
 		const toggleControls =
-			document.getElementById(
+			DOM.get(
 				"toggleControls"
 			);
 
