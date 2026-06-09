@@ -1,6 +1,8 @@
 import {
     ConfigValidator,
-    AppConfig
+    AppConfig,
+    ConfigService,
+    DocumentPipelineDebug
 } from "./config.js";
 import {
     LAST_OPENED_KEY,
@@ -12,9 +14,7 @@ import {
 
 import {
     StateManager,
-	APP,
-	UIState,
-	AppState
+	UIState
 } from "./state.js";
 import {
     AppStorage,
@@ -54,10 +54,7 @@ import {
 import {
     KeyboardShortcutService
 } from "./shortcuts.js";
-import {
-    ConfigService,
-    DocumentPipelineDebug
-} from "./config.js";
+
 const AppInitializer = {
     async init() {
         console.log("APP INIT");

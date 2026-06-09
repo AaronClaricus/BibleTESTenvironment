@@ -40,18 +40,24 @@ export const StateManager = {
                 this.state
             );
     },
-    set(path,value) {
+    set(path, value) {
+		const keys = path.split(".");
+		const last = keys.pop();
 
-        const keys = path.split(".");
-        const last = keys.pop();
-        const target =
-            keys.reduce(
-                (obj,key)=>obj[key],
-                this.state
-            );
-        target[last] = value;
-        this.notify(path,value);
-    },
+		const target = keys.reduce(
+			(obj, key) => {
+				if (!obj[key]) {
+					obj[key] = {};
+				}
+
+				return obj[key];
+			},
+			this.state
+		);
+
+		target[last] = value;
+		this.notify(path, value);
+	},
 	hydrate(){
     const settings =
         AppStorage.settings.load();
@@ -97,11 +103,7 @@ export const UIState = {
 			...savedSettings
 		};
 
-		// sync old APP state too
-		APP.state.ui = {
-			...APP.state.ui,
-			...StateManager.state.ui
-		};
+		
 
 		Object.entries(StateManager.state.ui).forEach(
 			([key, value]) => {
@@ -110,15 +112,12 @@ export const UIState = {
 		);
 	},
     get(key) {
-        return StateManager.state.ui?.[key];
-    },
+		return StateManager.get(`ui.${key}`);
+	},
     set(key, value) {
-		StateManager.state.ui[key] = value;
+		StateManager.set(`ui.${key}`, value);
 
-		// keep old APP state synced for older render code
-		APP.state.ui[key] = value;
-
-		AppStorage.set(this.key, StateManager.state.ui);
+		AppStorage.set(this.key, StateManager.get("ui"));
 		this.applySideEffects(key, value);
 	},
 	getFontSize() {
