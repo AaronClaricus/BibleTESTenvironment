@@ -1,36 +1,7 @@
-import {
-    TemplateService,
-    DocumentService,
-    DocumentLoadRequest
-} from "./documentsp20.js";
-import {
-    EventBus
-} from "./routerp19.js";
-import {
-    PersistenceService
-} from "./storage.js";
-import {
-	AppState,
-	APP,
-	UIState
-} from "./modules/state.js";
-import {
-  
-    UIService
-} from "./uip20.js";
-import {
-    FrameRegistry,
-    FrameService
-} from "./renderingp20c.js";
-import {
-    
-    SearchService
-} from "./searchp5.js";
-
 // ======================================
 // EVENT BUS HANDLERS
 // ======================================
-export const EVENTS = {
+const EVENTS = {
     DOCUMENT_LOAD: "document:load",
     DOCUMENTS_RELOAD_ALL: "documents:reloadAll",
 
@@ -44,7 +15,7 @@ export const EVENTS = {
     SEARCH_PREVIOUS: "search:previous",
     UI_RELOAD_ALL: "ui:reloadAll"
 };
-export function registerEventBusHandlers() {
+function registerEventBusHandlers() {
     EventBus.on(
 		EVENTS.DOCUMENT_LOAD,
 		payload => {

@@ -1,8 +1,5 @@
-import {
-   
-	UIState
-} from "./modules/state.js";
-export const UIService = {
+
+const UIService = {
     getHighlightScheme(key) {
         return (
             ConfigService.getHighlightSchemes()[key] ||
@@ -32,7 +29,7 @@ const LayoutModes = {
     }
 };
 
-export const LayoutService = {
+const LayoutService = {
 
     order: [4, 3, 2, 1],
 
@@ -120,7 +117,7 @@ export const LayoutService = {
         );
     }
 };
-export const FontService = {
+const FontService = {
 
     getSelector() {
         return document.getElementById("fontSelector");
@@ -152,7 +149,7 @@ export const FontService = {
 		}
 	}
 };
-export const HighlightService = {
+const HighlightService = {
 
     getSelector() {
         return document.getElementById("highlightSelector");
@@ -184,7 +181,7 @@ export const HighlightService = {
         }
     }
 };
-export const VisibilityService = {
+const VisibilityService = {
 
     apply(key) {
 

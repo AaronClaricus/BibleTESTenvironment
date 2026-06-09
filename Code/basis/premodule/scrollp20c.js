@@ -1,16 +1,4 @@
-import {
-    FrameRegistry
-} from "./renderingp20c.js";
-import {
- 
-    DocumentService
-} from "./documentsp20.js";
-import {
-    AppStorage
-} from "./storage.js";
-import {
-    FrameService
-} from "./renderingp20c.js";
+
 
 const ScrollService = {
     load() {
@@ -147,7 +135,7 @@ const ScrollService = {
 };
 
 
-export const ScrollTrackingService = {
+const ScrollTrackingService = {
 
     init() {
 

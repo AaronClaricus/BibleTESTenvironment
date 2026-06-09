@@ -1,9 +1,3 @@
-import {
-    NAVIGATION,
-    
-} from "./modules/Navigation.js";
-
-
 const NavigationModel = {
     structure: NAVIGATION,
     getStructure() {
@@ -95,7 +89,7 @@ function createTree(node){
     return li;
 }
 
-export const NavigationService = {
+const NavigationService = {
 	buildNavigation() {
 		buildNavigation(
 			"navA",

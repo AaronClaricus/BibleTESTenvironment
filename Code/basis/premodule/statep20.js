@@ -1,13 +1,9 @@
-import {
-    AppStorage
-} from "../storage.js";
-import {
-    LayoutService,
-	FontService,
-	HighlightService,
-	VisibilityService
-} from "../uip20.js";
-export const APP = {
+// ======================================
+// APP STATE
+// ======================================
+
+
+const APP = {
     state: {
         app: {
             currentFiles: {},
@@ -26,7 +22,7 @@ export const APP = {
         templateHTML: null
     }
 };
-export const StateManager = {
+const StateManager = {
     state: APP.state,
     listeners: {},
     get(path) {
@@ -77,9 +73,10 @@ export const StateManager = {
         );
     }
 };
-
-
-export const UIState = {
+// ==============================
+// TEMPLATE CACHE
+// ==============================
+const UIState = {
     key: "settings",
     state: null,
     init(){
@@ -161,7 +158,7 @@ export const UIState = {
 		}
 	}
 };
-export const AppState = {
+const AppState = {
     getCurrentFile(frameId){
         return StateManager.get(
             `app.currentFiles.${frameId}`
@@ -188,3 +185,4 @@ export const AppState = {
         );
     }
 };
+

@@ -1,30 +1,5 @@
-import {
-    TemplateService,
-    DocumentService,
-    DocumentLoadRequest
-} from "./documentsp20.js";
-import {
-    PersistenceService
-} from "./storage.js";
-import {
-	AppState,
-	APP,
-	UIState
-} from "./modules/state.js";
-import {
-  
-    UIService
-} from "./uip20.js";
-import {
-    FrameRegistry,
-    FrameService
-} from "./renderingp20c.js";
-import {
-    
-    SearchService
-} from "./searchp5.js";
 
-export const EventBus = {
+const EventBus = {
     events: {},
     on(eventName, handler) {
         if (!this.events[eventName]) {
@@ -58,7 +33,7 @@ export const EventBus = {
         });
     }
 };
-export const Router = {
+const Router = {
     init() {
         this.bindDocumentLinks();
     },

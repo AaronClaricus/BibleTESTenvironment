@@ -1,14 +1,7 @@
-import {
-    StateManager,
-	APP,
-	AppState
-} from "./modules/state.js";
-
-
 // ======================================
 // STORAGE SYSTEM
 // ======================================
-export const AppStorage = {
+const AppStorage = {
 	// ==============================
 	// GENERIC GET
 	// ==============================
@@ -143,7 +136,7 @@ export const AppStorage = {
 		}
 	}
 };
-export const PersistenceService = {
+const PersistenceService = {
     saveLastOpened(
         frameId,
         file

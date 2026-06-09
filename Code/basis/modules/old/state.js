@@ -1,13 +1,9 @@
-import {
-    AppStorage
-} from "../storage.js";
-import {
-    LayoutService,
-	FontService,
-	HighlightService,
-	VisibilityService
-} from "../uip20.js";
-export const APP = {
+// ======================================
+// APP STATE
+// ======================================
+
+
+const APP = {
     state: {
         app: {
             currentFiles: {},
@@ -15,7 +11,7 @@ export const APP = {
         },
         ui: {
             layoutMode: "four",
-            fontSize: 18,
+            fontSize: "12px",
             highlightScheme: "blue",
             hideSearch: false,
             hideGo: false,
@@ -26,7 +22,7 @@ export const APP = {
         templateHTML: null
     }
 };
-export const StateManager = {
+const StateManager = {
     state: APP.state,
     listeners: {},
     get(path) {
@@ -77,9 +73,10 @@ export const StateManager = {
         );
     }
 };
-
-
-export const UIState = {
+// ==============================
+// TEMPLATE CACHE
+// ==============================
+const UIState = {
     key: "settings",
     state: null,
     init(){
@@ -94,12 +91,6 @@ export const UIState = {
 			...savedSettings
 		};
 
-		// sync old APP state too
-		APP.state.ui = {
-			...APP.state.ui,
-			...StateManager.state.ui
-		};
-
 		Object.entries(StateManager.state.ui).forEach(
 			([key, value]) => {
 				this.applySideEffects(key, value);
@@ -110,34 +101,10 @@ export const UIState = {
         return StateManager.state.ui?.[key];
     },
     set(key, value) {
-		StateManager.state.ui[key] = value;
-
-		// keep old APP state synced for older render code
-		APP.state.ui[key] = value;
-
-		AppStorage.set(this.key, StateManager.state.ui);
-		this.applySideEffects(key, value);
-	},
-	getFontSize() {
-		const size = Number(this.get("fontSize"));
-		return Number.isFinite(size) ? size : 18;
-	},
-
-	setFontSize(size) {
-		const cleanSize = Number(size);
-		this.set(
-			"fontSize",
-			Number.isFinite(cleanSize) ? cleanSize : 18
-		);
-	},
-
-	getHighlightScheme() {
-		return this.get("highlightScheme") ?? "blue";
-	},
-
-	setHighlightScheme(scheme) {
-		this.set("highlightScheme", scheme);
-	},
+        StateManager.state.ui[key] = value;
+        AppStorage.set(this.key, StateManager.state.ui);
+        this.applySideEffects(key, value);
+    },
     applySideEffects(key, value) {
 		switch (key) {
 
@@ -161,7 +128,7 @@ export const UIState = {
 		}
 	}
 };
-export const AppState = {
+const AppState = {
     getCurrentFile(frameId){
         return StateManager.get(
             `app.currentFiles.${frameId}`
@@ -188,3 +155,4 @@ export const AppState = {
         );
     }
 };
+

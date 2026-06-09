@@ -1,31 +1,3 @@
-import {
-    StateManager,
-	APP,
-	UIState,
-	AppState
-} from "./modules/state.js";
-import {
-    EventBus
-} from "./routerp19.js";
-import {
-    EVENTS
-} from "./eventsp19.js";
-import {
-    PersistenceService
-} from "./storage.js";
-import {
-  
-    UIService
-} from "./uip20.js";
-import {
-    FrameRegistry,
-    FrameService
-} from "./renderingp20c.js";
-import {
-    
-    SearchService
-} from "./searchp5.js";
-
 // ======================================
 // DOCUMENT LOAD PIPELINE
 // ======================================
@@ -106,6 +78,40 @@ const PipelineStatusService = {
         );
     }
 };
+const DocumentPipelineDebug = {
+
+    enabled: false,
+
+    log(label, data = {}) {
+        if (!this.enabled) {
+            return;
+        }
+
+        console.log(label, data);
+    },
+
+    warn(label, data = {}) {
+        if (!this.enabled) {
+            return;
+        }
+
+        console.warn(label, data);
+    },
+
+    error(label, data = {}) {
+        console.error(label, data);
+    },
+
+    enable() {
+        this.enabled = true;
+        console.log("[DOCUMENT PIPELINE DEBUG ENABLED]");
+    },
+
+    disable() {
+        this.enabled = false;
+        console.log("[DOCUMENT PIPELINE DEBUG DISABLED]");
+    }
+};
 const DocumentPipelineEvents = {
 
     started(context) {
@@ -163,7 +169,7 @@ const DocumentPipelineEvents = {
         );
     }
 };
-export const DocumentLoadRequest = {
+const DocumentLoadRequest = {
 
     create(frameId, file, options = {}) {
         return {
@@ -525,7 +531,7 @@ const DocumentRepository = {
         }
     }
 };
-export const DocumentService = {
+const DocumentService = {
 	 async load(frameId, file, options = {}) {
 		return DocumentPipeline.load(
 			frameId,
@@ -663,7 +669,7 @@ const TemplateRepository = {
     }
 };
 
-export const TemplateService = {
+const TemplateService = {
     async ensure() {
         console.log("[TEMPLATE] ensure called");
 

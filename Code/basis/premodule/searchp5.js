@@ -1,6 +1,4 @@
-import {
-    FrameRegistry
-} from "./renderingp20c.js";
+
 
 const SearchEngine = {
     findMatches(doc, term) {
@@ -132,7 +130,7 @@ const SearchHighlighter = {
 // ======================================
 // SEARCH SERVICE
 // ======================================
-export const SearchService = {
+const SearchService = {
     query(
         iframe,
         term
@@ -335,7 +333,7 @@ const SearchController = {
 		);
     }
 };
-export const SearchBindingsService = {
+const SearchBindingsService = {
 
     init() {
 

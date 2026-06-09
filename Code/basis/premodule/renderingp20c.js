@@ -1,8 +1,4 @@
-import {
-	APP,
-	UIState
-	
-} from "./modules/state.js";
+
 // ======================================
 // HTML RENDERER
 // ======================================
@@ -56,7 +52,7 @@ const HTMLRenderer = {
             .replace(/>/g, "&gt;");
     }
 };
-export const FrameRegistry = {
+const FrameRegistry = {
 
     get(frameId) {
         return document.getElementById(frameId);
@@ -72,7 +68,7 @@ export const FrameRegistry = {
 			.filter(Boolean);
 	}
 };
-export const FrameService = {
+const FrameService = {
     render(iframe, text, scheme) {
         console.log("[RENDER CHECK]", {
             hasTemplate: !!APP.state.templateHTML,
