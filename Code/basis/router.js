@@ -22,6 +22,13 @@ import {
 import {
     SearchService
 } from "./search.js";
+import {
+    DocumentSession
+} from "./documents.js";
+import {
+   
+    EVENTS
+} from "./events.js";
 
 export const EventBus = {
     events: {},

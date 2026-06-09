@@ -405,7 +405,7 @@ const DocumentPipeline = {
         }
     }
 };
-const DocumentSession = {
+export const DocumentSession = {
 
     restoreLast() {
         const lastOpened =

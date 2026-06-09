@@ -26,6 +26,9 @@ import {
     
     SearchService
 } from "./search.js";
+import {
+    DocumentSession
+} from "./documents.js";
 
 // ======================================
 // EVENT BUS HANDLERS

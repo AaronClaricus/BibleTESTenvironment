@@ -2,6 +2,20 @@ import {
    
 	UIState
 } from "./state.js";
+import {
+   
+    FrameService
+} from "./rendering.js";
+import {
+    EventBus
+} from "./router.js";
+import {
+    
+    EVENTS
+} from "./events.js";
+import {
+    DocumentSession
+} from "./documents.js";
 export const UIService = {
     getHighlightScheme(key) {
         return (
