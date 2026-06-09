@@ -1,4 +1,9 @@
-const KeyboardShortcutService = {
+import {
+	UIState
+} from "./modules/state.js";
+
+
+export const KeyboardShortcutService = {
     activeFrameId: "frameB",
 
     init() {

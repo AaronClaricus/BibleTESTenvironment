@@ -48,7 +48,9 @@ import {
 import {
     ScrollTrackingService
 } from "./scrollp20c.js";
-
+import {
+    KeyboardShortcutService
+} from "./shortcuts.js";
 
 const AppInitializer = {
     async init() {
