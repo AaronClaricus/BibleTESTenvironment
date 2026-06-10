@@ -7,7 +7,7 @@ import {
 import {
     LAST_OPENED_KEY,
     SCROLL_STORE_KEY
-} from "./constants.js";
+} from "./storage.js";
 import {
     NavigationService,
 } from "./navigation.js";

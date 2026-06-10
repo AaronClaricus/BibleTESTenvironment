@@ -265,3 +265,9 @@ export const VisibilityService = {
 		);
 	}
 };
+const toggleSearch =
+    document.getElementById(
+        "toggleSearch"
+    );
+const toggleGo =
+    document.getElementById("toggleGo");

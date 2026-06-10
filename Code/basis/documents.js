@@ -1,58 +1,3 @@
-import {
-    StateManager,
-	APP,
-	UIState,
-	AppState
-} from "./state.js";
-import {
-    EventBus
-} from "./event-bus.js";
-import { EVENTS } from "./event-names.js";
-
-import {
-  
-    UIService
-} from "./ui.js";
-import {
-    FrameRegistry,
-    FrameService
-} from "./rendering.js";
-import {
-    
-    SearchService
-} from "./search.js";
-import {
-    ConfigService,
-    DocumentPipelineDebug
-} from "./config.js";
-import {
-    DocumentLoadRequest
-} from "./document-load-request.js";
-
-import {
-    FileService
-} from "./file-service.js";
-import {
-    DocumentRepository
-} from "./document-repository.js";
-import {
-    DocumentSession,
-    PersistenceService
-} from "./document-session.js";
-import {
-    DocumentErrorService
-} from "./document-errors.js";
-import {
-    DocumentPipeline
-} from "./document-pipeline.js";
-
-import {
-    TemplateService
-} from "./template-service.js";
-
-
-
-
 // ======================================
 // DOCUMENT INDEX
 // ======================================
@@ -98,6 +43,7 @@ const DocumentIndex = {
 }; 
 // ======================================
 // DOCUMENTS BARREL
+// Phase 26H
 // Temporary compatibility exports
 // ======================================
 
@@ -121,3 +67,7 @@ export {
     DocumentSession,
     PersistenceService
 } from "./document-session.js";
+
+export {
+    DocumentPipeline
+} from "./document-pipeline.js";

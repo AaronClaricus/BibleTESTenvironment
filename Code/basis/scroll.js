@@ -2,9 +2,8 @@ import {
     FrameRegistry
 } from "./rendering.js";
 import {
- 
     DocumentService
-} from "./documents.js";
+} from "./document-service.js";
 import {
     AppStorage
 } from "./storage.js";
@@ -14,7 +13,7 @@ import {
 import {
    
     SCROLL_STORE_KEY
-} from "./constants.js";
+} from "./storage.js";
 import {
     ConfigService,
 } from "./config.js";

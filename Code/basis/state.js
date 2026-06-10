@@ -7,7 +7,7 @@ import {
 } from "./ui.js";
 import {
     LAST_OPENED_KEY
-} from "./constants.js";
+} from "./storage.js";
 export const APP = {
     state: {
         app: {
