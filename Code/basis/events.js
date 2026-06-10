@@ -1,7 +1,7 @@
 import {
     TemplateService,
     DocumentService,
-    DocumentSession
+    
 } from "./documents.js";
 import {
     DocumentLoadRequest
@@ -10,8 +10,9 @@ import {
     EventBus
 } from "./event-bus.js";
 import {
+    DocumentSession,
     PersistenceService
-} from "./documents.js";
+} from "./document-session.js";
 import {
 	AppState,
 	APP,

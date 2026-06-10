@@ -28,31 +28,21 @@ import {
 import {
     DocumentLoadRequest
 } from "./document-load-request.js";
+
 import {
-    AppStorage
-    
-} from "./storage.js";
+    FileService
+} from "./file-service.js";
+import {
+    DocumentRepository
+} from "./document-repository.js";
+import {
+    DocumentSession,
+    PersistenceService
+} from "./document-session.js";
 // ======================================
 // DOCUMENT LOAD PIPELINE
 // ======================================
-export const PersistenceService = {
-    saveLastOpened(
-        frameId,
-        file
-    ) {
-        AppStorage.lastOpened.setFile(
-            frameId,
-            file
-        );
-        const current =
-            AppState.getLastOpened() || {};
-        current[frameId] =
-            file;
-        AppState.setLastOpened(
-            current
-        );
-    }
-};
+
 const StatusUIService = {
 
     getElement(frameId) {
@@ -192,13 +182,13 @@ const DocumentPipelineEvents = {
 
 const DocumentPipeline = {
 
-    createContext(frameId, file, options = {}) {
+	createContext(frameId, file, options = {}) {
 		const request =
-			DocumentLoadRequest.create(
+			DocumentLoadRequest.normalize({
 				frameId,
 				file,
-				options
-			);
+				...options
+			});
 
 		return {
 			request,
@@ -207,6 +197,7 @@ const DocumentPipeline = {
 			source: request.source,
 			restoreScroll: request.restoreScroll,
 			resetSearch: request.resetSearch,
+			saveHistory: request.saveHistory,
 			iframe: FrameRegistry.get(request.frameId),
 			text: "",
 			scheme: null,
@@ -397,126 +388,12 @@ const DocumentPipeline = {
         }
     }
 };
-export const DocumentSession = {
 
-    restoreLast() {
-        const lastOpened =
-            DocumentService.getLastOpened() || {};
 
-        ConfigService.getFrames().forEach(frame => {
-            const frameId = frame[0];
-
-            const file =
-                lastOpened[frameId] ||
-                ConfigService.getDefaultFiles()[frameId];
-
-            if (!file) {
-                console.warn(
-                    "[DOCUMENT SESSION RESTORE] No file for frame:",
-                    frameId
-                );
-                return;
-            }
-
-            console.log("[DOCUMENT SESSION RESTORE]", {
-                frameId,
-                file
-            });
-
-            EventBus.emit(
-                EVENTS.DOCUMENT_LOAD,
-                DocumentLoadRequest.create(
-                    frameId,
-                    file,
-                    {
-                        source: "restore"
-                    }
-                )
-            );
-        });
-    },
-    reloadAll() {
-        ConfigService.getFrames().forEach(frame => {
-            const frameId = frame[0];
-
-            const file =
-                DocumentService.getCurrent(frameId);
-
-            if (!file) {
-                console.warn("[DOCUMENT SESSION RELOAD SKIPPED]", {
-                    frameId,
-                    file
-                });
-                return;
-            }
-
-            EventBus.emit(
-				EVENTS.DOCUMENT_LOAD,
-				DocumentLoadRequest.create(
-					frameId,
-					file,
-					{
-						source: "reload"
-					}
-				)
-			);
-        });
-    }
-};
-const FileService = {
-    _cache: new Map(),
-    _order: [],
-    async get(file) {
-        if (this._cache.has(file)) {
-            return this._cache.get(file);
-        }
-        const response = await fetch(file);
-        if (!response.ok) {
-            throw new Error(`Failed to fetch ${file}`);
-        }
-        const text = await response.text();
-        this._cache.set(file, text);
-        this._order.push(file);
-
-        if (this._order.length > ConfigService.get(
-    "config.cache.maxFiles",
-    100
-)) {
-            const oldest = this._order.shift();
-            this._cache.delete(oldest);
-        }
-        return text;
-    }
-};
 // ======================================
 // DOCUMENT REPOSITORY
 // ======================================
-const DocumentRepository = {
-    async fetch(file) {
 
-        return FileService.get(
-            file
-        );
-    },
-    async preload(files) {
-        return Promise.all(
-            files.map(
-                file =>
-                    this.fetch(file)
-            )
-        );
-    },
-    async exists(file) {
-        try {
-            await this.fetch(file);
-            return true;
-        }
-        catch {
-
-            return false;
-        }
-    }
-};
 export const DocumentService = {
 	 async load(frameId, file, options = {}) {
 		return DocumentPipeline.load(

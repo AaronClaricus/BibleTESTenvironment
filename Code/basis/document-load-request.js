@@ -1,26 +1,68 @@
+// ======================================
+// DOCUMENT LOAD REQUEST
+// Phase 26C
+// Normalizes all document load inputs
+// ======================================
 
 export const DocumentLoadRequest = {
     create(frameId, file, options = {}) {
-        return {
+        return this.normalize({
             frameId,
             file,
             source: options.source || "unknown",
-            restoreScroll: options.restoreScroll !== false,
-            saveHistory: options.saveHistory !== false
+            restoreScroll: options.restoreScroll,
+            saveHistory: options.saveHistory,
+            resetSearch: options.resetSearch
+        });
+    },
+
+    normalize(input) {
+        if (typeof input === "string") {
+            return this.create(null, input);
+        }
+
+        if (!input || typeof input !== "object") {
+            return this.empty();
+        }
+
+        return {
+            frameId:
+                input.frameId ||
+                input.frame ||
+                null,
+
+            file:
+                input.file ||
+                input.filePath ||
+                "",
+
+            source:
+                input.source ||
+                "unknown",
+
+            restoreScroll:
+                input.restoreScroll !== false,
+
+            saveHistory:
+                input.saveHistory !== false,
+
+            resetSearch:
+                input.resetSearch !== false
         };
     },
 
     fromPayload(payload) {
-        if (!payload) {
-            return null;
-        }
+        return this.normalize(payload);
+    },
 
+    empty() {
         return {
-            frameId: payload.frameId,
-            file: payload.file,
-            source: payload.source || "unknown",
-            restoreScroll: payload.restoreScroll !== false,
-            saveHistory: payload.saveHistory !== false
+            frameId: null,
+            file: "",
+            source: "empty",
+            restoreScroll: true,
+            saveHistory: true,
+            resetSearch: true
         };
     },
 

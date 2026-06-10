@@ -50,6 +50,72 @@ input,
     letter-spacing:.03em;
     text-transform:none;
 }
+
+
+
+/* =====================================
+   UNIVERSAL SCROLLBARS
+===================================== */
+
+/* Firefox */
+*{
+    scrollbar-width: thin;
+    scrollbar-color: #4F6B8F #0D1117;
+}
+
+/* Chrome / Edge / Opera / Safari */
+::-webkit-scrollbar{
+    width:12px;
+    height:12px;
+}
+
+::-webkit-scrollbar-track{
+    background:#0D1117;
+    border-radius:999px;
+}
+
+::-webkit-scrollbar-thumb{
+    background:
+        linear-gradient(
+            180deg,
+            #4F6B8F,
+            #334155
+        );
+
+    border-radius:999px;
+
+    border:2px solid #0D1117;
+
+    box-shadow:
+        inset 0 1px 1px rgba(255,255,255,.15),
+        0 0 8px rgba(110,168,255,.15);
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background:
+        linear-gradient(
+            180deg,
+            #6EA8FF,
+            #4F6B8F
+        );
+
+    box-shadow:
+        inset 0 1px 1px rgba(255,255,255,.25),
+        0 0 12px rgba(110,168,255,.35);
+}
+
+::-webkit-scrollbar-thumb:active{
+    background:
+        linear-gradient(
+            180deg,
+            #8FDBFF,
+            #6EA8FF
+        );
+}
+
+::-webkit-scrollbar-corner{
+    background:#0D1117;
+}
     </style>
 </head>
 

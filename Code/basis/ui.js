@@ -13,13 +13,14 @@ import {
     EventBus
 } from "./event-bus.js";
 import { EVENTS } from "./event-names.js";
-import {
-    DocumentSession
-} from "./documents.js";
+
 import {
     ConfigService
 } from "./config.js";
 import { DOM } from "./dom.js";
+import {
+    DocumentSession
+} from "./document-session.js";
 export const UIService = {
     getHighlightScheme(key) {
         return (

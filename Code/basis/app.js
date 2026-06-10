@@ -31,9 +31,12 @@ import {
 import {
     TemplateService,
     DocumentService,
-    PersistenceService
+   
 } from "./documents.js";
-
+import {
+    
+    PersistenceService
+} from "./document-session.js";
 import {
     DocumentLoadRequest
 } from "./document-load-request.js";
