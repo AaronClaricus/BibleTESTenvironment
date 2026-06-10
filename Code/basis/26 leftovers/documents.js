@@ -41,33 +41,3 @@ const DocumentIndex = {
         );
     }
 }; 
-// ======================================
-// DOCUMENTS BARREL
-// Phase 26H
-// Temporary compatibility exports
-// ======================================
-
-export {
-    DocumentService
-} from "./document-service.js";
-
-export {
-    DocumentRepository
-} from "./document-repository.js";
-
-export {
-    FileService
-} from "./file-service.js";
-
-export {
-    TemplateService
-} from "./template-service.js";
-
-export {
-    DocumentSession,
-    PersistenceService
-} from "./document-session.js";
-
-export {
-    DocumentPipeline
-} from "./document-pipeline.js";
