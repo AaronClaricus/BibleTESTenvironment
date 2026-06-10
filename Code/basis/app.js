@@ -29,10 +29,11 @@ import {
     UIService
 } from "./ui.js";
 import {
-    TemplateService,
-    DocumentService,
-   
-} from "./documents.js";
+    TemplateService
+} from "./template-service.js";
+import {
+    DocumentService
+} from "./document-service.js";
 import {
     
     PersistenceService

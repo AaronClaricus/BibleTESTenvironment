@@ -1,8 +1,10 @@
 import {
-    TemplateService,
-    DocumentService,
-    
-} from "./documents.js";
+    DocumentService
+} from "./document-service.js";
+
+import {
+    TemplateService
+} from "./template-service.js";
 import {
     DocumentLoadRequest
 } from "./document-load-request.js";
