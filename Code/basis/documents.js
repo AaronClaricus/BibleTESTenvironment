@@ -39,6 +39,9 @@ import {
     DocumentSession,
     PersistenceService
 } from "./document-session.js";
+import {
+    DocumentErrorService
+} from "./document-errors.js";
 // ======================================
 // DOCUMENT LOAD PIPELINE
 // ======================================
@@ -284,26 +287,21 @@ const DocumentPipeline = {
 			context,
 			err
 		);
-		
+
 		DocumentPipelineEvents.failed(
 			context,
 			err
 		);
+
 		DocumentPipelineDebug.error(
 			"[DOCUMENT PIPELINE ERROR]",
 			err
 		);
 
-		FrameService.renderError(
-			context.iframe,
+		DocumentErrorService.render(
+			context,
 			err
 		);
-
-		FrameService.updateTitle(
-			context.frameId,
-			context.file
-		);
-		
 	},
 
     complete(context) {
@@ -395,78 +393,63 @@ const DocumentPipeline = {
 // ======================================
 
 export const DocumentService = {
-	 async load(frameId, file, options = {}) {
-		return DocumentPipeline.load(
-			frameId,
-			file,
-			options
-		);
-	},
-		setActive(
-        frameId,
-        file
-    ) {
-        console.log(
-            "[DOCUMENT ACTIVE]",
+    async load(frameId, file, options = {}) {
+        return DocumentPipeline.load(
+            frameId,
+            file,
+            options
+        );
+    },
+
+    setActive(frameId, file) {
+        DocumentSession.setActive(
+            frameId,
+            file
+        );
+    },
+
+    getCurrent(frameId) {
+        return DocumentSession.getCurrent(
+            frameId
+        );
+    },
+
+    getActive(frameId) {
+        return DocumentSession.getCurrent(
+            frameId
+        );
+    },
+
+    reload(frameId) {
+        const file =
+            DocumentSession.getCurrent(
+                frameId
+            );
+
+        if (!file) {
+            return;
+        }
+
+        EventBus.emit(
+            "document:reload",
             {
                 frameId,
                 file
             }
         );
-        AppState.setCurrentFile(
-            frameId,
-            file
-        );
-        PersistenceService.saveLastOpened(
-            frameId,
-            file
-        );
     },
-    getCurrent(frameId) {
-		return AppState.getCurrentFile(frameId);
-	},
-    getActive(
-        frameId
-    ) {
-        return AppState.getCurrentFile(
-            frameId
-        );
-    },
-    // ------------------
-    // RELOAD ONE DOCUMENT
-    // ------------------
-	  reload(frameId) {
-		const file =
-			AppState.getCurrentFile(
-				frameId
-			);
 
-		if (!file) {
-			return;
-		}
-		EventBus.emit(
-			"document:reload",
-			{
-				frameId,
-				file
-			}
-		);
-	},
-    // ------------------
-    // RELOAD ALL DOCUMENTS
-    // ------------------
-	reloadAll() {
-		return DocumentSession.reloadAll();
-	},
-	getLastOpened() {
-		return AppState.getLastOpened() || {};
-	},
-    // ------------------
-    // RESTORE LAST OPENED
-    // ------------------
-	 restoreLast() {
-		return DocumentSession.restoreLast();
-	}
+    reloadAll() {
+        return DocumentSession.reloadAll();
+    },
+
+    getLastOpened() {
+        return DocumentSession.getLastOpened();
+    },
+
+    restoreLast() {
+        return DocumentSession.restoreLast();
+    }
 };
 // ======================================
 // DOCUMENT INDEX
