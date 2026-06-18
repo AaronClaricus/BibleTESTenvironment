@@ -67,9 +67,47 @@ import {
 } from "./shortcuts.js";
 import { DOM } from "./dom.js";
 
+// ======================================
+// SERVICE WORKER REGISTRATION
+// PHASE 27C
+// ======================================
+
+function registerServiceWorker() {
+    if(!("serviceWorker" in navigator)){
+        console.warn(
+            "[ServiceWorker] Not supported."
+        );
+        return;
+    }
+
+    window.addEventListener(
+        "load",
+        () => {
+            navigator.serviceWorker
+                .register("/service-worker.js")
+                .then(registration => {
+                    console.log(
+                        "[ServiceWorker] Registered:",
+                        registration.scope
+                    );
+                })
+                .catch(error => {
+                    console.error(
+                        "[ServiceWorker] Registration failed:",
+                        error
+                    );
+                });
+        }
+    );
+}
+
+
+
 const AppInitializer = {
     async init() {
+		registerServiceWorker();
         console.log("APP INIT");
+        
 		ConfigValidator.validate();
 		DOM.clear();
 		const savedSettings =

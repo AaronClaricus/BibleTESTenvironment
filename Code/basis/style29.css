@@ -5,32 +5,26 @@
        THEME
     ========================= */
     --font-size:12px;
-
     --bg:#0B0F14;
     --navbg:#0D1117;
     --panel-bg:#101722;
     --control-bg:#151C26;
     --control-bg-hover:#1C2633;
     --control-bg-focus:#202B3A;
-
     --border:#253041;
     --border-soft:#334155;
     --border-hover:#4F6B8F;
-
     --text:#E6EDF3;
     --muted:#8B949E;
     --placeholder:#888;
     --hover:#232A36;
-
     --accent:#6EA8FF;
     --accent-bright:#8FDBFF;
     --highlight-color:#66CCFF;
-
     --shadow-lg:0 18px 50px rgba(0,0,0,.45);
     --shadow-md:0 8px 24px rgba(0,0,0,.35);
     --glow:0 0 0 1px rgba(110,168,255,.25),
            0 0 22px rgba(110,168,255,.12);
-
     /* =========================
        CONTROL SYSTEM
     ========================= */
@@ -40,11 +34,9 @@
     --control-padding:0 16px;
     --control-gap:8px;
     --control-width:220px;
-
     --nav-width:240px;
     --title-height:34px;
 }
-
 *{
     box-sizing:border-box;
     margin:0;
@@ -52,7 +44,6 @@
     scrollbar-width:thin;
     scrollbar-color:#334155 #0D1117;
 }
-
 html,
 body{
     width:100%;
@@ -63,7 +54,6 @@ body{
     font-family:monospace;
     font-size:var(--font-size);
 }
-
 body{
     display:flex;
     flex-direction:column;
@@ -72,7 +62,6 @@ body{
         radial-gradient(circle at bottom right, rgba(141,219,255,.08), transparent 35%),
         var(--bg);
 }
-
 /* =========================
    MAIN LAYOUT
 ========================= */
@@ -82,11 +71,9 @@ body{
     overflow:hidden;
     display:flex;
 }
-
 #main.nav-collapsed{
     --nav-width:60px;
 }
-
 /* =========================
    NAVIGATION
 ========================= */
@@ -105,7 +92,6 @@ body{
     box-shadow:8px 0 28px rgba(0,0,0,.35);
     padding:8px;
 }
-
 .nav-controls{
     display:flex;
     flex-direction:column;
@@ -117,7 +103,6 @@ body{
     border-radius:14px;
     box-shadow:var(--shadow-md);
 }
-
 /* =========================
    SHARED CONTROLS
 ========================= */
@@ -126,35 +111,28 @@ input[type="button"]{
     height:var(--control-height);
     min-height:var(--control-height);
     padding:var(--control-padding);
-
     font-size:var(--control-font);
     font-family:Arial,sans-serif;
     font-weight:600;
     letter-spacing:.02em;
-
     color:#FFF;
     background:
         linear-gradient(180deg, rgba(255,255,255,.14), rgba(255,255,255,.03)),
         linear-gradient(180deg, #263244, #151C26);
-
     border:1px solid rgba(255,255,255,.10);
     border-bottom-color:rgba(0,0,0,.45);
     border-radius:var(--control-radius);
-
     cursor:pointer;
     white-space:nowrap;
     text-align:center;
-
     box-shadow:
         inset 0 1px 0 rgba(255,255,255,.12),
         0 8px 18px rgba(0,0,0,.32);
-
     transition:
         transform .08s ease,
         box-shadow .2s ease,
         border-color .2s ease;
 }
-
 button:hover,
 input[type="button"]:hover{
     transform:translateY(-1px);
@@ -164,12 +142,10 @@ input[type="button"]:hover{
         var(--glow),
         0 12px 24px rgba(0,0,0,.4);
 }
-
 button:active,
 input[type="button"]:active{
     transform:translateY(0) scale(.98);
 }
-
 button:focus-visible,
 input[type="button"]:focus-visible,
 select:focus-visible,
@@ -177,7 +153,6 @@ input[type="text"]:focus-visible{
     outline:2px solid var(--accent);
     outline-offset:2px;
 }
-
 #go,
 #goC,
 #goD,
@@ -188,7 +163,6 @@ input[type="text"]:focus-visible{
         linear-gradient(180deg, #2F81F7, #1F5FBF);
     border-color:rgba(141,219,255,.35);
 }
-
 #toggleControls,
 #toggleSearch,
 #toggleGo,
@@ -198,14 +172,12 @@ input[type="text"]:focus-visible{
     max-width:var(--control-width);
     margin:0 auto;
 }
-
 #go,
 #goC,
 #goD,
 #goE{
     min-width:70px;
 }
-
 /* =========================
    FORM CONTROLS
 ========================= */
@@ -220,30 +192,24 @@ input[type="text"],
     height:var(--control-height);
     min-height:var(--control-height);
     padding:0 12px;
-
     font-size:var(--control-font);
     font-family:Arial,sans-serif;
     font-weight:600;
-
     color:var(--text);
     background:
         linear-gradient(180deg, rgba(255,255,255,.055), rgba(255,255,255,.02)),
         var(--control-bg);
-
     border:1px solid rgba(255,255,255,.10);
     border-radius:var(--control-radius);
     outline:none;
-
     box-shadow:
         inset 0 1px 0 rgba(255,255,255,.06),
         0 4px 12px rgba(0,0,0,.25);
-
     transition:
         border-color .2s ease,
         box-shadow .2s ease,
         background .2s ease;
 }
-
 select,
 #fontSelector,
 #highlightSelector{
@@ -255,7 +221,6 @@ select,
     -moz-appearance:none;
     appearance:none;
 }
-
 #search,
 #searchC,
 #searchD,
@@ -263,7 +228,6 @@ select,
 input[type="text"]{
     min-width:var(--control-width);
 }
-
 select:hover,
 #fontSelector:hover,
 #highlightSelector:hover,
@@ -275,7 +239,6 @@ input[type="text"]:hover{
     background:var(--control-bg-hover);
     border-color:var(--border-hover);
 }
-
 select:focus,
 #fontSelector:focus,
 #highlightSelector:focus,
@@ -288,18 +251,15 @@ input[type="text"]:focus{
     box-shadow:var(--glow);
     background:var(--control-bg-focus);
 }
-
 option{
     color:#000;
     background:#FFF;
 }
-
 select option:checked,
 select option:hover{
     background:#CFCFCF;
     color:#000;
 }
-
 /* =========================
    NAVIGATION TREE
 ========================= */
@@ -308,12 +268,10 @@ ul{
     margin:0;
     padding:0;
 }
-
 li{
     margin:0;
     padding:0;
 }
-
 .toggle,
 .file-link{
     display:block;
@@ -332,41 +290,34 @@ li{
         background .15s ease,
         color .15s ease;
 }
-
 .toggle{
     font-weight:700;
     color:#F0F6FC;
 }
-
 .file-link{
     padding-left:18px;
     font-weight:400;
     color:#B8C7D9;
 }
-
 .toggle:hover,
 .file-link:hover{
     background:linear-gradient(90deg, rgba(110,168,255,.18), rgba(110,168,255,.04));
     color:#FFF;
 }
-
 .file-link.active{
     background:linear-gradient(90deg, rgba(47,129,247,.65), rgba(47,129,247,.20));
     color:#FFF;
     box-shadow:inset 3px 0 0 var(--accent-bright);
 }
-
 .nested{
     display:none !important;
     margin-left:12px;
     padding-left:8px;
     border-left:1px solid rgba(110,168,255,.18);
 }
-
 .nested.open{
     display:block !important;
 }
-
 /* =========================
    SEARCH CONTROLS
 ========================= */
@@ -380,7 +331,6 @@ li{
     background:rgba(255,255,255,.025);
     border-bottom:1px solid rgba(255,255,255,.07);
 }
-
 #search::placeholder,
 #searchC::placeholder,
 #searchD::placeholder,
@@ -388,7 +338,6 @@ li{
 input[type="text"]::placeholder{
     color:var(--placeholder);
 }
-
 .search-count,
 #countB,
 #countC,
@@ -401,7 +350,6 @@ input[type="text"]::placeholder{
     text-align:center;
     white-space:nowrap;
 }
-
 /* =========================
    FRAMES
 ========================= */
@@ -414,33 +362,27 @@ iframe{
     contain:size layout;
     overflow:hidden;
 }
-
 .iframe-title{
     height:var(--title-height);
     min-height:var(--title-height);
     display:flex;
     align-items:center;
-
     padding:0 10px;
     margin:0;
     overflow:hidden;
-
     background:
         linear-gradient(180deg, rgba(255,255,255,.06), transparent),
         #111A26;
     color:#F4F8FF !important;
-
     font-size:14px;
     font-weight:bold;
     letter-spacing:.04em;
     text-transform:uppercase;
-
     border-bottom:1px solid rgba(110,168,255,.25);
     box-shadow:
         inset 0 1px 0 rgba(255,255,255,.06),
         0 4px 14px rgba(0,0,0,.25);
 }
-
 /* =========================
    TABLE / PANEL LAYOUT
 ========================= */
@@ -456,55 +398,45 @@ iframe{
     min-width:0;
     table-layout:fixed;
 }
-
 #layouttableframes1{
     width:var(--nav-width);
 }
-
 #layouttable tr,
 #layouttable td{
     height:100%;
     vertical-align:top;
 }
-
 #layouttable td{
     overflow:hidden;
     border-left:1px solid rgba(255,255,255,.06);
     background:#0E141D;
 }
-
 #layouttable td:first-child{
     border-left:none;
 }
-
 #layoutRow td{
     vertical-align:top;
     height:100%;
 }
-
 .left-item,
 .center-col,
 .center-col2,
 .right-item{
     position:relative;
 }
-
 .dummy{
     width:2px;
     color:#000;
     padding:0;
     margin:0;
 }
-
 .table-wrap{
     overflow:hidden;
     width:calc(100% - 10px);
 }
-
 table{
     margin-right:-10px;
 }
-
 /* =========================
    PANEL MODES
 ========================= */
@@ -514,24 +446,20 @@ body.four-panel .center-col,
 body.four-panel .right-item{
     display:table-cell;
 }
-
 body.three-panel .center-col,
 body.three-panel .center-item2{
     display:none;
 }
-
 body.two-panel .center-col,
 body.two-panel .center-col2,
 body.two-panel .center-item,
 body.two-panel .center-item2{
     display:none;
 }
-
 body.one-panel #layouttable{
     width:100% !important;
     table-layout:fixed;
 }
-
 body.one-panel .center-col2,
 body.one-panel .center-col,
 body.one-panel .right-item,
@@ -541,22 +469,18 @@ body.one-panel .center-item2,
 body.one-panel .center-item3{
     display:none !important;
 }
-
 body.one-panel .left-item{
     width:100% !important;
     padding:0;
 }
-
 body.one-panel #titleB,
 body.one-panel #frameB{
     width:100% !important;
 }
-
 body.one-panel #frameB{
     display:block;
     border:none;
 }
-
 /* =========================
    HIDDEN STATES
 ========================= */
@@ -571,44 +495,34 @@ body.hide-search #goE,
 body.hide-search .search-row{
     display:none !important;
 }
-
 body.hide-go #go,
 body.hide-go #goC,
 body.hide-go #goD,
 body.hide-go #goE{
     display:none !important;
 }
-
 body.hide-controls .nav-controls,
 .hidden-info,
 .hidden-controls{
     display:none !important;
 }
-
 /* =========================
    FONT SIZE SYSTEM
 ========================= */
 body.font-12,
 :root.font-12{ --font-size:12px; }
-
 body.font-14,
 :root.font-14{ --font-size:14px; }
-
 body.font-16,
 :root.font-16{ --font-size:16px; }
-
 body.font-18,
 :root.font-18{ --font-size:18px; }
-
 body.font-20,
 :root.font-20{ --font-size:20px; }
-
 body.font-24,
 :root.font-24{ --font-size:24px; }
-
 body.font-28,
 :root.font-28{ --font-size:28px; }
-
 /* =========================
    HIGHLIGHT SYSTEM
 ========================= */
@@ -619,25 +533,18 @@ mark,
     color:var(--highlight-color);
     font-weight:bold;
 }
-
 body.highlight-blue,
 :root.highlight-blue{ --highlight-color:#66CCFF; }
-
 body.highlight-green,
 :root.highlight-green{ --highlight-color:#70E000; }
-
 body.highlight-yellow,
 :root.highlight-yellow{ --highlight-color:#FFD54F; }
-
 body.highlight-orange,
 :root.highlight-orange{ --highlight-color:#FFB347; }
-
 body.highlight-purple,
 :root.highlight-purple{ --highlight-color:#B388FF; }
-
 body.highlight-lightgreen,
 :root.highlight-lightgreen{ --highlight-color:#9CFF9C; }
-
 /* =========================
    SCROLLBARS
 ========================= */
@@ -645,21 +552,17 @@ body.highlight-lightgreen,
     width:10px;
     height:10px;
 }
-
 ::-webkit-scrollbar-track{
     background:#0D1117;
 }
-
 ::-webkit-scrollbar-thumb{
     background:#334155;
     border-radius:999px;
     border:2px solid #0D1117;
 }
-
 ::-webkit-scrollbar-thumb:hover{
     background:#4F6B8F;
 }
-
 /* =========================
    SMALL SCREENS
 ========================= */
@@ -668,12 +571,10 @@ body.highlight-lightgreen,
         --nav-width:210px;
         --control-width:190px;
     }
-
     .search-row{
         gap:6px;
         padding:6px;
     }
-
     #search,
     #searchC,
     #searchD,
@@ -682,26 +583,21 @@ body.highlight-lightgreen,
         min-width:150px;
     }
 }
-
 /* =====================================
    BIBLE REPOSITORY FONT OVERRIDE
    DROP-IN BLOCK
 ===================================== */
-
-
 
 :root{
     --font-scripture:"Source Serif 4", Georgia, serif;
     --font-heading:"EB Garamond", Georgia, serif;
     --font-ui:"Inter", Arial, sans-serif;
 }
-
 /* Entire application */
 html,
 body{
     font-family:var(--font-ui) !important;
 }
-
 /* Navigation */
 .toggle,
 .file-link,
@@ -716,7 +612,6 @@ input,
 #countE{
     font-family:var(--font-ui) !important;
 }
-
 /* Panel titles */
 .iframe-title{
     font-family:var(--font-heading) !important;
@@ -725,30 +620,23 @@ input,
     letter-spacing:.03em;
     text-transform:none;
 }
-
-
-
 /* =====================================
    UNIVERSAL SCROLLBARS
 ===================================== */
-
 /* Firefox */
 *{
     scrollbar-width: thin;
     scrollbar-color: #4F6B8F #0D1117;
 }
-
 /* Chrome / Edge / Opera / Safari */
 ::-webkit-scrollbar{
     width:12px;
     height:12px;
 }
-
 ::-webkit-scrollbar-track{
     background:#0D1117;
     border-radius:999px;
 }
-
 ::-webkit-scrollbar-thumb{
     background:
         linear-gradient(
@@ -756,16 +644,12 @@ input,
             #4F6B8F,
             #334155
         );
-
     border-radius:999px;
-
     border:2px solid #0D1117;
-
     box-shadow:
         inset 0 1px 1px rgba(255,255,255,.15),
         0 0 8px rgba(110,168,255,.15);
 }
-
 ::-webkit-scrollbar-thumb:hover{
     background:
         linear-gradient(
@@ -773,12 +657,10 @@ input,
             #6EA8FF,
             #4F6B8F
         );
-
     box-shadow:
         inset 0 1px 1px rgba(255,255,255,.25),
         0 0 12px rgba(110,168,255,.35);
 }
-
 ::-webkit-scrollbar-thumb:active{
     background:
         linear-gradient(
@@ -787,7 +669,6 @@ input,
             #6EA8FF
         );
 }
-
 ::-webkit-scrollbar-corner{
     background:#0D1117;
 }
