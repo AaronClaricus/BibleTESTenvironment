@@ -186,6 +186,65 @@ export const OfflineStatusService = {
                 : "Offline";
     }
 };
+// ======================================
+// OFFLINE CACHE CONTROL SERVICE
+// PHASE 27H
+// ======================================
+
+export const OfflineCacheControlService = {
+    init() {
+        const button =
+            DOM.clearOfflineCacheButton();
+
+        if(!button){
+            return;
+        }
+
+        button.addEventListener(
+            "click",
+            () => this.clear()
+        );
+    },
+
+    async clear() {
+        if(!("caches" in window)){
+            alert(
+                "Cache API is not supported in this browser."
+            );
+            return;
+        }
+
+        const confirmed =
+            confirm(
+                "Clear all offline cached files? Saved settings will not be deleted."
+            );
+
+        if(!confirmed){
+            return;
+        }
+
+        const keys =
+            await caches.keys();
+
+        await Promise.all(
+            keys
+                .filter(key => {
+                    return key.startsWith(
+                        "bible-repository-"
+                    );
+                })
+                .map(key => caches.delete(key))
+        );
+
+        alert(
+            "Offline cache cleared. Reload the app to rebuild the cache."
+        );
+        await rebuildCoreCacheFromPage();
+        alert(
+			"Offline cache cleared and rebuilt."
+		);
+    }
+};
 export const FontService = {
 
     getSelector() {
@@ -318,3 +377,20 @@ const toggleSearch =
     );
 const toggleGo =
     document.getElementById("toggleGo");
+    
+async function rebuildCoreCacheFromPage() {
+    if(!("serviceWorker" in navigator)){
+        return;
+    }
+
+    const registration =
+        await navigator.serviceWorker.ready;
+
+    if(!registration.active){
+        return;
+    }
+
+    registration.active.postMessage({
+        type: "REBUILD_CORE_CACHE"
+    });
+}

@@ -4,6 +4,11 @@ export const DOM = {
             "offlineStatus"
         );
     },
+    clearOfflineCacheButton() {
+		return document.getElementById(
+			"clearOfflineCache"
+		);
+	},
     cache: {},
 
     get(id) {

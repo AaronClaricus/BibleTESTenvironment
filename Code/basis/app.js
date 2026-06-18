@@ -27,7 +27,8 @@ import {
     HighlightService,
     VisibilityService,
     UIService,
-    OfflineStatusService
+    OfflineStatusService,
+    OfflineCacheControlService
 } from "./ui.js";
 import {
     TemplateService
@@ -101,12 +102,65 @@ function registerServiceWorker() {
         }
     );
 }
+// ======================================
+// SERVICE WORKER VERSION CHECK
+// PHASE 27I
+// ======================================
 
+function logServiceWorkerVersion() {
+    if(!("serviceWorker" in navigator)){
+        return;
+    }
+
+    navigator.serviceWorker.ready.then(
+        registration => {
+            if(!registration.active){
+                return;
+            }
+
+            const channel =
+                new MessageChannel();
+
+            channel.port1.onmessage = event => {
+                if(!event.data){
+                    return;
+                }
+
+                if(event.data.type !== "SERVICE_WORKER_VERSION"){
+                    return;
+                }
+
+                console.log(
+                    "[ServiceWorker] Version:",
+                    event.data.version
+                );
+
+                console.log(
+                    "[ServiceWorker] Core cache:",
+                    event.data.coreCache
+                );
+
+                console.log(
+                    "[ServiceWorker] Document cache:",
+                    event.data.documentCache
+                );
+            };
+
+            registration.active.postMessage(
+                {
+                    type: "GET_VERSION"
+                },
+                [channel.port2]
+            );
+        }
+    );
+}
 
 
 const AppInitializer = {
     async init() {
 		registerServiceWorker();
+		logServiceWorkerVersion();
         console.log("APP INIT");
         
 		ConfigValidator.validate();
@@ -133,6 +187,7 @@ const AppInitializer = {
 		HighlightService.init();
 		VisibilityService.init();
 		OfflineStatusService.init();
+		OfflineCacheControlService.init();
 
         await TemplateService.ensure();
 

@@ -828,3 +828,31 @@ input,
     color: #111;
     background: #7CFF9B;
 }
+/* ======================================
+   CLEAR OFFLINE CACHE BUTTON
+   PHASE 27H
+====================================== */
+
+.clear-offline-cache {
+    position: fixed;
+    left: 16px;
+    bottom: 56px;
+    z-index: 99999;
+
+    padding: 8px 12px;
+    border-radius: 999px;
+
+    border: 1px solid rgba(255,255,255,0.25);
+    background: #222;
+    color: #ddd;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+.clear-offline-cache:hover {
+    background: #333;
+    color: #fff;
+}

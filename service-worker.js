@@ -1,14 +1,21 @@
+
 // ======================================
-// SERVICE WORKER
-// PHASE 27B
+// CACHE VERSION
+// PHASE 27I
 // ======================================
 
+const APP_VERSION =
+    "27i-001";
+
+const CACHE_PREFIX =
+    "bible-repository";
+
 const CORE_CACHE =
-    "bible-repository-core-test-v6";
-    
-    const DOCUMENT_CACHE =
-    "bible-repository-documents-v2";
-    
+    `${CACHE_PREFIX}-core-${APP_VERSION}`;
+
+const DOCUMENT_CACHE =
+    `${CACHE_PREFIX}-documents-v1`;
+
 const OFFLINE_FALLBACK =
     "./offline.html";
 
@@ -156,6 +163,41 @@ async function networkFirstDocument(request) {
         );
     }
 }
+async function rebuildCoreCache() {
+    const cache =
+        await caches.open(CORE_CACHE);
+
+    for(const file of CORE_FILES){
+        try {
+            await cache.add(file);
+            console.log(
+                "[ServiceWorker] Rebuilt cache:",
+                file
+            );
+        }
+        catch(error){
+            console.error(
+                "[ServiceWorker] Rebuild failed:",
+                file,
+                error
+            );
+        }
+    }
+}
+self.addEventListener(
+    "message",
+    event => {
+        if(!event.data){
+            return;
+        }
+
+        if(event.data.type === "REBUILD_CORE_CACHE"){
+            event.waitUntil(
+                rebuildCoreCache()
+            );
+        }
+    }
+);
 
 self.addEventListener(
     "install",
@@ -172,21 +214,41 @@ self.addEventListener(
     }
 );
 
+// ======================================
+// ACTIVATE
+// Delete old core caches, keep document cache
+// ======================================
+
 self.addEventListener(
     "activate",
     event => {
-        const allowedCaches = [
-            CORE_CACHE,
-            DOCUMENT_CACHE
-        ];
-
         event.waitUntil(
             caches
                 .keys()
                 .then(keys => {
                     return Promise.all(
                         keys
-                            .filter(key => !allowedCaches.includes(key))
+                            .filter(key => {
+                                const isThisCoreCache =
+                                    key === CORE_CACHE;
+
+                                const isDocumentCache =
+                                    key === DOCUMENT_CACHE;
+
+                                const isOldCoreCache =
+                                    key.startsWith(
+                                        `${CACHE_PREFIX}-core-`
+                                    ) && !isThisCoreCache;
+
+                                return (
+                                    isOldCoreCache ||
+                                    (
+                                        key.startsWith(CACHE_PREFIX) &&
+                                        !isThisCoreCache &&
+                                        !isDocumentCache
+                                    )
+                                );
+                            })
                             .map(key => caches.delete(key))
                     );
                 })
@@ -224,5 +286,31 @@ self.addEventListener(
                 return caches.match(OFFLINE_FALLBACK);
             })
         );
+    }
+);
+// ======================================
+// MESSAGE HANDLER
+// Allows app to ask service worker version
+// ======================================
+
+self.addEventListener(
+    "message",
+    event => {
+        if(!event.data){
+            return;
+        }
+
+        if(event.data.type === "GET_VERSION"){
+            event.source.postMessage({
+                type: "SERVICE_WORKER_VERSION",
+                version: APP_VERSION,
+                coreCache: CORE_CACHE,
+                documentCache: DOCUMENT_CACHE
+            });
+        }
+
+        if(event.data.type === "SKIP_WAITING"){
+            self.skipWaiting();
+        }
     }
 );
