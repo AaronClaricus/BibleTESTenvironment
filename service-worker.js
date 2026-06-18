@@ -4,10 +4,13 @@
 // ======================================
 
 const CORE_CACHE =
-    "bible-repository-core-test-v5";
+    "bible-repository-core-test-v6";
     
     const DOCUMENT_CACHE =
-    "bible-repository-documents-v1";
+    "bible-repository-documents-v2";
+    
+const OFFLINE_FALLBACK =
+    "./offline.html";
 
 const CORE_FILES = [
     "./",
@@ -47,10 +50,12 @@ const CORE_FILES = [
    
     
 ];
+
+
+
 // ======================================
 // HELPERS
 // ======================================
-
 function isCoreFile(request) {
     const requestUrl =
         new URL(request.url);
@@ -75,7 +80,7 @@ function isDocumentFile(request) {
         return false;
     }
 
-    return (
+      return (
         url.pathname.includes("/WEB/Epistles") ||
         url.pathname.includes("/WEB/Gospel") ||
         url.pathname.includes("/WEB/History") ||
@@ -133,13 +138,24 @@ async function networkFirstDocument(request) {
             return cachedResponse;
         }
 
-        throw error;
+        const fallbackResponse =
+            await caches.match(OFFLINE_FALLBACK);
+
+        if(fallbackResponse){
+            return fallbackResponse;
+        }
+
+        return new Response(
+            "Offline. This document has not been cached yet.",
+            {
+                status: 503,
+                headers: {
+                    "Content-Type": "text/plain"
+                }
+            }
+        );
     }
 }
-
-// ======================================
-// INSTALL
-// ======================================
 
 self.addEventListener(
     "install",
@@ -155,10 +171,6 @@ self.addEventListener(
         self.skipWaiting();
     }
 );
-
-// ======================================
-// ACTIVATE
-// ======================================
 
 self.addEventListener(
     "activate",
@@ -182,10 +194,6 @@ self.addEventListener(
         );
     }
 );
-
-// ======================================
-// FETCH
-// ======================================
 
 self.addEventListener(
     "fetch",
@@ -212,7 +220,9 @@ self.addEventListener(
         }
 
         event.respondWith(
-            fetch(event.request)
+            fetch(event.request).catch(() => {
+                return caches.match(OFFLINE_FALLBACK);
+            })
         );
     }
 );

@@ -26,7 +26,8 @@ import {
     FontService,
     HighlightService,
     VisibilityService,
-    UIService
+    UIService,
+    OfflineStatusService
 } from "./ui.js";
 import {
     TemplateService
@@ -131,6 +132,7 @@ const AppInitializer = {
 		FontService.init();
 		HighlightService.init();
 		VisibilityService.init();
+		OfflineStatusService.init();
 
         await TemplateService.ensure();
 

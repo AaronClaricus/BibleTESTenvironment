@@ -791,3 +791,40 @@ input,
 ::-webkit-scrollbar-corner{
     background:#0D1117;
 }
+/* ======================================
+   OFFLINE STATUS INDICATOR
+   PHASE 27G
+====================================== */
+
+.offline-status {
+    position: fixed;
+    left: 16px;
+    bottom: 16px;
+    z-index: 99999;
+
+    padding: 8px 12px;
+    border-radius: 999px;
+
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+
+    color: #111;
+    background: #7CFF9B;
+
+    box-shadow:
+        0 0 12px rgba(0, 0, 0, 0.45);
+
+    opacity: 0.85;
+    pointer-events: none;
+}
+
+.offline-status.offline {
+    color: #fff;
+    background: #c0392b;
+}
+
+.offline-status.online {
+    color: #111;
+    background: #7CFF9B;
+}

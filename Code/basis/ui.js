@@ -139,6 +139,53 @@ export const LayoutService = {
         );
     }
 };
+// ======================================
+// OFFLINE STATUS SERVICE
+// PHASE 27G
+// ======================================
+
+export const OfflineStatusService = {
+    init() {
+        this.apply();
+
+        window.addEventListener(
+            "online",
+            () => this.apply()
+        );
+
+        window.addEventListener(
+            "offline",
+            () => this.apply()
+        );
+    },
+
+    apply() {
+        const indicator =
+            DOM.offlineStatus();
+
+        if(!indicator){
+            return;
+        }
+
+        const isOnline =
+            navigator.onLine;
+
+        indicator.classList.toggle(
+            "online",
+            isOnline
+        );
+
+        indicator.classList.toggle(
+            "offline",
+            !isOnline
+        );
+
+        indicator.textContent =
+            isOnline
+                ? "Online"
+                : "Offline";
+    }
+};
 export const FontService = {
 
     getSelector() {

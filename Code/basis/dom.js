@@ -1,4 +1,9 @@
 export const DOM = {
+	 offlineStatus() {
+        return document.getElementById(
+            "offlineStatus"
+        );
+    },
     cache: {},
 
     get(id) {
